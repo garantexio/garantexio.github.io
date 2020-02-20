@@ -1,0 +1,160 @@
+<h1 id='23dab7a7ad'>Выводы</h1><h2 id='f8eb11b7d7'>История выводов</h2>
+<blockquote>
+<p>Получить список выводов</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/withdraws"</span>
+</code></pre>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32690</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fiat"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"код пополнения: XQGW4***************"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"succeed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-13T22:52:37+03:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-13T22:52:37+03:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-13T22:52:37+03:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31449</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">           </span><span class="err">//</span><span class="w"> </span><span class="err">тип</span><span class="w"> </span><span class="err">валюты</span><span class="p">:</span><span class="w"> </span><span class="err">coin</span><span class="w"> </span><span class="err">или</span><span class="w"> </span><span class="err">fiat</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01145726"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00005"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3AXFusZJufbaxcm8o2JoD2eHEvZDgL9Asu"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"succeed"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">статус</span><span class="w"> </span><span class="err">заявки</span><span class="w"> 
+    </span><span class="s2">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70c71a54b3554de88829ef3cc6323e90443f4615943d4352c081cd6f33c34f2a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">620172</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">592</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T18:11:54+03:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T18:17:10+03:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T18:17:10+03:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span></code></pre>
+<p>Запрос возвращает список заявок на вывод с разбиением по страницам.
+Заявки выводятся отсортированные от новых к старым.</p>
+
+<ul>
+<li>требуемый уровень доступа: <strong>read-only</strong></li>
+</ul>
+<h4 id='http-request'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/withdraws</code></p>
+<h3 id='6744ad4c7a'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>currency</strong></td>
+<td>нет</td>
+<td>Код валюты</td>
+</tr>
+<tr>
+<td><strong>page</strong></td>
+<td>нет</td>
+<td>Номер страницы, по умолчанию 1</td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>нет</td>
+<td>Количество записей на странице, по умолчанию 100. Максимум - 1000</td>
+</tr>
+</tbody></table>
+<h3 id='bd6108841b'>Возвращаемые значения</h3>
+<p>Обратите внимание, поля в возвращаемом списке различаются для фиатных и крипто выводов!</p>
+
+<p>Для крипты добавляются поля <strong>txid</strong>, <strong>block_number</strong> и <strong>confirmations</strong>.</p>
+<h2 id='f0e3b97934'>Создание заявки на вывод</h2>
+<blockquote>
+<p>Создать заявку на вывод средств</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/withdraws/create?currency={currency_id}&amp;amount={amount}&amp;rid={address}"</span>
+</code></pre>
+<blockquote>
+<p>Пример ответа (вывод крипты):</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33104</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101.17"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.17"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"rid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xda36a74ca59f8816dc330fae1074223aa89833a1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"submitted"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"txid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"block_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-09T20:27:15+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-09T20:27:15+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Пример ответа (вывод фиата):</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33108</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fiat"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15150.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"rid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Сбербанк онлайн регионы: 1234 5678 9012 3456"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"submitted"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-09T21:12:13+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-09T21:12:13+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Запрос возвращает список заявок на вывод с разбиением по страницам.
+Заявки выводятся отсортированные от новых к старым.</p>
+
+<ul>
+<li>требуемый уровень доступа: <strong>withdraw</strong></li>
+</ul>
+<h4 id='http-request-2'>HTTP Request</h4>
+<p><code>POST https://garantex.io/api/v2/withdraws/create</code></p>
+<h3 id='6744ad4c7a-2'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>currency</strong></td>
+<td>да</td>
+<td>Код валюты</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td>да</td>
+<td>Сумма к получению (без учёта комиссии!)</td>
+</tr>
+<tr>
+<td><strong>rid</strong></td>
+<td>да</td>
+<td>Адрес вывода. Для фиата формат поля зависит от направления.</td>
+</tr>
+<tr>
+<td><a href='#92dd9b64ca'>gateway_type_id</a></td>
+<td>зависит от валюты</td>
+<td>ID выбранного метода пополнения, необходимо для фиата.</td>
+</tr>
+<tr>
+<td><strong>data</strong></td>
+<td>нет</td>
+<td>JSON поле с дополнительной информацией о выводе, необходимость и формат поля зависят от выбранного направления вывода.</td>
+</tr>
+</tbody></table>
+<h3 id='bd6108841b-2'>Возвращаемые значения</h3>
+<p>Обратите внимание, поля в возвращаемом значении различаются для фиатных и крипто выводов!</p>
+
+<p>Для крипты добавляются поля <strong>txid</strong>, <strong>block_number</strong> и <strong>confirmations</strong>, выставленные в нулевые значения.</p>

@@ -1,0 +1,74 @@
+<h1 id='allbacks'>Сallbacks</h1>
+<p>Garantex поддерживает 3 вида обратных вызовов:</p>
+
+<ul>
+<li><p>по изменению состояния депозита</p></li>
+<li><p>по изменению состояния вывода</p></li>
+<li><p>по изменению состояния ордера / по исполнению сделки</p></li>
+</ul>
+
+<p>Ссылки для обратных вызовов прописываются в форме API Callback в настройках профиля: <a href='https://garantex.io/settings'>https://garantex.io/settings</a></p>
+
+<p>Формат отправки запросов: POST x-www-form-urlencoded </p>
+
+<p>Общие параметры, передаваемые в запросе: </p>
+
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>event_type</strong></td>
+<td>String<ul><li>deposit</li><li>withdraw</li><li>order</li><li>trade</li></ul></td>
+<td>тип объекта<ul><li>депозит</li><li>вывод</li><li>заявка</li><li>сделка</li></ul></td>
+</tr>
+<tr>
+<td><strong>id</strong></td>
+<td>Integer</td>
+<td>id объекта</td>
+</tr>
+<tr>
+<td><strong>state</strong></td>
+<td>String</td>
+<td>тип события / состояние объекта</td>
+</tr>
+</tbody></table>
+
+<p>все остальные поля для каждого типа объекта свои, и совпадают с тем что возвращается в обычных API запросах для этого объекта.  </p>
+
+<p>Типы событий различаются для разных объектов.</p>
+
+<p>Возможные типы:</p>
+
+<ul>
+<li>сделки 
+
+<ul>
+<li><strong>created</strong>: сделка проведена</li>
+</ul></li>
+<li>заявки
+
+<ul>
+<li><strong>done</strong>: исполнена</li>
+<li><strong>cancel</strong>: отменена</li>
+</ul></li>
+<li>депозиты
+
+<ul>
+<li><strong>accepted</strong>: зачислен</li>
+</ul></li>
+<li>выводы
+
+<ul>
+<li><strong>processing</strong>: отправляется</li>
+<li><strong>succeed</strong>: завершён</li>
+<li><strong>confirming</strong>: подтверждается в блокчейне</li>
+<li><strong>failed</strong>: не удался</li>
+<li><strong>rejected</strong>: отменён</li>
+</ul></li>
+</ul>
+
+<p>Имейте ввиду, что для фиатных и крипто валют последовательность статусов вывода будет разной, а для разных типов выводов часть промежуточных статусов может быть пропущена. </p>

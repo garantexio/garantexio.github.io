@@ -1,0 +1,145 @@
+<h1 id='market-data'>Market data</h1><h2 id='f00f8079b3'>Сделки</h2>
+<blockquote>
+<p>Получить список сделок по рынку</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/trades?market={market_id}"</span>
+</code></pre>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34786</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.8"</span><span class="p">,</span><span class="w">      </span><span class="err">//</span><span class="w"> </span><span class="err">цена</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"757.51"</span><span class="p">,</span><span class="w">   </span><span class="err">//</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">в</span><span class="w"> </span><span class="err">базовой</span><span class="w"> </span><span class="err">валюте</span><span class="w">
+    </span><span class="s2">"funds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52116.84"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">в</span><span class="w"> </span><span class="err">валюте</span><span class="w"> </span><span class="err">котировки</span><span class="w">
+    </span><span class="s2">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">рынок</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-25T12:54:22+03:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34785</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85.06"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"funds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5834.93"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-22T19:31:41+03:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Запрос возвращает историю сделок по выбранному рынку</p>
+
+<ul>
+<li>требуемый уровень доступа: <strong>публичный</strong></li>
+</ul>
+<h4 id='http-request'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/trades</code></p>
+<h3 id='6744ad4c7a'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>market</strong></td>
+<td>да</td>
+<td>ID рынка</td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>нет</td>
+<td>Количество записей в выборке, по умолчанию 50. Максимум - 1000</td>
+</tr>
+<tr>
+<td><strong>timestamp</strong></td>
+<td>нет</td>
+<td>Время по которое получить выборку, формат - unix timestamp</td>
+</tr>
+<tr>
+<td><strong>from</strong></td>
+<td>нет</td>
+<td>ID сделки начиная с которой (но не включая) получить выборку</td>
+</tr>
+<tr>
+<td><strong>to</strong></td>
+<td>нет</td>
+<td>ID сделки по которую (но не включая) получить выборку</td>
+</tr>
+<tr>
+<td><strong>order_by</strong></td>
+<td>нет</td>
+<td>Направление сортировки, <strong>asc</strong> / <strong>desc</strong>. По умолчанию <strong>desc</strong>, последняя сделка сверху</td>
+</tr>
+</tbody></table>
+<h2 id='be11d71726'>Заявки</h2>
+<blockquote>
+<p>Получить список заявок для рынка</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/depth?market={market_id}"</span>
+</code></pre>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1589042898</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60536</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.95"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"407.82"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28119.19"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.006"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">тип</span><span class="w"> </span><span class="err">цены</span><span class="p">:</span><span class="w"> </span><span class="err">factor</span><span class="w"> </span><span class="err">или</span><span class="w"> </span><span class="err">limit</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">59506</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.984"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5620.29"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"387709.72"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.006"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"factor"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"bids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60896</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.6"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5970.02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"409543.63"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60880</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.573"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6311.96"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"432826.65"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"factor"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Запрос возвращает состояние &quot;стаканов&quot; по выбранному рынку.
+Заявки отсортированы в порядке возрастания цены для продажи и убывания цены для покупки.</p>
+
+<ul>
+<li>требуемый уровень доступа: <strong>публичный</strong></li>
+</ul>
+<h4 id='http-request-2'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/depth</code></p>
+<h3 id='6744ad4c7a-2'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>market</strong></td>
+<td>да</td>
+<td>ID рынка</td>
+</tr>
+</tbody></table>
