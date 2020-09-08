@@ -163,7 +163,7 @@
 <tr>
 <td><strong>state</strong></td>
 <td>нет</td>
-<td>Состояния заявки: <ul><li><b>wait</b></li><li>done</li><li>cancel</li></ul></td>
+<td>Состояния заявки: <ul><li><b>wait</b></li><li>done</li><li>cancel</li></ul> По умолчанию пустое, выводятся все заявки.</td>
 </tr>
 <tr>
 <td><strong>page</strong></td>

@@ -1,0 +1,79 @@
+<h1 id='garantex'>Коды Garantex</h1><h2 id='58a6cf1712'>Выпуск кода</h2>
+<blockquote>
+<p>Вывод в средств в код:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s1">'Authorization: Bearer {JWT}'</span> -H <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> -d <span class="s1">'currency={currency_id}&amp;amount={amount}'</span> <span class="s1">'https://garantex.io/api/v2/depositcodes/create'</span>
+</code></pre>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8VTP13QFV06ZQLXXHBGN"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"succeed"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-08T01:57:22+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"used_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='b665cc3539'>Вывод в средств в код.</h3>
+<ul>
+<li>требуемый уровень доступа: <strong>withdraw</strong></li>
+</ul>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://garantex.io/api/v2/depositcodes/create</code></p>
+<h3 id='6744ad4c7a'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>currency</strong></td>
+<td>да</td>
+<td>Код фиатной валюты (rub)</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td>да</td>
+<td>Сумма для вывода</td>
+</tr>
+</tbody></table>
+<h2 id='7014b0a527'>Депозит кода</h2>
+<blockquote>
+<p>Депозит кода:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s1">'Authorization: Bearer {JWT}'</span> -H <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> -d <span class="s1">'deposit_code={deposit_code}'</span> <span class="s1">'https://garantex.io/api/v2/depositcodes/redeem'</span>
+</code></pre>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8VTP13QFV06ZQLXXHBGN"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"succeed"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-08T01:57:22+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"used_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-08T02:14:35+03:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='eb5e354ee6'>Депозит кода.</h3>
+<ul>
+<li>требуемый уровень доступа: <strong>read-only</strong></li>
+</ul>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://garantex.io/api/v2/depositcodes/redeem</code></p>
+<h3 id='6744ad4c7a-2'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>deposit_code</strong></td>
+<td>да</td>
+<td>Код</td>
+</tr>
+</tbody></table>
