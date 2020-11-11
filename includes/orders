@@ -2,32 +2,32 @@
 <blockquote>
 <p>Установить заявку</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"Authorization: Bearer {JWT}"</span> -d <span class="s1">'market={market_id}&amp;side={side}&amp;volume={order_volume}&amp;ord_type={order_type}&amp;fix_price={fix_price}'</span> <span class="s2">"https://garantex.io/api/v2/orders"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s1">'market={market_id}&amp;side={side}&amp;volume={order_volume}&amp;ord_type={order_type}&amp;fix_price={fix_price}'</span> <span class="s2">"https://garantex.io/api/v2/orders"</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60998</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">остаток</span><span class="w"> </span><span class="err">объёма</span><span class="w"> </span><span class="err">к</span><span class="w"> </span><span class="err">продаже</span><span class="w"> </span><span class="err">по</span><span class="w"> </span><span class="err">заявке</span><span class="w"> </span><span class="err">(в</span><span class="w"> </span><span class="err">терминах</span><span class="w"> </span><span class="err">продал</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">купил)</span><span class="p">,</span><span class="w"> </span><span class="err">для</span><span class="w"> </span><span class="err">типа</span><span class="w"> </span><span class="err">market</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">оставшаяся</span><span class="w"> </span><span class="err">к</span><span class="w"> </span><span class="err">откупу</span><span class="w"> </span><span class="err">сумма</span><span class="w">
-  </span><span class="s2">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">средства</span><span class="w"> </span><span class="err">израсходованные</span><span class="w"> </span><span class="err">по</span><span class="w"> </span><span class="err">заявке</span><span class="w"> </span><span class="err">(в</span><span class="w"> </span><span class="err">терминах</span><span class="w"> </span><span class="err">продал</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">купил)</span><span class="w">
-  </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">           </span><span class="err">//</span><span class="w"> </span><span class="err">начальный</span><span class="w"> </span><span class="err">объём</span><span class="w"> </span><span class="err">заявки</span><span class="w"> </span><span class="err">(в</span><span class="w"> </span><span class="err">терминах</span><span class="w"> </span><span class="err">продал</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">купил)</span><span class="p">,</span><span class="w"> </span><span class="err">для</span><span class="w"> </span><span class="err">типа</span><span class="w"> </span><span class="err">market</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">ожидаемая</span><span class="w"> </span><span class="err">к</span><span class="w"> </span><span class="err">получению</span><span class="w"> </span><span class="err">сумма</span><span class="w">
-  </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ask"</span><span class="p">,</span><span class="w">               </span><span class="err">//</span><span class="w"> </span><span class="err">направление</span><span class="w"> </span><span class="err">заявки</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">ask</span><span class="w"> </span><span class="err">или</span><span class="w"> </span><span class="err">bid</span><span class="w">
-  </span><span class="s2">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">тип</span><span class="w"> </span><span class="err">заявки</span><span class="p">:</span><span class="w"> </span><span class="err">default</span><span class="p">,</span><span class="w"> </span><span class="err">market</span><span class="p">,</span><span class="w"> </span><span class="err">factor</span><span class="w"> </span><span class="err">или</span><span class="w"> </span><span class="err">limit</span><span class="w">
-  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">             </span><span class="err">//</span><span class="w"> </span><span class="err">состояние</span><span class="w"> </span><span class="err">заявки</span><span class="p">:</span><span class="w"> </span><span class="err">wait</span><span class="p">,</span><span class="w"> </span><span class="err">done</span><span class="p">,</span><span class="w"> </span><span class="err">cancel</span><span class="w">
-  </span><span class="s2">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">             </span><span class="err">//</span><span class="w"> </span><span class="err">цена</span><span class="w"> </span><span class="err">в</span><span class="w"> </span><span class="err">процентах</span><span class="w"> </span><span class="err">от</span><span class="w"> </span><span class="err">базового</span><span class="w"> </span><span class="err">рынка</span><span class="w"> </span><span class="err">(для</span><span class="w"> </span><span class="err">типа</span><span class="w"> </span><span class="err">factor)</span><span class="w">
-  </span><span class="s2">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.9"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">фиксированная</span><span class="w"> </span><span class="err">цена</span><span class="w"> </span><span class="err">(для</span><span class="w"> </span><span class="err">типа</span><span class="w"> </span><span class="err">limit)</span><span class="w">
-  </span><span class="s2">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">средства</span><span class="w"> </span><span class="err">полученные</span><span class="w"> </span><span class="err">по</span><span class="w"> </span><span class="err">заявке</span><span class="w"> </span><span class="err">(в</span><span class="w"> </span><span class="err">терминах</span><span class="w"> </span><span class="err">продал</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">купил)</span><span class="w">
-  </span><span class="s2">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">размер</span><span class="w"> </span><span class="err">комиссии</span><span class="w"> </span><span class="err">заплаченной</span><span class="w"> </span><span class="err">с</span><span class="w"> </span><span class="err">полученных</span><span class="w"> </span><span class="err">средств</span><span class="w">
-  </span><span class="s2">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">           </span><span class="err">//</span><span class="w"> </span><span class="err">количество</span><span class="w"> </span><span class="err">сделок</span><span class="w"> </span><span class="err">прошедших</span><span class="w"> </span><span class="err">по</span><span class="w"> </span><span class="err">заявке</span><span class="w">
-  </span><span class="s2">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">              </span><span class="err">//</span><span class="w"> </span><span class="err">средняя</span><span class="w"> </span><span class="err">цена</span><span class="w"> </span><span class="err">исполненных</span><span class="w"> </span><span class="err">по</span><span class="w"> </span><span class="err">заявке</span><span class="w"> </span><span class="err">сделок</span><span class="w">
-  </span><span class="s2">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">исполненная</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">в</span><span class="w"> </span><span class="err">базовой</span><span class="w"> </span><span class="err">валюте</span><span class="w"> </span><span class="err">рынка</span><span class="w">
-  </span><span class="s2">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">исполненная</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">в</span><span class="w"> </span><span class="err">валюте</span><span class="w"> </span><span class="err">котировки</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T11:59:32+03:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T11:59:32+03:00"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60998</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">остаток</span><span class="w"> </span><span class="err">объёма</span><span class="w"> </span><span class="err">к</span><span class="w"> </span><span class="err">продаже</span><span class="w"> </span><span class="err">по</span><span class="w"> </span><span class="err">заявке</span><span class="w"> </span><span class="err">(в</span><span class="w"> </span><span class="err">терминах</span><span class="w"> </span><span class="err">продал</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">купил)</span><span class="p">,</span><span class="w"> </span><span class="err">для</span><span class="w"> </span><span class="err">типа</span><span class="w"> </span><span class="err">market</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">оставшаяся</span><span class="w"> </span><span class="err">к</span><span class="w"> </span><span class="err">откупу</span><span class="w"> </span><span class="err">сумма</span><span class="w">
+  </span><span class="nl">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">средства</span><span class="w"> </span><span class="err">израсходованные</span><span class="w"> </span><span class="err">по</span><span class="w"> </span><span class="err">заявке</span><span class="w"> </span><span class="err">(в</span><span class="w"> </span><span class="err">терминах</span><span class="w"> </span><span class="err">продал</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">купил)</span><span class="w">
+  </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">           </span><span class="err">//</span><span class="w"> </span><span class="err">начальный</span><span class="w"> </span><span class="err">объём</span><span class="w"> </span><span class="err">заявки</span><span class="w"> </span><span class="err">(в</span><span class="w"> </span><span class="err">терминах</span><span class="w"> </span><span class="err">продал</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">купил)</span><span class="p">,</span><span class="w"> </span><span class="err">для</span><span class="w"> </span><span class="err">типа</span><span class="w"> </span><span class="err">market</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">ожидаемая</span><span class="w"> </span><span class="err">к</span><span class="w"> </span><span class="err">получению</span><span class="w"> </span><span class="err">сумма</span><span class="w">
+  </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ask"</span><span class="p">,</span><span class="w">               </span><span class="err">//</span><span class="w"> </span><span class="err">направление</span><span class="w"> </span><span class="err">заявки</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">ask</span><span class="w"> </span><span class="err">или</span><span class="w"> </span><span class="err">bid</span><span class="w">
+  </span><span class="nl">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">тип</span><span class="w"> </span><span class="err">заявки:</span><span class="w"> </span><span class="err">default</span><span class="p">,</span><span class="w"> </span><span class="err">market</span><span class="p">,</span><span class="w"> </span><span class="err">factor</span><span class="w"> </span><span class="err">или</span><span class="w"> </span><span class="err">limit</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">             </span><span class="err">//</span><span class="w"> </span><span class="err">состояние</span><span class="w"> </span><span class="err">заявки:</span><span class="w"> </span><span class="err">wait</span><span class="p">,</span><span class="w"> </span><span class="err">done</span><span class="p">,</span><span class="w"> </span><span class="err">cancel</span><span class="w">
+  </span><span class="nl">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">             </span><span class="err">//</span><span class="w"> </span><span class="err">цена</span><span class="w"> </span><span class="err">в</span><span class="w"> </span><span class="err">процентах</span><span class="w"> </span><span class="err">от</span><span class="w"> </span><span class="err">базового</span><span class="w"> </span><span class="err">рынка</span><span class="w"> </span><span class="err">(для</span><span class="w"> </span><span class="err">типа</span><span class="w"> </span><span class="err">factor)</span><span class="w">
+  </span><span class="nl">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.9"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">фиксированная</span><span class="w"> </span><span class="err">цена</span><span class="w"> </span><span class="err">(для</span><span class="w"> </span><span class="err">типа</span><span class="w"> </span><span class="err">limit)</span><span class="w">
+  </span><span class="nl">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">средства</span><span class="w"> </span><span class="err">полученные</span><span class="w"> </span><span class="err">по</span><span class="w"> </span><span class="err">заявке</span><span class="w"> </span><span class="err">(в</span><span class="w"> </span><span class="err">терминах</span><span class="w"> </span><span class="err">продал</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">купил)</span><span class="w">
+  </span><span class="nl">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">размер</span><span class="w"> </span><span class="err">комиссии</span><span class="w"> </span><span class="err">заплаченной</span><span class="w"> </span><span class="err">с</span><span class="w"> </span><span class="err">полученных</span><span class="w"> </span><span class="err">средств</span><span class="w">
+  </span><span class="nl">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">           </span><span class="err">//</span><span class="w"> </span><span class="err">количество</span><span class="w"> </span><span class="err">сделок</span><span class="w"> </span><span class="err">прошедших</span><span class="w"> </span><span class="err">по</span><span class="w"> </span><span class="err">заявке</span><span class="w">
+  </span><span class="nl">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">              </span><span class="err">//</span><span class="w"> </span><span class="err">средняя</span><span class="w"> </span><span class="err">цена</span><span class="w"> </span><span class="err">исполненных</span><span class="w"> </span><span class="err">по</span><span class="w"> </span><span class="err">заявке</span><span class="w"> </span><span class="err">сделок</span><span class="w">
+  </span><span class="nl">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">исполненная</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">в</span><span class="w"> </span><span class="err">базовой</span><span class="w"> </span><span class="err">валюте</span><span class="w"> </span><span class="err">рынка</span><span class="w">
+  </span><span class="nl">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">исполненная</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">в</span><span class="w"> </span><span class="err">валюте</span><span class="w"> </span><span class="err">котировки</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T11:59:32+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T11:59:32+03:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>Запрос создаёт завку на покупку / продажу для выбранного рынка.</p>
 
 <ul>
@@ -76,8 +76,8 @@
 </tbody></table>
 <h3 id='6baa143891'>Типы заявок</h3>
 <ul>
-<li><strong>limit</strong>: классический тип ордера, исполнение по заданной цене.</li>
-<li><strong>factor</strong>: цена исполения ордера определяется как отклонение от цены целевого рынка. Для btcrub это композит Binance BTCUSDT * MOEX USDRUB_TOM, для usdtrub - пара MOEX USDRUB_TOM.</li>
+<li><strong>limit</strong>: классический тип ордера, исполнение по заданной цене. Не предназначен для криптопар.</li>
+<li><strong>factor</strong>: цена исполения ордера определяется как отклонение от цены целевого рынка. Для btcrub это композит Binance BTCUSDT * MOEX USDRUB_TOM, для usdtrub - пара MOEX USDRUB_TOM. Не предназначен для криптопар.</li>
 <li><strong>default</strong>: исполение по рынку, сумма указывается в той валюте которая у вас есть. То есть, для sell btсrub это BTC, для buy btcrub - RUB.</li>
 <li><strong>market</strong>: исполение по рынку, сумма указывается в той валюте которую вы хотите получить. То есть, для sell btсrub это RUB, для buy btcrub - BTC.</li>
 </ul>
@@ -92,32 +92,32 @@
 <blockquote>
 <p>Отменить заявку</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"Authorization: Bearer {JWT}"</span> -d <span class="s1">'id={order_id}'</span> <span class="s2">"https://garantex.io/api/v2/order/delete"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s1">'id={order_id}'</span> <span class="s2">"https://garantex.io/api/v2/order/delete"</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60998</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52.91"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47.09"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ask"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.9"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3244.5"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.24"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.9"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47.09"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3244.5"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T11:59:32+03:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T13:57:20+03:00"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60998</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52.91"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47.09"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ask"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3244.5"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.24"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47.09"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3244.5"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T11:59:32+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T13:57:20+03:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>Запрос для отмены заявки с указанным ID</p>
 
 <ul>
@@ -145,54 +145,54 @@
 <blockquote>
 <p>Отменить все заявки </p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"Authorization: Bearer {JWT}"</span>  <span class="s2">"https://garantex.io/api/v2/orders/clear"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span>  <span class="s2">"https://garantex.io/api/v2/orders/clear"</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61002</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ask"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"factor"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:34:33+03:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:34:33+03:00"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61002</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ask"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"factor"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:34:33+03:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:34:33+03:00"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61001</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6863.73"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6863.73"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bid"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.5"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:33:47+03:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:33:47+03:00"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61001</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6863.73"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6863.73"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bid"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.5"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:33:47+03:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:33:47+03:00"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>Запрос для отмены всех активных заявок, с возможностью фильтрации по рынку / направлению</p>
 
 <ul>

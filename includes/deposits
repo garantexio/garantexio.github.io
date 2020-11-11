@@ -2,50 +2,50 @@
 <blockquote>
 <p>Получить список депозитов:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposits"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposits"</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36931</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fiat"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500000.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Наличные касса Москва: "</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-23T10:10:23+03:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-23T10:10:36+03:00"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36931</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fiat"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500000.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Наличные касса Москва: "</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-23T10:10:23+03:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-23T10:10:36+03:00"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36354</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fiat"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61000.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"код пополнения: TGJ0C5IYM62PBDR8HAQO"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-05T23:13:01+03:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-05T23:13:01+03:00"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36354</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fiat"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61000.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"код пополнения: TGJ0C5IYM62PBDR8HAQO"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-05T23:13:01+03:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-05T23:13:01+03:00"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36060</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x88178478a5df7c3dd0a53dddf70fc0c092f5fc4b0fff6f3058381f99c7e92abe"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">9606704</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">23212</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xda36a74ca59f8816dc330fae1074223aa89833a1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:49:13+03:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:50:05+03:00"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36060</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x88178478a5df7c3dd0a53dddf70fc0c092f5fc4b0fff6f3058381f99c7e92abe"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">9606704</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">23212</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xda36a74ca59f8816dc330fae1074223aa89833a1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:49:13+03:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:50:05+03:00"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='40426907e0'>Получение списка депозитов пользователя.</h3>
+</span></code></pre></div><h3 id='40426907e0'>Получение списка депозитов пользователя.</h3>
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
@@ -83,26 +83,26 @@
 <blockquote>
 <p>Получить детали депозита по deposit id:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit/{deposit_id}"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit/{deposit_id}"</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36060</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x88178478a5df7c3dd0a53dddf70fc0c092f5fc4b0fff6f3058381f99c7e92abe"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">9606704</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">23212</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xda36a74ca59f8816dc330fae1074223aa89833a1"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:49:13+03:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:50:05+03:00"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36060</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x88178478a5df7c3dd0a53dddf70fc0c092f5fc4b0fff6f3058381f99c7e92abe"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">9606704</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">23212</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xda36a74ca59f8816dc330fae1074223aa89833a1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:49:13+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:50:05+03:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='id'>Получение детальной информации о депозите по id</h3>
+</span></code></pre></div><h3 id='id'>Получение детальной информации о депозите по id</h3>
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
@@ -130,26 +130,26 @@
 <blockquote>
 <p>Получить детали депозита по txid:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit?txid={txid}"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit?txid={txid}"</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36060</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x88178478a5df7c3dd0a53dddf70fc0c092f5fc4b0fff6f3058381f99c7e92abe"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">9606704</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">23212</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xda36a74ca59f8816dc330fae1074223aa89833a1"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:49:13+03:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:50:05+03:00"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36060</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x88178478a5df7c3dd0a53dddf70fc0c092f5fc4b0fff6f3058381f99c7e92abe"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">9606704</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">23212</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xda36a74ca59f8816dc330fae1074223aa89833a1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:49:13+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:50:05+03:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='txid'>Получение детальной информации о депозите по txid транзакции</h3>
+</span></code></pre></div><h3 id='txid'>Получение детальной информации о депозите по txid транзакции</h3>
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
@@ -177,23 +177,23 @@
 <blockquote>
 <p>Создать заявку на депозит:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s1">'Authorization: Bearer {JWT}'</span> -H <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> -d <span class="s1">'currency={currency_id}&amp;amount={amount}&amp;gateway_type_id={gateway_type_id}'</span> <span class="s1">'https://garantex.io/api/v2/deposits/create'</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'currency={currency_id}&amp;amount={amount}&amp;gateway_type_id={gateway_type_id}'</span> <span class="s1">'https://garantex.io/api/v2/deposits/create'</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36960</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fiat"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100000.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"submitted"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Наличные касса Москва: "</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-08T20:33:58+03:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36960</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fiat"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100000.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"submitted"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Наличные касса Москва: "</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-08T20:33:58+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='e3f9070304'>Создание заявки на внос средств.</h3>
+</span></code></pre></div><h3 id='e3f9070304'>Создание заявки на внос средств.</h3>
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
@@ -237,16 +237,16 @@
 <blockquote>
 <p>Получить адрес для депозита крипты:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address?currency={currency_id}"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address?currency={currency_id}"</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt-omni"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3DVQ9WL2rTjBm1q7UHwWAQdNCKveFRJCYk"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt-omni"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3DVQ9WL2rTjBm1q7UHwWAQdNCKveFRJCYk"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='d730996a71'>Получение адреса для депозита крипты</h3>
+</span></code></pre></div><h3 id='d730996a71'>Получение адреса для депозита крипты</h3>
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>

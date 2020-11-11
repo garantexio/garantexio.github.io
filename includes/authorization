@@ -2,7 +2,7 @@
 <blockquote>
 <p>Запрос и получение JWT токена:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'openssl'</span>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'openssl'</span>
 <span class="nb">require</span> <span class="s1">'base64'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 <span class="nb">require</span> <span class="s1">'securerandom'</span>
@@ -16,10 +16,7 @@
 
 <span class="n">secret_key</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">PKey</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="no">Base64</span><span class="p">.</span><span class="nf">urlsafe_decode64</span><span class="p">(</span><span class="n">private_key</span><span class="p">))</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="ss">iat: </span><span class="no">Time</span><span class="p">.</span><span class="nf">current</span><span class="p">.</span><span class="nf">to_i</span><span class="p">,</span>
-    <span class="ss">exp: </span><span class="mi">24</span><span class="p">.</span><span class="nf">hours</span><span class="p">.</span><span class="nf">from_now</span><span class="p">.</span><span class="nf">to_i</span><span class="p">,</span> <span class="c1"># JWT TTL in seconds since epoch</span>
-    <span class="ss">sub: </span><span class="s1">'api_key_jwt'</span><span class="p">,</span>
-    <span class="ss">iss: </span><span class="s1">'external'</span><span class="p">,</span>
+    <span class="ss">exp: </span><span class="mi">1</span><span class="p">.</span><span class="nf">hours</span><span class="p">.</span><span class="nf">from_now</span><span class="p">.</span><span class="nf">to_i</span><span class="p">,</span> <span class="c1"># JWT Request TTL in seconds since epoch</span>
     <span class="ss">jti: </span><span class="no">SecureRandom</span><span class="p">.</span><span class="nf">hex</span><span class="p">(</span><span class="mi">12</span><span class="p">).</span><span class="nf">upcase</span>
 <span class="p">}</span>
 <span class="n">jwt_token</span> <span class="o">=</span> <span class="no">JWT</span><span class="p">.</span><span class="nf">encode</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="s1">'RS256'</span><span class="p">)</span>
@@ -33,12 +30,12 @@
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">start</span> <span class="p">{</span><span class="o">|</span><span class="n">h</span><span class="o">|</span> <span class="n">h</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
 <span class="n">token</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'token'</span><span class="p">]</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="c1">// composer require lcobucci/jwt
-</span>
-<span class="k">use</span> <span class="nx">Lcobucci\JWT\Builder</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Lcobucci\JWT\Signer\Key</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Lcobucci\JWT\Signer\Rsa\Sha256</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="c1">// composer require lcobucci/jwt</span>
+
+<span class="kn">use</span> <span class="nn">Lcobucci\JWT\Builder</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">Lcobucci\JWT\Signer\Key</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">Lcobucci\JWT\Signer\Rsa\Sha256</span><span class="p">;</span>
 
 <span class="nv">$host</span> <span class="o">=</span> <span class="s1">'garantex.io'</span><span class="p">;</span>
 <span class="nv">$private_key</span> <span class="o">=</span> <span class="s1">'{приватный ключ, полученный на этапе создания API ключей}'</span><span class="p">;</span>
@@ -46,52 +43,119 @@
 
 <span class="nv">$time</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span>
 <span class="nv">$signer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sha256</span><span class="p">();</span>
-<span class="nv">$privateKey</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Key</span><span class="p">(</span><span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$private_key</span><span class="p">,</span> <span class="kc">true</span><span class="p">));</span>
-<span class="nv">$token</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">())</span><span class="o">-&gt;</span><span class="na">issuedBy</span><span class="p">(</span><span class="s1">'external'</span><span class="p">)</span>
-                        <span class="o">-&gt;</span><span class="na">relatedTo</span><span class="p">(</span><span class="s1">'api_key_jwt'</span><span class="p">)</span>
-                        <span class="o">-&gt;</span><span class="na">identifiedBy</span><span class="p">(</span><span class="nb">bin2hex</span><span class="p">(</span><span class="nx">random_bytes</span><span class="p">(</span><span class="mi">12</span><span class="p">)))</span>
-                        <span class="o">-&gt;</span><span class="na">issuedAt</span><span class="p">(</span><span class="nv">$time</span><span class="p">)</span>
-                        <span class="o">-&gt;</span><span class="na">expiresAt</span><span class="p">(</span><span class="nv">$time</span> <span class="o">+</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">)</span> <span class="c1">// JWT TTL in seconds since epoch
-</span>                        <span class="o">-&gt;</span><span class="na">getToken</span><span class="p">(</span><span class="nv">$signer</span><span class="p">,</span>  <span class="nv">$privateKey</span><span class="p">);</span>
+<span class="nv">$privateKey</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Key</span><span class="p">(</span><span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$private_key</span><span class="p">,</span> <span class="kc">true</span><span class="p">));</span>
+<span class="nv">$token</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">())</span><span class="o">-&gt;</span><span class="na">identifiedBy</span><span class="p">(</span><span class="nb">bin2hex</span><span class="p">(</span><span class="nb">random_bytes</span><span class="p">(</span><span class="mi">12</span><span class="p">)))</span>
+                        <span class="o">-&gt;</span><span class="na">expiresAt</span><span class="p">(</span><span class="nv">$time</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">)</span> <span class="c1">// JWT Request TTL in seconds since epoch</span>
+                        <span class="o">-&gt;</span><span class="na">getToken</span><span class="p">(</span><span class="nv">$signer</span><span class="p">,</span>  <span class="nv">$privateKey</span><span class="p">);</span>
 
 <span class="nv">$post_data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'kid'</span> <span class="o">=&gt;</span> <span class="nv">$uid</span><span class="p">,</span> <span class="s1">'jwt_token'</span> <span class="o">=&gt;</span> <span class="nb">strval</span><span class="p">(</span><span class="nv">$token</span><span class="p">));</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="s2">"https://dauth.</span><span class="nv">$host</span><span class="s2">/api/v1/sessions/generate_jwt"</span><span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-    <span class="nx">CURLOPT_POST</span> <span class="o">=&gt;</span> <span class="k">TRUE</span><span class="p">,</span>
-    <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="k">TRUE</span><span class="p">,</span>
+    <span class="nx">CURLOPT_POST</span> <span class="o">=&gt;</span> <span class="kc">TRUE</span><span class="p">,</span>
+    <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">TRUE</span><span class="p">,</span>
     <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Content-Type: application/json'</span><span class="p">),</span>
     <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$post_data</span><span class="p">)</span>
 <span class="p">));</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="nv">$response</span> <span class="o">===</span> <span class="k">FALSE</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$response</span> <span class="o">===</span> <span class="kc">FALSE</span><span class="p">)</span>
     <span class="k">die</span><span class="p">(</span><span class="nb">curl_error</span><span class="p">(</span><span class="nv">$ch</span><span class="p">));</span>
 
-<span class="nv">$data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">);</span>
 <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">'token'</span><span class="p">];</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Пример работы с уже полученным JWT токеном из шелла</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript"><code><span class="c1">// Модули</span>
+<span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">axios</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// npm i axios</span>
+<span class="kd">const</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">jsonwebtoken</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// npm i jsonwebtoken</span>
+<span class="kd">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">crypto</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// Константы</span>
+<span class="kd">const</span> <span class="nx">host</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">garantex.io</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">***</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// приватный ключ, полученный на этапе создания API ключей</span>
+<span class="kd">const</span> <span class="nx">uid</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">***</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// UID, полученный на этапе создания API ключей</span>
+
+<span class="c1">// Получаем токен</span>
+<span class="kd">const</span> <span class="nx">getToken</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="p">{</span> <span class="nx">data</span> <span class="p">}</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
+      <span class="dl">"</span><span class="s2">https://dauth.</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">host</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">/api/v1/sessions/generate_jwt</span><span class="dl">"</span><span class="p">,</span>
+      <span class="p">{</span>
+        <span class="na">kid</span><span class="p">:</span> <span class="nx">uid</span><span class="p">,</span>
+        <span class="na">jwt_token</span><span class="p">:</span> <span class="nx">jwt</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span>
+          <span class="p">{</span>
+            <span class="na">exp</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">+</span> <span class="mi">30</span> <span class="o">*</span> <span class="mi">60</span><span class="p">,</span> <span class="c1">// JWT Request TTL: 30 minutes</span>
+            <span class="na">jti</span><span class="p">:</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mi">12</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="dl">"</span><span class="s2">hex</span><span class="dl">"</span><span class="p">),</span>
+          <span class="p">},</span>
+          <span class="k">new</span> <span class="nx">Buffer</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span> <span class="dl">"</span><span class="s2">base64</span><span class="dl">"</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="dl">"</span><span class="s2">ascii</span><span class="dl">"</span><span class="p">),</span>
+          <span class="p">{</span> <span class="na">algorithm</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RS256</span><span class="dl">"</span> <span class="p">}</span>
+        <span class="p">),</span>
+      <span class="p">}</span>
+    <span class="p">);</span>
+    <span class="k">return</span> <span class="nx">data</span><span class="p">.</span><span class="nx">token</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Тест работоспособности</span>
+<span class="p">(</span><span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="p">{</span> <span class="nx">data</span> <span class="p">}</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
+      <span class="dl">"</span><span class="s2">https://</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">host</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">/api/v2/orders/clear</span><span class="dl">"</span><span class="p">,</span>
+      <span class="kc">null</span><span class="p">,</span>
+      <span class="p">{</span>
+        <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="k">await</span> <span class="nx">getToken</span><span class="p">()}</span><span class="s2">`</span><span class="p">,</span>
+        <span class="p">},</span>
+      <span class="p">}</span>
+    <span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">})();</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Пример работы с уже полученным JWT токеном из шелла</span>
 curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: Bearer {JWT}"</span>
-</code></pre>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span>
+</code></pre></div>
 <blockquote>
-<p>Не забудьте заменить private_key и uid на значения полученные при создании API ключей! </p>
+<p>Не забудьте заменить private_key и uid на значения полученные при создании API ключей!</p>
 </blockquote>
 
-<p>Garantex использует схему JWT авторизации, то есть для работы с методами API вначале нужно запросить у сервера JWT токен,
+<p>Garantex использует стандартную схему JWT авторизации, то есть для работы с методами API вначале нужно запросить у сервера JWT токен,
 который уже будет использоваться в Bearer аутентификации.</p>
 
 <p>Полученный токен нужно сохранить и использовать его для запросов. Не нужно создавать новый токен на каждый запрос!<br>
-Время жизни JWT токена ограничено, и после его истечения токен становится недействительным. Максимальный срок жизни токена - 24 часа.</p>
+Время жизни JWT токена ограничено, и после его истечения токен становится недействительным. </p>
 
-<p>Справа приведены примеры кода для получения токена на Ruby и PHP.</p>
+<p>Время жизни JWT определяется <em>параметрами API ключа</em>, и может быть изменено в настройках для каждого API ключа.
+Минимальное время жизни JWT 30 минут, максимальное 24 часа. По умолчанию значение TTL 24 часа.   </p>
 
-<p>Для тестов можно использовать форму получения JWT токена на сайте, по адресу <a href='https://stage.garantex.biz/api_test'>https://stage.garantex.biz/api_test</a>.</p>
+<p>Справа приведены примеры кода для получения токена на Ruby, PHP и NodeJS.</p>
+
+<p>Параметры JWT запроса:</p>
+
+<ul>
+<li>exp - опциональный, время жизни JWT запроса. Не устанавливать его слишком большим и не оставляйте пустым, если вы не планируете переиспользовать запрос многократно.</li>
+<li>jti - обязательный, уникальный идентификатор запроса.</li>
+<li>алгоритм подписи JWT - <strong>RS256</strong></li>
+<li>все остальные опциональные параметры не используются и устанавливать их не обязательно.</li>
+</ul>
+
+<p>Для тестов можно использовать форму получения JWT токена на сайте, по адресу 
+<a href='https://stage.garantex.biz/api_test'>https://stage.garantex.biz/api_test</a> (тестовый сервер) или 
+<a href='https://garantex.io/api_test'>https://garantex.io/api_test</a> (продакшн).</p>
 
 <p>Для декодирования и проверки токенов можно использовать онлайн отладчик на сайте <a href='https://jwt.io/'>jwt.io</a>.  </p>
 
 <aside class="notice">
 Не забудьте заменить private_key и uid в примерах на значения полученные при создании API ключей!
+</aside>
+
+<aside class="notice">
+Ключи полученные на тестовом сервере (stage.garantex.biz) будут работать только на тестовом сервере, а продакшн ключи (garantex.io) - только на продакшне!
 </aside>

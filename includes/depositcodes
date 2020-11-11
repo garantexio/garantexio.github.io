@@ -2,20 +2,20 @@
 <blockquote>
 <p>Вывод в средств в код:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s1">'Authorization: Bearer {JWT}'</span> -H <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> -d <span class="s1">'currency={currency_id}&amp;amount={amount}'</span> <span class="s1">'https://garantex.io/api/v2/depositcodes/create'</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'currency={currency_id}&amp;amount={amount}'</span> <span class="s1">'https://garantex.io/api/v2/depositcodes/create'</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8VTP13QFV06ZQLXXHBGN"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"succeed"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-08T01:57:22+03:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"used_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8VTP13QFV06ZQLXXHBGN"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"succeed"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-08T01:57:22+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"used_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='b665cc3539'>Вывод в средств в код.</h3>
+</span></code></pre></div><h3 id='b665cc3539'>Вывод в средств в код.</h3>
 <ul>
 <li>требуемый уровень доступа: <strong>withdraw</strong></li>
 </ul>
@@ -44,20 +44,20 @@
 <blockquote>
 <p>Депозит кода:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s1">'Authorization: Bearer {JWT}'</span> -H <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> -d <span class="s1">'deposit_code={deposit_code}'</span> <span class="s1">'https://garantex.io/api/v2/depositcodes/redeem'</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'deposit_code={deposit_code}'</span> <span class="s1">'https://garantex.io/api/v2/depositcodes/redeem'</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8VTP13QFV06ZQLXXHBGN"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"succeed"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-08T01:57:22+03:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"used_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-08T02:14:35+03:00"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8VTP13QFV06ZQLXXHBGN"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"succeed"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-08T01:57:22+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"used_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-08T02:14:35+03:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='eb5e354ee6'>Депозит кода.</h3>
+</span></code></pre></div><h3 id='eb5e354ee6'>Депозит кода.</h3>
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>

@@ -2,22 +2,22 @@
 <blockquote>
 <p>Получить список рынков:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/markets"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/markets"</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcrub"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/RUB"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcrub"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/RUB"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusd"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USD"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusd"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USD"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>Запрос возвращает список всех активных рынков.</p>
 
 <ul>
@@ -29,34 +29,34 @@
 <blockquote>
 <p>Получить список активных валют:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/currencies"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/currencies"</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"฿"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"explorer_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.blockchain.com/btc/tx/#{txid}"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"explorer_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.blockchain.com/btc/address/#{address}"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"min_deposit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00005"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"withdraw_min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"฿"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"explorer_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.blockchain.com/btc/tx/#{txid}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"explorer_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.blockchain.com/btc/address/#{address}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_deposit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00005"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"withdraw_min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"explorer_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://etherscan.io/tx/#{txid}"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"explorer_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://etherscan.io/address/#{address}"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"min_deposit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"withdraw_min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.36"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"explorer_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://etherscan.io/tx/#{txid}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"explorer_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://etherscan.io/address/#{address}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_deposit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"withdraw_min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.36"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>Запрос для получения списка всех доступных для работы валют.</p>
 
 <ul>
@@ -82,13 +82,13 @@
 <blockquote>
 <p>Получить текущий timestamp:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/timestamp"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/timestamp"</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"2020-05-08T17:58:40+00:00"</span><span class="w">
-</span></code></pre>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"2020-05-08T17:58:40+00:00"</span><span class="w">
+</span></code></pre></div>
 <p>Запрос возвращает текущее время сервера</p>
 
 <ul>
@@ -100,41 +100,41 @@
 <blockquote>
 <p>Получить значение комиссий на вывод крипты</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/fees/withdraw/coin"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/fees/withdraw/coin"</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0001"</span><span class="p">,</span><span class="w">      </span><span class="err">//</span><span class="w"> </span><span class="err">минимальная</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">для</span><span class="w"> </span><span class="err">вывода</span><span class="w">
-    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0001"</span><span class="p">,</span><span class="w">      </span><span class="err">//</span><span class="w"> </span><span class="err">минимальная</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">для</span><span class="w"> </span><span class="err">вывода</span><span class="w">
+    </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"small_amount"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">тип</span><span class="w"> </span><span class="err">комиссии</span><span class="p">,</span><span class="w"> </span><span class="err">fixed</span><span class="w"> </span><span class="err">или</span><span class="w"> </span><span class="err">small</span><span class="w"> </span><span class="err">amount</span><span class="w">
-        </span><span class="s2">"up_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">максимальная</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">для</span><span class="w"> </span><span class="err">которой</span><span class="w"> </span><span class="err">применяется</span><span class="w"> </span><span class="err">тип</span><span class="w"> </span><span class="err">комисии</span><span class="w">
-        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00005"</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">значение</span><span class="w"> </span><span class="err">комиссии</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"small_amount"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">тип</span><span class="w"> </span><span class="err">комиссии</span><span class="p">,</span><span class="w"> </span><span class="err">fixed</span><span class="w"> </span><span class="err">или</span><span class="w"> </span><span class="err">small</span><span class="w"> </span><span class="err">amount</span><span class="w">
+        </span><span class="nl">"up_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">максимальная</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">для</span><span class="w"> </span><span class="err">которой</span><span class="w"> </span><span class="err">применяется</span><span class="w"> </span><span class="err">тип</span><span class="w"> </span><span class="err">комисии</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00005"</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">значение</span><span class="w"> </span><span class="err">комиссии</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fixed"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0004"</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fixed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0004"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.34"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.34"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fixed"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.17"</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fixed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.17"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>Запрос возвращает акутальные комиссии на вывод крипты.</p>
 
 <ul>
@@ -151,46 +151,46 @@
 <blockquote>
 <p>Получить список направлений для депозита / вывода фиата</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/gateway_types?currency={currency_id}"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/gateway_types?currency={currency_id}"</span>
+</code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"withdraw"</span><span class="p">,</span><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">направление</span><span class="p">,</span><span class="w"> </span><span class="err">deposit</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">withdraw</span><span class="w">
-    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">       
-    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Сбербанк онлайн регионы"</span><span class="p">,</span><span class="w">  
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Вывод на карты региона отличного от Московского."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Введите номер карты региона отличного от Москвы"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">описание</span><span class="w"> </span><span class="err">требуемых</span><span class="w"> </span><span class="err">параметров</span><span class="w"> </span><span class="err">(поле</span><span class="w"> </span><span class="err">address)</span><span class="w">
-    </span><span class="s2">"min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15000.0"</span><span class="p">,</span><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">минимальная</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">депозита</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="err">вывода</span><span class="w">
-    </span><span class="s2">"max_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000000.0"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">максимальная</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">депозита</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="err">вывода</span><span class="w">
-    </span><span class="s2">"rounding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">кратность</span><span class="w"> </span><span class="err">суммы</span><span class="w"> 
-    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">              </span><span class="err">//</span><span class="w"> </span><span class="err">комиссия</span><span class="p">:</span><span class="w"> </span><span class="err">процент</span><span class="w"> </span><span class="err">от</span><span class="w"> </span><span class="err">суммы</span><span class="w"> </span><span class="err">(</span><span class="mi">2</span><span class="err">%)</span><span class="w">
-    </span><span class="s2">"fee_fixed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">комиссия</span><span class="p">:</span><span class="w"> </span><span class="err">фиксированная</span><span class="w"> </span><span class="err">компонента</span><span class="w">
-    </span><span class="s2">"fee_limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000.0"</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">комиссия</span><span class="p">:</span><span class="w"> </span><span class="err">максимальный</span><span class="w"> </span><span class="err">размер</span><span class="w"> </span><span class="err">(не</span><span class="w"> </span><span class="err">более</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="err">рублей)</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"withdraw"</span><span class="p">,</span><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">направление</span><span class="p">,</span><span class="w"> </span><span class="err">deposit</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">withdraw</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">       
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Сбербанк онлайн регионы"</span><span class="p">,</span><span class="w">  
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Вывод на карты региона отличного от Московского."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Введите номер карты региона отличного от Москвы"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">описание</span><span class="w"> </span><span class="err">требуемых</span><span class="w"> </span><span class="err">параметров</span><span class="w"> </span><span class="err">(поле</span><span class="w"> </span><span class="err">address)</span><span class="w">
+    </span><span class="nl">"min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15000.0"</span><span class="p">,</span><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">минимальная</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">депозита</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="err">вывода</span><span class="w">
+    </span><span class="nl">"max_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000000.0"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">максимальная</span><span class="w"> </span><span class="err">сумма</span><span class="w"> </span><span class="err">депозита</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="err">вывода</span><span class="w">
+    </span><span class="nl">"rounding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">кратность</span><span class="w"> </span><span class="err">суммы</span><span class="w"> 
+    </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">              </span><span class="err">//</span><span class="w"> </span><span class="err">комиссия:</span><span class="w"> </span><span class="err">процент</span><span class="w"> </span><span class="err">от</span><span class="w"> </span><span class="err">суммы</span><span class="w"> </span><span class="err">(</span><span class="mi">2</span><span class="err">%)</span><span class="w">
+    </span><span class="nl">"fee_fixed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">комиссия:</span><span class="w"> </span><span class="err">фиксированная</span><span class="w"> </span><span class="err">компонента</span><span class="w">
+    </span><span class="nl">"fee_limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000.0"</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">комиссия:</span><span class="w"> </span><span class="err">максимальный</span><span class="w"> </span><span class="err">размер</span><span class="w"> </span><span class="err">(не</span><span class="w"> </span><span class="err">более</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="err">рублей)</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deposit"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Наличные любой город РФ"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Прием наличных в любом городе России. Комиссия 2%. От 100 000 рублей."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Свяжитесь с оператором для получения инструкций"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100000.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"max_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5000000.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rounding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">кратность</span><span class="w"> </span><span class="err">суммы</span><span class="w"> </span><span class="err">(</span><span class="mi">100</span><span class="w"> </span><span class="err">рублей)</span><span class="w">
-    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.02"</span><span class="p">,</span><span class="w">              
-    </span><span class="s2">"fee_fixed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fee_limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deposit"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Наличные любой город РФ"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Прием наличных в любом городе России. Комиссия 2%. От 100 000 рублей."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Свяжитесь с оператором для получения инструкций"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100000.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"max_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5000000.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rounding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">кратность</span><span class="w"> </span><span class="err">суммы</span><span class="w"> </span><span class="err">(</span><span class="mi">100</span><span class="w"> </span><span class="err">рублей)</span><span class="w">
+    </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.02"</span><span class="p">,</span><span class="w">              
+    </span><span class="nl">"fee_fixed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fee_limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>Запрос возвращает список всех активных направлений ввода / вывода для фиата</p>
 
 <ul>
-<li>требуемый уровень доступа: <strong>публичный</strong></li>
+<li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-5'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/gateway_types</code></p>
