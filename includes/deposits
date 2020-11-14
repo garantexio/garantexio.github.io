@@ -243,10 +243,11 @@
 <p>Пример ответа:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
   </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt-omni"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3DVQ9WL2rTjBm1q7UHwWAQdNCKveFRJCYk"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='d730996a71'>Получение адреса для депозита крипты</h3>
+</span></code></pre></div><h3 id='41b3c4e012'>Получение актуального адреса для депозита крипты</h3>
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
@@ -266,6 +267,83 @@
 <td>ID валюты для депозита</td>
 </tr>
 </tbody></table>
+
+<blockquote>
+<p>Получить дополнительный адрес для депозита крипты:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address"</span>
+</code></pre></div>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6789</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='0ee67631ae'>Получение дополнительного адреса для депозита крипты</h3>
+<ul>
+<li>требуемый уровень доступа: <strong>read-only</strong></li>
+</ul>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST https://garantex.io/api/v2/deposit_address</code></p>
+<h3 id='6744ad4c7a-6'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>currency</strong></td>
+<td>да</td>
+<td>ID валюты для депозита</td>
+</tr>
+</tbody></table>
+<h3 id='bd6108841b-4'>Возвращаемые значения</h3>
+<p>Обратите внимание, значение адреса в ответе может быть null! 
+Это нормальная ситуация, так как создание нового адреса занимает время, и в таком случае фактический адрес должен быть получен отдельно,
+запросом <code>/deposit_address/details</code>.</p>
+
+<blockquote>
+<p>Получить детальную информации о конкретном депозит адресе</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address/details?id={id}"</span>
+</code></pre></div>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6789</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"blockchain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3Qtj2uSv2AV7S86iTzJW1RwCoNKzGrJFyJ"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='0ec97bac14'>Получение детальной информации о конкретном депозит адресе</h3>
+<ul>
+<li>требуемый уровень доступа: <strong>read-only</strong></li>
+</ul>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://garantex.io/api/v2/deposit_address/details</code></p>
+<h3 id='6744ad4c7a-7'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>да</td>
+<td>ID депозит адреса</td>
+</tr>
+</tbody></table>
+<h3 id='bd6108841b-5'>Возвращаемые значения</h3>
+<p>Обратите внимание, значение адреса в ответе может быть null! 
+Это нормальная ситуация, так как создание нового адреса занимает время, и в таком случае запрос необходимо повторить позже.</p>
+
+<p>Кроме того, в ответе будет указан не код валюты, но код блокчейна, так как адреса валидны для всех валют которые поддерживаются на этом блокчейне. </p>
 <h3 id='9b6a512f8e'>Мульти-блокчейн валюты</h3>
 <p>Для валют которые используют больше чем один блокчейн, по умолчанию возвращается адрес для &quot;основного&quot; блокчейна.
 При необходимости получить адрес из другого блокчейна, он указывается через дефис, например usdt-omni.</p>

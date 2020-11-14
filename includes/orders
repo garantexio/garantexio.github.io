@@ -78,8 +78,8 @@
 <ul>
 <li><strong>limit</strong>: классический тип ордера, исполнение по заданной цене. Не предназначен для криптопар.</li>
 <li><strong>factor</strong>: цена исполения ордера определяется как отклонение от цены целевого рынка. Для btcrub это композит Binance BTCUSDT * MOEX USDRUB_TOM, для usdtrub - пара MOEX USDRUB_TOM. Не предназначен для криптопар.</li>
-<li><strong>default</strong>: исполение по рынку, сумма указывается в той валюте которая у вас есть. То есть, для sell btсrub это BTC, для buy btcrub - RUB.</li>
-<li><strong>market</strong>: исполение по рынку, сумма указывается в той валюте которую вы хотите получить. То есть, для sell btсrub это RUB, для buy btcrub - BTC.</li>
+<li><strong>default</strong>: исполнение по рынку, сумма указывается в той валюте которая у вас есть. То есть, для sell btсrub это BTC, для buy btcrub - RUB.</li>
+<li><strong>market</strong>: исполнение по рынку, сумма указывается в той валюте которую вы хотите получить. То есть, для sell btсrub это RUB, для buy btcrub - BTC.</li>
 </ul>
 <h3 id='1df4b9d2dc'>Цена заявки</h3>
 <ul>

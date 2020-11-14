@@ -285,7 +285,7 @@
 
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;js&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -298,7 +298,7 @@
               <a href="#" data-language-name="shell">cURL</a>
               <a href="#" data-language-name="ruby">Ruby</a>
               <a href="#" data-language-name="php">PHP</a>
-              <a href="#" data-language-name="js">NodeJS</a>
+              <a href="#" data-language-name="javascript">NodeJS</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -308,6 +308,9 @@
           <li>
             <a href="#b41a828c58" class="toc-h1 toc-link" data-title="История изменений">История изменений</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#14-11-2020" class="toc-h2 toc-link" data-title="14.11.2020">14.11.2020</a>
+                  </li>
                   <li>
                     <a href="#09-11-2020" class="toc-h2 toc-link" data-title="09.11.2020">09.11.2020</a>
                   </li>
@@ -443,7 +446,11 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='b41a828c58'>История изменений</h1><h3 id='09-11-2020'>09.11.2020</h3>
+        <h1 id='b41a828c58'>История изменений</h1><h3 id='14-11-2020'>14.11.2020</h3>
+<ul>
+<li>получение дополнительных депозит адресов: POST /deposit_address, GET /deposit_address/details</li>
+</ul>
+<h3 id='09-11-2020'>09.11.2020</h3>
 <ul>
 <li>параметры iss, sub, iat в запросе JWT больше не требуются</li>
 <li>запрос /gateway_types теперь требует авторизации</li>
@@ -482,7 +489,10 @@
 <blockquote>
 <p>Запрос и получение JWT токена:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'openssl'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Пример работы с уже полученным JWT токеном из шелла</span>
+curl <span class="s2">"api_endpoint_here"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'openssl'</span>
 <span class="nb">require</span> <span class="s1">'base64'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 <span class="nb">require</span> <span class="s1">'securerandom'</span>
@@ -546,7 +556,8 @@
 
 <span class="nv">$data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">);</span>
 <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">'token'</span><span class="p">];</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript"><code><span class="c1">// Модули</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Модули</span>
 <span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">axios</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// npm i axios</span>
 <span class="kd">const</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">jsonwebtoken</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// npm i jsonwebtoken</span>
 <span class="kd">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">crypto</span><span class="dl">"</span><span class="p">);</span>
@@ -597,10 +608,6 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">})();</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Пример работы с уже полученным JWT токеном из шелла</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span>
 </code></pre></div>
 <blockquote>
 <p>Не забудьте заменить private_key и uid на значения полученные при создании API ключей!</p>
@@ -1407,8 +1414,8 @@ curl <span class="s2">"api_endpoint_here"</span>
 <ul>
 <li><strong>limit</strong>: классический тип ордера, исполнение по заданной цене. Не предназначен для криптопар.</li>
 <li><strong>factor</strong>: цена исполения ордера определяется как отклонение от цены целевого рынка. Для btcrub это композит Binance BTCUSDT * MOEX USDRUB_TOM, для usdtrub - пара MOEX USDRUB_TOM. Не предназначен для криптопар.</li>
-<li><strong>default</strong>: исполение по рынку, сумма указывается в той валюте которая у вас есть. То есть, для sell btсrub это BTC, для buy btcrub - RUB.</li>
-<li><strong>market</strong>: исполение по рынку, сумма указывается в той валюте которую вы хотите получить. То есть, для sell btсrub это RUB, для buy btcrub - BTC.</li>
+<li><strong>default</strong>: исполнение по рынку, сумма указывается в той валюте которая у вас есть. То есть, для sell btсrub это BTC, для buy btcrub - RUB.</li>
+<li><strong>market</strong>: исполнение по рынку, сумма указывается в той валюте которую вы хотите получить. То есть, для sell btсrub это RUB, для buy btcrub - BTC.</li>
 </ul>
 <h3 id='1df4b9d2dc'>Цена заявки</h3>
 <ul>
@@ -1795,10 +1802,11 @@ curl <span class="s2">"api_endpoint_here"</span>
 <p>Пример ответа:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
   </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt-omni"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3DVQ9WL2rTjBm1q7UHwWAQdNCKveFRJCYk"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='d730996a71'>Получение адреса для депозита крипты</h3>
+</span></code></pre></div><h3 id='41b3c4e012'>Получение актуального адреса для депозита крипты</h3>
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
@@ -1818,6 +1826,83 @@ curl <span class="s2">"api_endpoint_here"</span>
 <td>ID валюты для депозита</td>
 </tr>
 </tbody></table>
+
+<blockquote>
+<p>Получить дополнительный адрес для депозита крипты:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address"</span>
+</code></pre></div>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6789</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='0ee67631ae'>Получение дополнительного адреса для депозита крипты</h3>
+<ul>
+<li>требуемый уровень доступа: <strong>read-only</strong></li>
+</ul>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST https://garantex.io/api/v2/deposit_address</code></p>
+<h3 id='6744ad4c7a-6'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>currency</strong></td>
+<td>да</td>
+<td>ID валюты для депозита</td>
+</tr>
+</tbody></table>
+<h3 id='bd6108841b-4'>Возвращаемые значения</h3>
+<p>Обратите внимание, значение адреса в ответе может быть null! 
+Это нормальная ситуация, так как создание нового адреса занимает время, и в таком случае фактический адрес должен быть получен отдельно,
+запросом <code>/deposit_address/details</code>.</p>
+
+<blockquote>
+<p>Получить детальную информации о конкретном депозит адресе</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address/details?id={id}"</span>
+</code></pre></div>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6789</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"blockchain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3Qtj2uSv2AV7S86iTzJW1RwCoNKzGrJFyJ"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='0ec97bac14'>Получение детальной информации о конкретном депозит адресе</h3>
+<ul>
+<li>требуемый уровень доступа: <strong>read-only</strong></li>
+</ul>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://garantex.io/api/v2/deposit_address/details</code></p>
+<h3 id='6744ad4c7a-7'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>да</td>
+<td>ID депозит адреса</td>
+</tr>
+</tbody></table>
+<h3 id='bd6108841b-5'>Возвращаемые значения</h3>
+<p>Обратите внимание, значение адреса в ответе может быть null! 
+Это нормальная ситуация, так как создание нового адреса занимает время, и в таком случае запрос необходимо повторить позже.</p>
+
+<p>Кроме того, в ответе будет указан не код валюты, но код блокчейна, так как адреса валидны для всех валют которые поддерживаются на этом блокчейне. </p>
 <h3 id='9b6a512f8e'>Мульти-блокчейн валюты</h3>
 <p>Для валют которые используют больше чем один блокчейн, по умолчанию возвращается адрес для &quot;основного&quot; блокчейна.
 При необходимости получить адрес из другого блокчейна, он указывается через дефис, например usdt-omni.</p>
@@ -2181,7 +2266,7 @@ curl <span class="s2">"api_endpoint_here"</span>
                 <a href="#" data-language-name="shell">cURL</a>
                 <a href="#" data-language-name="ruby">Ruby</a>
                 <a href="#" data-language-name="php">PHP</a>
-                <a href="#" data-language-name="js">NodeJS</a>
+                <a href="#" data-language-name="javascript">NodeJS</a>
           </div>
       </div>
     </div>

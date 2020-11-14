@@ -2,7 +2,10 @@
 <blockquote>
 <p>Запрос и получение JWT токена:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'openssl'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Пример работы с уже полученным JWT токеном из шелла</span>
+curl <span class="s2">"api_endpoint_here"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'openssl'</span>
 <span class="nb">require</span> <span class="s1">'base64'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 <span class="nb">require</span> <span class="s1">'securerandom'</span>
@@ -66,7 +69,8 @@
 
 <span class="nv">$data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">);</span>
 <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">'token'</span><span class="p">];</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript"><code><span class="c1">// Модули</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Модули</span>
 <span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">axios</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// npm i axios</span>
 <span class="kd">const</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">jsonwebtoken</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// npm i jsonwebtoken</span>
 <span class="kd">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">crypto</span><span class="dl">"</span><span class="p">);</span>
@@ -117,10 +121,6 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">})();</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Пример работы с уже полученным JWT токеном из шелла</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span>
 </code></pre></div>
 <blockquote>
 <p>Не забудьте заменить private_key и uid на значения полученные при создании API ключей!</p>
