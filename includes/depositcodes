@@ -19,7 +19,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>withdraw</strong></li>
 </ul>
-<h3 id='http-request'>HTTP Request</h3>
+<h4 id='http-request'>HTTP Request</h4>
 <p><code>POST https://garantex.io/api/v2/depositcodes/create</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
@@ -61,7 +61,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h4 id='http-request-2'>HTTP Request</h4>
 <p><code>POST https://garantex.io/api/v2/depositcodes/redeem</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>

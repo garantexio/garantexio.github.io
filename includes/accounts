@@ -30,7 +30,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request'>HTTP Request</h3>
+<h4 id='http-request'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/accounts</code></p>
 <h3 id='11568b4fa7'>Получить состояние пользовательского счета по конкретной валюте</h3>
 <blockquote>
@@ -52,7 +52,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h4 id='http-request-2'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/accounts/{currency_id}</code></p>
 <h2 id='51aff18539'>Пользователь</h2><h3 id='556033cd19'>Получение информацию о текущем пользователе.</h3>
 <blockquote>
@@ -90,5 +90,5 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h4 id='http-request-3'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/members/me</code></p>

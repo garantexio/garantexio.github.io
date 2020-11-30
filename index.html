@@ -285,7 +285,7 @@
 
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;javascript&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -299,6 +299,7 @@
               <a href="#" data-language-name="ruby">Ruby</a>
               <a href="#" data-language-name="php">PHP</a>
               <a href="#" data-language-name="javascript">NodeJS</a>
+              <a href="#" data-language-name="python">Python</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -335,6 +336,9 @@
                     <a href="#ce7d35ddc5" class="toc-h2 toc-link" data-title="Авторизация запросов">Авторизация запросов</a>
                   </li>
               </ul>
+          </li>
+          <li>
+            <a href="#094c190314" class="toc-h1 toc-link" data-title="Лимиты">Лимиты</a>
           </li>
           <li>
             <a href="#c850ebec42" class="toc-h1 toc-link" data-title="Общая информация">Общая информация</a>
@@ -757,6 +761,26 @@
 
 </code></pre></div>
 <p>Для запроса данных через API Garantex необходимо использовать <a href="https://tools.ietf.org/html/rfc6750#section-2.1">OAuth 2.0 Bearer аутентификацию</a>.</p>
+<h1 id='094c190314'>Лимиты</h1>
+<p>При запросах к API существуют лимиты в виде ограничения количества запросов.</p>
+
+<p>Конкретное значение лимита зависит от типа запросов и наличия авторизации. 
+Для запросов, не требующий авторизации, ограничения 60 запросов в минуту / 600 запросов в 15 минут / 1800 запросов в час.<br>
+Для авторизованных запросов - 30 запросов в минуту / 300 запросов в 15 минут / 900 запросов в час.</p>
+
+<p>Есть группа запросов для которых установлены более жёсткие ограничения:</p>
+
+<ul>
+<li><code>POST /api/v2/orders</code></li>
+<li><code>POST /api/v2/orders/clear</code></li>
+<li><code>POST /api/v2/withdraws/create</code></li>
+<li><code>POST /api/v2/depositcodes</code></li>
+</ul>
+
+<p>для них лимиты 10 запросов в минуту / 100 запросов в 15 минут / 300 запросов в час.</p>
+
+<p>В случае превышения количества запросов в ответе будет ошибка<br>
+<code>429 Too Many Requests</code> - вы превысили допустимую частоту запросов.</p>
 <h1 id='c850ebec42'>Общая информация</h1><h2 id='47ff48632f'>Рынки</h2>
 <blockquote>
 <p>Получить список рынков:</p>
@@ -821,7 +845,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h4 id='http-request-2'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/currencies</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
@@ -853,7 +877,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h4 id='http-request-3'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/timestamp</code></p>
 <h2 id='95ddcebbec'>Комиссии на вывод крипты</h2>
 <blockquote>
@@ -899,7 +923,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h4 id='http-request-4'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/fees/withdraw/coin</code></p>
 <h3 id='bd6108841b'>Возвращаемые значения</h3>
 <p>Для некоторых валют могут использоваться разные способы отправки, в зависимости от размера вывода, с разными комиссиями, и тогда массив <strong>fee</strong> будет содержать больше одного элемента, с разными значениями <strong>type</strong>.
@@ -1149,7 +1173,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request'>HTTP Request</h3>
+<h4 id='http-request'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/accounts</code></p>
 <h3 id='11568b4fa7'>Получить состояние пользовательского счета по конкретной валюте</h3>
 <blockquote>
@@ -1171,7 +1195,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h4 id='http-request-2'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/accounts/{currency_id}</code></p>
 <h2 id='51aff18539'>Пользователь</h2><h3 id='556033cd19'>Получение информацию о текущем пользователе.</h3>
 <blockquote>
@@ -1209,7 +1233,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h4 id='http-request-3'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/members/me</code></p>
 <h1 id='99866db24b'>Торговые операции</h1><h2 id='121ed44f23'>История сделок</h2>
 <blockquote>
@@ -1719,7 +1743,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request'>HTTP Request</h3>
+<h4 id='http-request'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/deposits</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
@@ -1776,7 +1800,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h4 id='http-request-2'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/deposit/{deposit_id}</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
@@ -1823,7 +1847,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h4 id='http-request-3'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/deposit?txid={txid}</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
@@ -1867,7 +1891,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h4 id='http-request-4'>HTTP Request</h4>
 <p><code>POST https://garantex.io/api/v2/deposits/create</code></p>
 <h3 id='6744ad4c7a-4'>Параметры</h3>
 <table><thead>
@@ -1921,7 +1945,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h4 id='http-request-5'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/deposit_address?currency={currency_id}</code></p>
 <h3 id='6744ad4c7a-5'>Параметры</h3>
 <table><thead>
@@ -1955,7 +1979,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h4 id='http-request-6'>HTTP Request</h4>
 <p><code>POST https://garantex.io/api/v2/deposit_address</code></p>
 <h3 id='6744ad4c7a-6'>Параметры</h3>
 <table><thead>
@@ -1993,7 +2017,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h4 id='http-request-7'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/deposit_address/details</code></p>
 <h3 id='6744ad4c7a-7'>Параметры</h3>
 <table><thead>
@@ -2038,7 +2062,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>withdraw</strong></li>
 </ul>
-<h3 id='http-request'>HTTP Request</h3>
+<h4 id='http-request'>HTTP Request</h4>
 <p><code>POST https://garantex.io/api/v2/depositcodes/create</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
@@ -2080,7 +2104,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h4 id='http-request-2'>HTTP Request</h4>
 <p><code>POST https://garantex.io/api/v2/depositcodes/redeem</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
@@ -2363,15 +2387,19 @@
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests - Вы привысили допустимую частоту запросов.</td>
+<td>Too Many Requests - вы превысили допустимую частоту запросов.</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error - We had a problem with our server. Try again later.</td>
+<td>Internal Server Error - внутренняя ошибка сервера.</td>
+</tr>
+<tr>
+<td>502</td>
+<td>Bad Gateway - внутренняя ошибка сервера, попробуйте повторить запрос позже.</td>
 </tr>
 <tr>
 <td>503</td>
-<td>Service Unavailable - We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>Service Unavailable - внутренняя ошибка сервера, попробуйте повторить запрос позже.</td>
 </tr>
 </tbody></table>
 
@@ -2382,6 +2410,7 @@
                 <a href="#" data-language-name="ruby">Ruby</a>
                 <a href="#" data-language-name="php">PHP</a>
                 <a href="#" data-language-name="javascript">NodeJS</a>
+                <a href="#" data-language-name="python">Python</a>
           </div>
       </div>
     </div>
