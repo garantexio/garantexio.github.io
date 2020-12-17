@@ -8,7 +8,8 @@
 <p>Есть группа запросов для которых установлены более жёсткие ограничения:</p>
 
 <ul>
-<li><code>POST /api/v2/order</code></li>
+<li><code>POST /api/v2/orders</code></li>
+<li><code>POST /api/v2/orders/clear</code></li>
 <li><code>POST /api/v2/withdraws/create</code></li>
 <li><code>POST /api/v2/depositcodes</code></li>
 </ul>
