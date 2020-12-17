@@ -49,7 +49,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request'>HTTP Request</h3>
+<h4 id='http-request'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/deposits</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
@@ -106,7 +106,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h4 id='http-request-2'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/deposit/{deposit_id}</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
@@ -153,7 +153,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h4 id='http-request-3'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/deposit?txid={txid}</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
@@ -197,7 +197,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h4 id='http-request-4'>HTTP Request</h4>
 <p><code>POST https://garantex.io/api/v2/deposits/create</code></p>
 <h3 id='6744ad4c7a-4'>Параметры</h3>
 <table><thead>
@@ -251,7 +251,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h4 id='http-request-5'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/deposit_address?currency={currency_id}</code></p>
 <h3 id='6744ad4c7a-5'>Параметры</h3>
 <table><thead>
@@ -285,7 +285,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h4 id='http-request-6'>HTTP Request</h4>
 <p><code>POST https://garantex.io/api/v2/deposit_address</code></p>
 <h3 id='6744ad4c7a-6'>Параметры</h3>
 <table><thead>
@@ -323,7 +323,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h4 id='http-request-7'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/deposit_address/details</code></p>
 <h3 id='6744ad4c7a-7'>Параметры</h3>
 <table><thead>

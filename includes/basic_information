@@ -62,7 +62,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h4 id='http-request-2'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/currencies</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
@@ -94,7 +94,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h4 id='http-request-3'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/timestamp</code></p>
 <h2 id='95ddcebbec'>Комиссии на вывод крипты</h2>
 <blockquote>
@@ -140,7 +140,7 @@
 <ul>
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h4 id='http-request-4'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/fees/withdraw/coin</code></p>
 <h3 id='bd6108841b'>Возвращаемые значения</h3>
 <p>Для некоторых валют могут использоваться разные способы отправки, в зависимости от размера вывода, с разными комиссиями, и тогда массив <strong>fee</strong> будет содержать больше одного элемента, с разными значениями <strong>type</strong>.

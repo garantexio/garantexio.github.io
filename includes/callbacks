@@ -58,7 +58,10 @@
 <li>депозиты
 
 <ul>
+<li><strong>submitted</strong>: создан</li>
 <li><strong>accepted</strong>: зачислен</li>
+<li><strong>rejected</strong>: отменён</li>
+<li><strong>suspected</strong>: заблокирован службой безопасности</li>
 </ul></li>
 <li>выводы
 
@@ -68,6 +71,7 @@
 <li><strong>confirming</strong>: подтверждается в блокчейне</li>
 <li><strong>failed</strong>: не удался</li>
 <li><strong>rejected</strong>: отменён</li>
+<li><strong>suspected</strong>: отменён службой безопасности</li>
 </ul></li>
 </ul>
 
