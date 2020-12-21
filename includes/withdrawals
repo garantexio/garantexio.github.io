@@ -71,6 +71,23 @@
 <p>Обратите внимание, поля в возвращаемом списке различаются для фиатных и крипто выводов!</p>
 
 <p>Для крипты добавляются поля <strong>txid</strong>, <strong>block_number</strong> и <strong>confirmations</strong>.</p>
+
+<p>Поле <strong>state</strong> может принимать следующие значения:</p>
+
+<ul>
+<li><strong>submitted</strong>: вывод запрошен</li>
+<li><strong>canceled</strong>: вывод отменен</li>
+<li><strong>accepted</strong>: вывод принят</li>
+<li><strong>suspected</strong>: вывод отмечен как подозрительный</li>
+<li><strong>rejected</strong>: вывод отклонен</li>
+<li><strong>processing</strong>: вывод обрабатывается</li>
+<li><strong>pending</strong>: вывод обрабатывается</li>
+<li><strong>queued</strong>: вывод обрабатывается</li>
+<li><strong>succeed</strong>: вывод успешен</li>
+<li><strong>failed</strong>: вывод не удался</li>
+<li><strong>toinspect</strong>: вывод помечен для перепроверки</li>
+<li><strong>confirming</strong>: вывод подтвержден</li>
+</ul>
 <h2 id='f0e3b97934'>Создание заявки на вывод</h2>
 <blockquote>
 <p>Создать заявку на вывод средств</p>
