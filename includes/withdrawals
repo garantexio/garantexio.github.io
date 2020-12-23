@@ -75,18 +75,19 @@
 <p>Поле <strong>state</strong> может принимать следующие значения:</p>
 
 <ul>
-<li><strong>submitted</strong>: вывод запрошен</li>
-<li><strong>canceled</strong>: вывод отменен</li>
-<li><strong>accepted</strong>: вывод принят</li>
-<li><strong>suspected</strong>: вывод отмечен как подозрительный</li>
-<li><strong>rejected</strong>: вывод отклонен</li>
-<li><strong>processing</strong>: вывод обрабатывается</li>
-<li><strong>pending</strong>: вывод обрабатывается</li>
-<li><strong>queued</strong>: вывод обрабатывается</li>
-<li><strong>succeed</strong>: вывод успешен</li>
-<li><strong>failed</strong>: вывод не удался</li>
-<li><strong>toinspect</strong>: вывод помечен для перепроверки</li>
-<li><strong>confirming</strong>: вывод подтвержден</li>
+<li><strong>submitted</strong>: создан</li>
+<li><strong>canceled</strong>: отменен</li>
+<li><strong>accepted</strong>: принят к обработке</li>
+<li><strong>suspected</strong>: отменён службой безопасности как подозретельный</li>
+<li><strong>rejected</strong>: не удался</li>
+<li><strong>processing</strong>: обрабатывается</li>
+<li><strong>pending</strong>: обрабатывается</li>
+<li><strong>queued</strong>: обрабатывается</li>
+<li><strong>succeed</strong>: успешно завершён</li>
+<li><strong>failed</strong>: не удался</li>
+<li><strong>toinspect</strong>: на ручной проверке</li>
+<li><strong>confirming</strong>: подтверждение в блокчейне</li>
+<li><strong>fraudulent</strong>: мошеннический, заблокирован службой безопасности</li>
 </ul>
 <h2 id='f0e3b97934'>Создание заявки на вывод</h2>
 <blockquote>
