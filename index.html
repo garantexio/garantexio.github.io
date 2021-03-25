@@ -293,7 +293,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+      <img src="images/logo-7d8cd5a1.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">cURL</a>
               <a href="#" data-language-name="ruby">Ruby</a>
@@ -450,6 +450,9 @@
           <li>
             <a href="#681b5ae3d2" class="toc-h1 toc-link" data-title="Ошибки">Ошибки</a>
           </li>
+          <li>
+            <a href="#bad9669b03" class="toc-h1 toc-link" data-title="Инструкции">Инструкции</a>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://garantex.io/'>Создать аккаунт</a></li>
@@ -511,7 +514,7 @@
 <span class="nb">require</span> <span class="s1">'net/https'</span>
 
 
-<span class="n">host</span> <span class="o">=</span> <span class="s1">'stage.garantex.biz'</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s1">'garantex.io'</span> <span class="c1"># для тестового сервера используйте stage.garantex.biz</span>
 <span class="n">private_key</span> <span class="o">=</span> <span class="s1">'{приватный ключ, полученный на этапе создания API ключей}'</span>
 <span class="n">uid</span> <span class="o">=</span> <span class="s1">'{UID, полученный на этапе создания API ключей}'</span>
 
@@ -525,7 +528,7 @@
 <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"https://dauth.</span><span class="si">#{</span><span class="n">host</span><span class="si">}</span><span class="s2">/api/v1/sessions/generate_jwt"</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">scheme</span> <span class="o">==</span> <span class="s1">'https'</span><span class="p">)</span>
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">path</span><span class="p">,</span> <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">)</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">kid: </span><span class="n">uid</span><span class="p">,</span> <span class="ss">jwt_token: </span><span class="n">jwt_token</span> <span class="p">}.</span><span class="nf">to_json</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">start</span> <span class="p">{</span><span class="o">|</span><span class="n">h</span><span class="o">|</span> <span class="n">h</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)}</span>
@@ -534,39 +537,42 @@
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="c1">// composer require lcobucci/jwt</span>
 
+<span class="c1">// require __DIR__ . '/vendor/autoload.php';</span>
 <span class="kn">use</span> <span class="nn">Lcobucci\JWT\Builder</span><span class="p">;</span>
 <span class="kn">use</span> <span class="nn">Lcobucci\JWT\Signer\Key</span><span class="p">;</span>
 <span class="kn">use</span> <span class="nn">Lcobucci\JWT\Signer\Rsa\Sha256</span><span class="p">;</span>
 
-<span class="nv">$host</span> <span class="o">=</span> <span class="s1">'garantex.io'</span><span class="p">;</span>
+<span class="nv">$host</span> <span class="o">=</span> <span class="s1">'garantex.io'</span><span class="p">;</span> <span class="c1">// для тестового сервера используйте stage.garantex.biz</span>
 <span class="nv">$private_key</span> <span class="o">=</span> <span class="s1">'{приватный ключ, полученный на этапе создания API ключей}'</span><span class="p">;</span>
 <span class="nv">$uid</span> <span class="o">=</span> <span class="s1">'{UID, полученный на этапе создания API ключей}'</span><span class="p">;</span>
 
-<span class="nv">$time</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span>
-<span class="nv">$signer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sha256</span><span class="p">();</span>
+<span class="nv">$time</span>       <span class="o">=</span> <span class="nb">time</span><span class="p">();</span>
+<span class="nv">$signer</span>     <span class="o">=</span> <span class="k">new</span> <span class="nx">Sha256</span><span class="p">();</span>
 <span class="nv">$privateKey</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Key</span><span class="p">(</span><span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$private_key</span><span class="p">,</span> <span class="kc">true</span><span class="p">));</span>
-<span class="nv">$token</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">())</span><span class="o">-&gt;</span><span class="na">identifiedBy</span><span class="p">(</span><span class="nb">bin2hex</span><span class="p">(</span><span class="nb">random_bytes</span><span class="p">(</span><span class="mi">12</span><span class="p">)))</span>
-                        <span class="o">-&gt;</span><span class="na">expiresAt</span><span class="p">(</span><span class="nv">$time</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">)</span> <span class="c1">// JWT Request TTL in seconds since epoch</span>
-                        <span class="o">-&gt;</span><span class="na">getToken</span><span class="p">(</span><span class="nv">$signer</span><span class="p">,</span>  <span class="nv">$privateKey</span><span class="p">);</span>
+<span class="nv">$token</span>      <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">())</span><span class="o">-&gt;</span><span class="na">identifiedBy</span><span class="p">(</span><span class="nb">bin2hex</span><span class="p">(</span><span class="nb">random_bytes</span><span class="p">(</span><span class="mi">12</span><span class="p">)))</span>
+                             <span class="o">-&gt;</span><span class="na">expiresAt</span><span class="p">(</span><span class="nv">$time</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">)</span> <span class="c1">// JWT Request TTL in seconds since epoch</span>
+                             <span class="o">-&gt;</span><span class="na">getToken</span><span class="p">(</span><span class="nv">$signer</span><span class="p">,</span> <span class="nv">$privateKey</span><span class="p">);</span>
 
-<span class="nv">$post_data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'kid'</span> <span class="o">=&gt;</span> <span class="nv">$uid</span><span class="p">,</span> <span class="s1">'jwt_token'</span> <span class="o">=&gt;</span> <span class="nb">strval</span><span class="p">(</span><span class="nv">$token</span><span class="p">));</span>
+<span class="nv">$post_data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'kid'</span> <span class="o">=&gt;</span> <span class="nv">$uid</span><span class="p">,</span> <span class="s1">'jwt_token'</span> <span class="o">=&gt;</span> <span class="nb">strval</span><span class="p">(</span><span class="nv">$token</span><span class="p">)];</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="s2">"https://dauth.</span><span class="nv">$host</span><span class="s2">/api/v1/sessions/generate_jwt"</span><span class="p">);</span>
 
-<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-    <span class="nx">CURLOPT_POST</span> <span class="o">=&gt;</span> <span class="kc">TRUE</span><span class="p">,</span>
-    <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">TRUE</span><span class="p">,</span>
-    <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Content-Type: application/json'</span><span class="p">),</span>
-    <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$post_data</span><span class="p">)</span>
-<span class="p">));</span>
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="p">[</span>
+    <span class="nx">CURLOPT_POST</span>           <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">CURLOPT_HTTPHEADER</span>     <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'Content-Type: application/json'</span><span class="p">],</span>
+    <span class="nx">CURLOPT_POSTFIELDS</span>     <span class="o">=&gt;</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$post_data</span><span class="p">)</span>
+<span class="p">]);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="nv">$response</span> <span class="o">===</span> <span class="kc">FALSE</span><span class="p">)</span>
-    <span class="k">die</span><span class="p">(</span><span class="nb">curl_error</span><span class="p">(</span><span class="nv">$ch</span><span class="p">));</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">curl_getinfo</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLINFO_HTTP_CODE</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="k">die</span><span class="p">(</span><span class="s1">'Server error: '</span> <span class="o">.</span> <span class="nv">$response</span><span class="p">);</span>
 
-<span class="nv">$data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">);</span>
-<span class="nv">$token</span> <span class="o">=</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">'token'</span><span class="p">];</span>
+<span class="nv">$token_data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">([</span><span class="s1">'$token_data'</span> <span class="o">=&gt;</span> <span class="nv">$token_data</span><span class="p">]);</span>
+<span class="nv">$token</span> <span class="o">=</span> <span class="nv">$token_data</span><span class="p">[</span><span class="s1">'token'</span><span class="p">];</span>
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Модули</span>
 <span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">axios</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// npm i axios</span>
@@ -574,7 +580,7 @@
 <span class="kd">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">crypto</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// Константы</span>
-<span class="kd">const</span> <span class="nx">host</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">garantex.io</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">host</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">garantex.io</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// для тестового сервера используйте stage.garantex.biz</span>
 <span class="kd">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">***</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// приватный ключ, полученный на этапе создания API ключей</span>
 <span class="kd">const</span> <span class="nx">uid</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">***</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// UID, полученный на этапе создания API ключей</span>
 
@@ -619,6 +625,41 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">})();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="c1"># requirements:
+# pip3 install 'pyjwt[crypto]'
+</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">jwt</span>
+
+<span class="n">private_key</span> <span class="o">=</span> <span class="s">'{приватный ключ, полученный на этапе создания API ключей}'</span>
+<span class="n">uid</span> <span class="o">=</span> <span class="s">'{UID, полученный на этапе создания API ключей}'</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s">'garantex.io'</span> <span class="c1"># для тестового сервера используйте stage.garantex.biz
+</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">private_key</span><span class="p">)</span>
+<span class="n">iat</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">().</span><span class="n">timetuple</span><span class="p">()))</span>
+
+<span class="n">claims</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"exp"</span><span class="p">:</span> <span class="n">iat</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span> <span class="c1"># JWT Request TTL in seconds since epoch
+</span>    <span class="s">"jti"</span><span class="p">:</span> <span class="nb">hex</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">getrandbits</span><span class="p">(</span><span class="mi">12</span><span class="p">)).</span><span class="n">upper</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">jwt_token</span> <span class="o">=</span> <span class="n">jwt</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">claims</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s">"RS256"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"JWT request token: %s</span><span class="se">\n</span><span class="s">"</span> <span class="o">%</span> <span class="n">jwt_token</span><span class="p">)</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://dauth.'</span> <span class="o">+</span> <span class="n">host</span> <span class="o">+</span> <span class="s">'/api/v1/sessions/generate_jwt'</span><span class="p">,</span>
+                    <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s">'kid'</span><span class="p">:</span> <span class="n">uid</span><span class="p">,</span> <span class="s">'jwt_token'</span><span class="p">:</span> <span class="n">jwt_token</span><span class="p">})</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"JWT response code: %d"</span> <span class="o">%</span> <span class="n">ret</span><span class="p">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"JWY response text: %s</span><span class="se">\n</span><span class="s">"</span> <span class="o">%</span> <span class="n">ret</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">token</span> <span class="o">=</span> <span class="n">ret</span><span class="p">.</span><span class="n">json</span><span class="p">().</span><span class="n">get</span><span class="p">(</span><span class="s">'token'</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"JWT token: %s</span><span class="se">\n</span><span class="s">"</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>Не забудьте заменить private_key и uid на значения полученные при создании API ключей!</p>
@@ -661,22 +702,20 @@
 </aside>
 <h2 id='ce7d35ddc5'>Авторизация запросов</h2>
 <blockquote>
-<p>Пример GET-запроса:<br>
-{JWT} - токен, полученный на предыдущем шаге<br>
-{market} - идентификатор рынка, например btcrub</p>
+<p>Пример GET-запроса (запрос информации об аккаунте):<br>
+{JWT} - токен, полученный на предыдущем шаге</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/trades?market={market}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/members/me'</span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'net/https'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
 
-
-<span class="n">host</span> <span class="o">=</span> <span class="s1">'stage.garantex.biz'</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s1">'garantex.io'</span> <span class="c1"># для тестового сервера используйте stage.garantex.biz</span>
 <span class="n">token</span> <span class="o">=</span> <span class="s1">'{JWT}'</span>
-<span class="n">market</span> <span class="o">=</span> <span class="s1">'{market}'</span>
 <span class="n">custom_headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s2">"Bearer </span><span class="si">#{</span><span class="n">token</span><span class="si">}</span><span class="s2">"</span><span class="p">}</span>
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"https://</span><span class="si">#{</span><span class="n">host</span><span class="si">}</span><span class="s2">/api/v2/trades?market=</span><span class="si">#{</span><span class="n">market</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"https://</span><span class="si">#{</span><span class="n">host</span><span class="si">}</span><span class="s2">/api/v2/members/me"</span><span class="p">)</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">start</span> <span class="n">uri</span><span class="p">.</span><span class="nf">hostname</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">,</span> <span class="ss">:use_ssl</span> <span class="o">=&gt;</span> <span class="n">uri</span><span class="p">.</span><span class="nf">scheme</span> <span class="o">==</span> <span class="s1">'https'</span> <span class="k">do</span> <span class="o">|</span><span class="n">http</span><span class="o">|</span>
+<span class="n">response</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">start</span> <span class="n">uri</span><span class="p">.</span><span class="nf">hostname</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">,</span> <span class="ss">use_ssl: </span><span class="kp">true</span> <span class="k">do</span> <span class="o">|</span><span class="n">http</span><span class="o">|</span>
   <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span> <span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span>
   <span class="n">custom_headers</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">request</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span> <span class="p">}</span>
   <span class="n">http</span><span class="p">.</span><span class="nf">request</span> <span class="n">request</span>
@@ -686,29 +725,43 @@
 <span class="k">return</span> <span class="kp">nil</span> <span class="k">unless</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTPOK</span> <span class="o">===</span> <span class="n">response</span> <span class="c1"># HTTP error with code</span>
 <span class="k">return</span> <span class="kp">nil</span> <span class="k">unless</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span> <span class="c1"># Response is empty</span>
 
-<span class="n">trades_data</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
+<span class="n">account_info</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
-<span class="nv">$host</span> <span class="o">=</span> <span class="s1">'stage.garantex.biz'</span><span class="p">;</span>
-<span class="nv">$token</span> <span class="o">=</span> <span class="s1">'{JWT}'</span><span class="p">;</span>
-<span class="nv">$market</span> <span class="o">=</span> <span class="s1">'{market}'</span><span class="p">;</span>
+<span class="nv">$host</span>   <span class="o">=</span> <span class="s1">'garantex.io'</span><span class="p">;</span> <span class="c1">// для тестового сервера используйте stage.garantex.biz</span>
+<span class="nv">$token</span>  <span class="o">=</span> <span class="s1">'{JWT}'</span><span class="p">;</span>
 
-<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="s1">'https://'</span> <span class="o">.</span> <span class="nv">$host</span> <span class="o">.</span> <span class="s1">'/api/v2/members/me'</span><span class="p">);</span>
 
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$host</span><span class="o">.</span><span class="s1">'/api/v2/trades?'</span><span class="o">.</span><span class="nb">http_build_query</span><span class="p">([</span><span class="s1">'market'</span> <span class="o">=&gt;</span> <span class="nv">$market</span><span class="p">]));</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Authorization: Bearer '</span><span class="o">.</span><span class="nv">$token</span><span class="p">]);</span>
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="p">[</span>
+    <span class="nx">CURLOPT_HTTPHEADER</span>     <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'Authorization: Bearer '</span> <span class="o">.</span> <span class="nv">$token</span><span class="p">],</span>
+    <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">]);</span>
 
-<span class="nv">$result</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="nb">curl_errno</span><span class="p">(</span><span class="nv">$ch</span><span class="p">))</span> 
-    <span class="k">echo</span> <span class="s1">'Curl error: '</span><span class="o">.</span><span class="nb">curl_error</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
-<span class="k">else</span>
-    <span class="nv">$trades_data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">curl_getinfo</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLINFO_HTTP_CODE</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="k">die</span><span class="p">(</span><span class="s1">'Server error: '</span> <span class="o">.</span> <span class="nv">$response</span><span class="p">);</span>
 
+<span class="nv">$account_info</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">([</span><span class="s1">'$account_info'</span> <span class="o">=&gt;</span> <span class="nv">$account_info</span><span class="p">]);</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">host</span>   <span class="o">=</span> <span class="s">'garantex.io'</span> <span class="o">//</span> <span class="n">для</span> <span class="n">тестового</span> <span class="n">сервера</span> <span class="n">используйте</span> <span class="n">stage</span><span class="p">.</span><span class="n">garantex</span><span class="p">.</span><span class="n">biz</span>
+<span class="n">token</span>  <span class="o">=</span> <span class="s">'{JWT}'</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://'</span> <span class="o">+</span> <span class="n">host</span> <span class="o">+</span> <span class="s">'/api/v2/members/me'</span><span class="p">,</span>
+                   <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer '</span> <span class="o">+</span> <span class="n">token</span><span class="p">})</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Test request response code: %d"</span> <span class="o">%</span> <span class="n">ret</span><span class="p">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Test request response text: %s"</span> <span class="o">%</span> <span class="n">ret</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">ret</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre></div>
 <blockquote>
-<p>Пример POST-запроса:<br>
+<p>Пример POST-запроса (создание вывода в код Garantex):<br>
 {JWT} - токен, полученный на предыдущем шаге<br>
 {currency} - код фиатной валюты, например rub<br>
 {amount} - сумма вывода, например 10000</p>
@@ -716,49 +769,67 @@
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'currency={currency}&amp;amount={amount}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/depositcodes/create'</span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'net/https'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
 
+<span class="n">host</span> <span class="o">=</span> <span class="s1">'garantex.io'</span> <span class="o">/</span><span class="sr">/ для тестового сервера используйте stage.garantex.biz
+token = '{JWT}'
+currency = '{currency}'
+amount = '{amount}'
+custom_headers = {'Authorization' =&gt; "Bearer </span><span class="si">#{</span><span class="n">token</span><span class="si">}</span><span class="sr">"}
+uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/api/v2/depositcodes/create")</span>
 
-<span class="n">host</span> <span class="o">=</span> <span class="s1">'stage.garantex.biz'</span>
-<span class="n">token</span> <span class="o">=</span> <span class="s1">'{JWT}'</span>
-<span class="n">currency</span> <span class="o">=</span> <span class="s1">'{currency}'</span>
-<span class="n">amount</span> <span class="o">=</span> <span class="s1">'{amount}'</span>
-<span class="n">custom_headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s2">"Bearer </span><span class="si">#{</span><span class="n">token</span><span class="si">}</span><span class="s2">"</span><span class="p">}</span>
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"https://</span><span class="si">#{</span><span class="n">host</span><span class="si">}</span><span class="s2">/api/v2/depositcodes/create"</span><span class="p">)</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">start</span> <span class="n">uri</span><span class="p">.</span><span class="nf">hostname</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">,</span> <span class="ss">:use_ssl</span> <span class="o">=&gt;</span> <span class="n">uri</span><span class="p">.</span><span class="nf">scheme</span> <span class="o">==</span> <span class="s1">'https'</span> <span class="k">do</span> <span class="o">|</span><span class="n">http</span><span class="o">|</span>
+<span class="n">response</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">start</span> <span class="n">uri</span><span class="p">.</span><span class="nf">hostname</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">,</span> <span class="ss">use_ssl: </span><span class="kp">true</span> <span class="k">do</span> <span class="o">|</span><span class="n">http</span><span class="o">|</span>
   <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span> <span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span>
   <span class="n">custom_headers</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">request</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span> <span class="p">}</span>
-  <span class="n">request</span><span class="p">.</span><span class="nf">set_form_data</span><span class="p">({</span><span class="ss">currency: </span><span class="n">currency</span><span class="p">,</span> <span class="ss">amount: </span><span class="n">amount</span><span class="p">})</span>
+  <span class="n">request</span><span class="p">.</span><span class="nf">set_form_data</span><span class="p">({</span> <span class="ss">currency: </span><span class="n">currency</span><span class="p">,</span> <span class="ss">amount: </span><span class="n">amount</span> <span class="p">})</span>
   <span class="n">http</span><span class="p">.</span><span class="nf">request</span> <span class="n">request</span>
 <span class="k">end</span>
 
 <span class="k">return</span> <span class="kp">nil</span> <span class="k">unless</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTPResponse</span> <span class="o">===</span> <span class="n">response</span> <span class="c1"># Error occured</span>
-<span class="k">return</span> <span class="kp">nil</span> <span class="k">unless</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTPOK</span> <span class="o">===</span> <span class="n">response</span> <span class="c1"># HTTP error with code</span>
+<span class="k">return</span> <span class="kp">nil</span> <span class="k">unless</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTPCreated</span> <span class="o">===</span> <span class="n">response</span> <span class="c1"># HTTP error with code</span>
 <span class="k">return</span> <span class="kp">nil</span> <span class="k">unless</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span> <span class="c1"># Response is empty</span>
 
 <span class="n">depositcode_data</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
-<span class="nv">$host</span> <span class="o">=</span> <span class="s1">'stage.garantex.biz'</span><span class="p">;</span>
+<span class="nv">$host</span> <span class="o">=</span> <span class="s1">'garantex.io'</span><span class="p">;</span> <span class="c1">// для тестового сервера используйте stage.garantex.biz</span>
 <span class="nv">$token</span> <span class="o">=</span> <span class="s1">'{JWT}'</span><span class="p">;</span>
 <span class="nv">$currency</span> <span class="o">=</span> <span class="s1">'{currency}'</span><span class="p">;</span>
 <span class="nv">$amount</span> <span class="o">=</span> <span class="s1">'{amount}'</span><span class="p">;</span>
 
-<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="s1">'https://'</span> <span class="o">.</span> <span class="nv">$host</span> <span class="o">.</span> <span class="s1">'/api/v2/depositcodes/create'</span><span class="p">);</span>
 
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$host</span><span class="o">.</span><span class="s1">'/api/v2/depositcodes/create'</span><span class="p">);</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Authorization: Bearer '</span><span class="o">.</span><span class="nv">$token</span><span class="p">]);</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span> 
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="p">[</span><span class="s1">'currency'</span> <span class="o">=&gt;</span> <span class="nv">$currency</span><span class="p">,</span> <span class="s1">'amount'</span> <span class="o">=&gt;</span> <span class="nv">$amount</span><span class="p">]);</span> 
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="p">[</span>
+    <span class="nx">CURLOPT_HTTPHEADER</span>     <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'Authorization: Bearer '</span> <span class="o">.</span> <span class="nv">$token</span><span class="p">],</span>
+    <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">CURLOPT_POST</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'currency'</span> <span class="o">=&gt;</span> <span class="nv">$currency</span><span class="p">,</span> <span class="s1">'amount'</span> <span class="o">=&gt;</span> <span class="nv">$amount</span><span class="p">],</span>
+<span class="p">]);</span>
 
-<span class="nv">$result</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="nb">curl_errno</span><span class="p">(</span><span class="nv">$ch</span><span class="p">))</span> 
-    <span class="k">echo</span> <span class="s1">'Curl error: '</span><span class="o">.</span><span class="nb">curl_error</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
-<span class="k">else</span>
-    <span class="nv">$depositcode_data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">curl_getinfo</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLINFO_HTTP_CODE</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">201</span><span class="p">)</span>
+    <span class="k">die</span><span class="p">(</span><span class="s1">'Server error: '</span> <span class="o">.</span> <span class="nv">$response</span><span class="p">);</span>
 
+<span class="nv">$depositcode_data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">([</span><span class="s1">'$depositcode_data'</span> <span class="o">=&gt;</span> <span class="nv">$depositcode_data</span><span class="p">]);</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">host</span>     <span class="o">=</span> <span class="s">'garantex.io'</span> <span class="o">//</span> <span class="n">для</span> <span class="n">тестового</span> <span class="n">сервера</span> <span class="n">используйте</span> <span class="n">stage</span><span class="p">.</span><span class="n">garantex</span><span class="p">.</span><span class="n">biz</span>
+<span class="n">token</span>    <span class="o">=</span> <span class="s">'{JWT}'</span>
+<span class="n">currency</span> <span class="o">=</span> <span class="s">'{currency}'</span>
+<span class="n">amount</span>   <span class="o">=</span> <span class="s">'{amount}'</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://'</span> <span class="o">+</span> <span class="n">host</span> <span class="o">+</span> <span class="s">'/api/v2/depositcodes/create'</span><span class="p">,</span>
+                   <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer '</span> <span class="o">+</span> <span class="n">token</span><span class="p">},</span>
+                   <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'currency'</span><span class="p">:</span> <span class="n">currency</span><span class="p">,</span> <span class="s">'amount'</span><span class="p">:</span> <span class="n">amount</span><span class="p">})</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Test request response code: %d"</span> <span class="o">%</span> <span class="n">ret</span><span class="p">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Test request response text: %s"</span> <span class="o">%</span> <span class="n">ret</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">ret</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre></div>
 <p>Для запроса данных через API Garantex необходимо использовать <a href="https://tools.ietf.org/html/rfc6750#section-2.1">OAuth 2.0 Bearer аутентификацию</a>.</p>
 <h1 id='094c190314'>Лимиты</h1>
@@ -2420,6 +2491,10 @@
 <td>Service Unavailable - внутренняя ошибка сервера, попробуйте повторить запрос позже.</td>
 </tr>
 </tbody></table>
+<h1 id='bad9669b03'>Инструкции</h1>
+<ul>
+<li><a href='/files/premium_exchanger.pdf'>Настройка и подключение модуля Premium Exchanger</a></li>
+</ul>
 
       </div>
       <div class="dark-box">
