@@ -144,14 +144,14 @@
 <p><code>GET https://garantex.io/api/v2/fees/withdraw/coin</code></p>
 <h3 id='bd6108841b'>Возвращаемые значения</h3>
 <p>Для некоторых валют могут использоваться разные способы отправки, в зависимости от размера вывода, с разными комиссиями, и тогда массив <strong>fee</strong> будет содержать больше одного элемента, с разными значениями <strong>type</strong>.
-Максимальнаz сумма применимости комиссии будет указана в поле <strong>up_to</strong>.</p>
+Максимальная сумма применимости комиссии будет указана в поле <strong>up_to</strong>.</p>
 
 <p>Например для BTC есть тип отправки <strong>small_amount</strong>, для небольших сумм и с низкой комиссией, и <strong>fixed</strong>, для всего что больше максимального размера (<strong>up_to</strong>) для типа <strong>small_amount</strong>.</p>
 <h2 id='92dd9b64ca'>Способы пополнения и вывода фиата</h2>
 <blockquote>
 <p>Получить список направлений для депозита / вывода фиата</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/gateway_types?currency={currency_id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/gateway_types?currency={currency_id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>

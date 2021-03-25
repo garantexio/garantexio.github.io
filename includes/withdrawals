@@ -93,7 +93,7 @@
 <blockquote>
 <p>Создать заявку на вывод средств</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/withdraws/create?currency={currency_id}&amp;amount={amount}&amp;rid={address}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency={currency_id}&amp;amount={amount}&amp;rid={address}"</span> <span class="s2">"https://garantex.io/api/v2/withdraws/create"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа (вывод крипты):</p>
@@ -130,8 +130,7 @@
   </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Запрос возвращает список заявок на вывод с разбиением по страницам.
-Заявки выводятся отсортированные от новых к старым.</p>
+<p>Запрос для создания заявки на вывод крипты / фиата. Обратите внимание, набор параметров запроса для них различается!</p>
 
 <ul>
 <li>требуемый уровень доступа: <strong>withdraw</strong></li>
@@ -164,7 +163,7 @@
 <tr>
 <td><a href='#92dd9b64ca'>gateway_type_id</a></td>
 <td>зависит от валюты</td>
-<td>ID выбранного метода пополнения, необходимо для фиата.</td>
+<td>ID выбранного направления вывода, необходим для фиатных выводов.</td>
 </tr>
 <tr>
 <td><strong>data</strong></td>
@@ -173,6 +172,7 @@
 </tr>
 </tbody></table>
 <h3 id='bd6108841b-2'>Возвращаемые значения</h3>
-<p>Обратите внимание, поля в возвращаемом значении различаются для фиатных и крипто выводов!</p>
+<p>Информация о созданной заявке на вывод.</p>
 
-<p>Для крипты добавляются поля <strong>txid</strong>, <strong>block_number</strong> и <strong>confirmations</strong>, выставленные в нулевые значения.</p>
+<p>Обратите внимание, набор полей в возвращаемом значении различаются для фиатных и крипто выводов!
+Для крипты добавляются поля <strong>txid</strong>, <strong>block_number</strong> и <strong>confirmations</strong>, выставленные в нулевые значения.</p>
