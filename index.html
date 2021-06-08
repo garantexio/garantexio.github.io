@@ -441,6 +441,9 @@
                     <a href="#f8eb11b7d7" class="toc-h2 toc-link" data-title="История выводов">История выводов</a>
                   </li>
                   <li>
+                    <a href="#890f5dfe08" class="toc-h2 toc-link" data-title="Информация о выводе">Информация о выводе</a>
+                  </li>
+                  <li>
                     <a href="#f0e3b97934" class="toc-h2 toc-link" data-title="Создание заявки на вывод">Создание заявки на вывод</a>
                   </li>
               </ul>
@@ -921,6 +924,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li><code>POST /api/v2/orders/clear</code></li>
 <li><code>POST /api/v2/withdraws/create</code></li>
 <li><code>POST /api/v2/depositcodes</code></li>
+<li><code>POST /api/v2/deposit_address</code></li>
 </ul>
 
 <p>для них лимиты 10 запросов в минуту / 100 запросов в 15 минут / 300 запросов в час.</p>
@@ -1438,13 +1442,13 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 </thead><tbody>
 <tr>
 <td><strong>market</strong></td>
-<td>да</td>
+<td>нет</td>
 <td>ID рынка</td>
 </tr>
 <tr>
 <td><strong>limit</strong></td>
 <td>нет</td>
-<td>Количество записей в выборке, по умолчанию 50. Максимум - 1000</td>
+<td>Количество записей в выборке, по умолчанию 100. Максимум - 1000</td>
 </tr>
 <tr>
 <td><strong>timestamp</strong></td>
@@ -2357,6 +2361,54 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li><strong>confirming</strong>: подтверждение в блокчейне</li>
 <li><strong>fraudulent</strong>: мошеннический, заблокирован службой безопасности</li>
 </ul>
+<h2 id='890f5dfe08'>Информация о выводе</h2>
+<blockquote>
+<p>Получить детали вывода по withdraw id:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/withdraws/{withdraw_id}"</span>
+</code></pre></div>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0042"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14sWK1hUw3p3efBSqdC9yNSkynARmgF9zA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"succeed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234f116be697c6b014d15edd4aa648c399c71a3acec567a0f806751184500fc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">612345</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">194</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T20:16:48+03:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T20:43:11+03:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T20:43:11+03:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='id'>Получение детальной информации о выводе по id</h3>
+<ul>
+<li>требуемый уровень доступа: <strong>read-only</strong></li>
+</ul>
+<h4 id='http-request-2'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/withdraws/{withdraw_id}</code></p>
+<h3 id='6744ad4c7a-2'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>withdraw_id</strong></td>
+<td>да</td>
+<td>ID вывода полученное при его создании / из истории выводов</td>
+</tr>
+</tbody></table>
+<h3 id='bd6108841b-2'>Возвращаемые значения</h3>
+<p>Обратите внимание, поля в возвращаемом списке различаются для фиатных и крипто выводов!</p>
+
+<p>Для крипты добавляются поля <strong>txid</strong>, <strong>block_number</strong> и <strong>confirmations</strong>.</p>
 <h2 id='f0e3b97934'>Создание заявки на вывод</h2>
 <blockquote>
 <p>Создать заявку на вывод средств</p>
@@ -2403,9 +2455,9 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <ul>
 <li>требуемый уровень доступа: <strong>withdraw</strong></li>
 </ul>
-<h4 id='http-request-2'>HTTP Request</h4>
+<h4 id='http-request-3'>HTTP Request</h4>
 <p><code>POST https://garantex.io/api/v2/withdraws/create</code></p>
-<h3 id='6744ad4c7a-2'>Параметры</h3>
+<h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
 <th>Параметр</th>
@@ -2439,7 +2491,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>JSON поле с дополнительной информацией о выводе, необходимость и формат поля зависят от выбранного направления вывода.</td>
 </tr>
 </tbody></table>
-<h3 id='bd6108841b-2'>Возвращаемые значения</h3>
+<h3 id='bd6108841b-3'>Возвращаемые значения</h3>
 <p>Информация о созданной заявке на вывод.</p>
 
 <p>Обратите внимание, набор полей в возвращаемом значении различаются для фиатных и крипто выводов!

@@ -12,6 +12,7 @@
 <li><code>POST /api/v2/orders/clear</code></li>
 <li><code>POST /api/v2/withdraws/create</code></li>
 <li><code>POST /api/v2/depositcodes</code></li>
+<li><code>POST /api/v2/deposit_address</code></li>
 </ul>
 
 <p>для них лимиты 10 запросов в минуту / 100 запросов в 15 минут / 300 запросов в час.</p>

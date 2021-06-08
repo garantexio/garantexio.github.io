@@ -55,13 +55,13 @@
 </thead><tbody>
 <tr>
 <td><strong>market</strong></td>
-<td>да</td>
+<td>нет</td>
 <td>ID рынка</td>
 </tr>
 <tr>
 <td><strong>limit</strong></td>
 <td>нет</td>
-<td>Количество записей в выборке, по умолчанию 50. Максимум - 1000</td>
+<td>Количество записей в выборке, по умолчанию 100. Максимум - 1000</td>
 </tr>
 <tr>
 <td><strong>timestamp</strong></td>
