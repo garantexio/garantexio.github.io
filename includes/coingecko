@@ -1,0 +1,336 @@
+<h1 id='coingecko'>Coingecko</h1><h2 id='overview'>Overview</h2>
+<blockquote>
+<p>Example query</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/coingecko/pairs"</span>
+</code></pre></div>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ticker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_ETH"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The /pairs endpoint provides a summary on cryptoasset trading pairs available on the exchange. For example, for Bitcoin (BTC):</p>
+
+<ul>
+<li>Minimum access level: <strong>public</strong></li>
+</ul>
+<h4 id='http-request'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/coingecko/pairs</code></p>
+<h3 id='response-descriptions'>Response descriptions</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Category</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>ticker_id</strong></td>
+<td>Mandatory</td>
+<td>Identifier of a ticker with delimiter to separate base/target, eg. BTC_ETH</td>
+</tr>
+<tr>
+<td><strong>base</strong></td>
+<td>Mandatory</td>
+<td>Symbol/currency code of a the base cryptoasset, eg. BTC</td>
+</tr>
+<tr>
+<td><strong>target</strong></td>
+<td>Mandatory</td>
+<td>Symbol/currency code of the target cryptoasset, eg. ETH</td>
+</tr>
+</tbody></table>
+<h2 id='market-info'>Market Info</h2>
+<blockquote>
+<p>Example query</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/coingecko/tickers"</span>
+</code></pre></div>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="nl">"ticker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_ETH"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"base_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"target_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_price"</span><span class="p">:</span><span class="s2">"50.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"base_volume"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"target_volume"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bid"</span><span class="p">:</span><span class="s2">"49.9"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ask"</span><span class="p">:</span><span class="s2">"50.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"high"</span><span class="p">:</span><span class="s2">"51.3"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"low"</span><span class="p">:</span><span class="s2">"49.2"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The /tickers endpoint provides 24-hour pricing and volume information on each market pair available on an exchange.</p>
+
+<ul>
+<li>Minimum access level: <strong>public</strong></li>
+</ul>
+<h4 id='http-request-2'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/coingecko/tickers</code></p>
+<h3 id='response-descriptions-2'>Response descriptions</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Category</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>ticker_id</strong></td>
+<td>Mandatory</td>
+<td>Identifier of a ticker with delimiter to separate base/target, eg. BTC_ETH</td>
+</tr>
+<tr>
+<td><strong>base_currency</strong></td>
+<td>Mandatory</td>
+<td>Symbol/currency code of base pair, eg. BTC</td>
+</tr>
+<tr>
+<td><strong>target_currency</strong></td>
+<td>Mandatory</td>
+<td>Symbol/currency code of target pair, eg. ETH</td>
+</tr>
+<tr>
+<td><strong>last_price</strong></td>
+<td>Mandatory</td>
+<td>Last transacted price of base currency based on given target currency</td>
+</tr>
+<tr>
+<td><strong>base_volume</strong></td>
+<td>Mandatory</td>
+<td>24 hour trading volume in base pair volume</td>
+</tr>
+<tr>
+<td><strong>target_volume</strong></td>
+<td>Mandatory</td>
+<td>24 hour trading volume in target pair volume</td>
+</tr>
+<tr>
+<td><strong>bid</strong></td>
+<td>Mandatory</td>
+<td>Current highest bid price</td>
+</tr>
+<tr>
+<td><strong>ask</strong></td>
+<td>Mandatory</td>
+<td>Current lowest ask price</td>
+</tr>
+<tr>
+<td><strong>high</strong></td>
+<td>Mandatory</td>
+<td>Rolling 24-hours highest transaction price</td>
+</tr>
+<tr>
+<td><strong>low</strong></td>
+<td>Mandatory</td>
+<td>Rolling 24-hours lowest transaction price</td>
+</tr>
+</tbody></table>
+<h2 id='order-book-depth-details'>Order book depth details</h2>
+<blockquote>
+<p>Example query</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/coingecko/orderbook?ticker_id=BTC_ETH&amp;depth=200"</span>
+</code></pre></div>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nl">"ticker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_ETH"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="s2">"1700050000"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"bids"</span><span class="p">:[</span><span class="w">  
+      </span><span class="p">[</span><span class="w">  
+         </span><span class="s2">"49.8"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"0.50000000"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="w">  
+         </span><span class="s2">"49.9"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"6.40000000"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"asks"</span><span class="p">:[</span><span class="w">  
+      </span><span class="p">[</span><span class="w">  
+         </span><span class="s2">"50.1"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"9.20000000"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="w">  
+         </span><span class="s2">"50.2"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"7.9000000"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The /orderbook/ticker_id endpoint is to provide order book information with at least depth = 100 (50 each side) returned for a given market pair/ticker.</p>
+
+<ul>
+<li>Minimum access level: <strong>public</strong></li>
+</ul>
+<h4 id='http-request-3'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/coingecko/orderbook</code></p>
+<h3 id='endpoint-parameters'>Endpoint parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Category</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>ticker_id</strong></td>
+<td>Mandatory</td>
+<td>A ticker such as &quot;BTC_ETH&quot;, with delimiter between different cryptoassets</td>
+</tr>
+<tr>
+<td><strong>depth</strong></td>
+<td>Recommended</td>
+<td>Orders depth quantity: [0, 100, 200, 500...]. 0 returns full depth. Depth = 100 means 50 for each bid/ask side. Note that for more liquid or closely priced pairs, the lack of order depth may result in miscalculation of depth/spread.</td>
+</tr>
+</tbody></table>
+<h3 id='response-descriptions-3'>Response descriptions</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Category</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>ticker_id</strong></td>
+<td>Mandatory</td>
+<td>A pair such as &quot;BTC_ETH&quot;, with delimiter between different cryptoassets</td>
+</tr>
+<tr>
+<td><strong>timestamp</strong></td>
+<td>Recommended</td>
+<td>Unix timestamp in milliseconds for when the last updated time occurred.</td>
+</tr>
+<tr>
+<td><strong>bids</strong></td>
+<td>Mandatory</td>
+<td>An array containing 2 elements. The offer price and quantity for each bid order</td>
+</tr>
+<tr>
+<td><strong>asks</strong></td>
+<td>Mandatory</td>
+<td>An array containing 2 elements. The ask price and quantity for each ask order</td>
+</tr>
+</tbody></table>
+<h2 id='historical-data'>Historical Data</h2>
+<blockquote>
+<p>Example query</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/coingecko/historical_trades?ticker_id=BTC_ETH&amp;limit=10"</span>
+</code></pre></div>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="s2">"buy"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="w">  
+    </span><span class="p">{</span><span class="w">        
+      </span><span class="nl">"trade_id"</span><span class="p">:</span><span class="mi">1234567</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"price"</span><span class="p">:</span><span class="s2">"50.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"base_volume"</span><span class="p">:</span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"target_volume"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"trade_timestamp"</span><span class="p">:</span><span class="s2">"1700050000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"buy"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"Sell"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">        
+      </span><span class="nl">"trade_id"</span><span class="p">:</span><span class="mi">1234567</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"price"</span><span class="p">:</span><span class="s2">"50.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"base_volume"</span><span class="p">:</span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"target_volume"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"trade_timestamp"</span><span class="p">:</span><span class="s2">"1700050000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"sell"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>The /historical_trades/ticker_id is used to return data on historical completed trades for a given market pair.</p>
+
+<ul>
+<li>Minimum access level: <strong>public</strong></li>
+</ul>
+<h4 id='http-request-4'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/coingecko/historical_trades</code></p>
+<h3 id='endpoint-parameters-2'>Endpoint parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Category</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>ticker_id</strong></td>
+<td>Mandatory</td>
+<td>A pair such as &quot;BTC_ETH&quot;, with delimiter between different cryptoassets</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td>Recommended</td>
+<td>To indicate nature of trade - buy/sell</td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>Recommended</td>
+<td>Number of historical trades to retrieve from time of query. [0, 200, 500...]. 0 returns full history.</td>
+</tr>
+<tr>
+<td><strong>start_time</strong></td>
+<td>Recommended</td>
+<td>Start time from which to query historical trades from</td>
+</tr>
+<tr>
+<td><strong>end_time</strong></td>
+<td>Recommended</td>
+<td>End time for historical trades query</td>
+</tr>
+</tbody></table>
+<h3 id='response-descriptions-4'>Response descriptions</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Category</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>trade_id</strong></td>
+<td>Mandatory</td>
+<td>A unique ID associated with the trade for the currency pair transaction. Note: Unix timestamp does not qualify as trade_id.</td>
+</tr>
+<tr>
+<td><strong>price</strong></td>
+<td>Mandatory</td>
+<td>Transaction price in base pair volume.</td>
+</tr>
+<tr>
+<td><strong>base_volume</strong></td>
+<td>Mandatory</td>
+<td>Transaction amount in base pair volume.</td>
+</tr>
+<tr>
+<td><strong>target_volume</strong></td>
+<td>Mandatory</td>
+<td>Transaction amount in target pair volume.</td>
+</tr>
+<tr>
+<td><strong>trade_timestamp</strong></td>
+<td>Mandatory</td>
+<td>Unix timestamp in milliseconds for when the transaction occurred.</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td>Mandatory</td>
+<td>Used to determine the type of the transaction that was completed. Buy – Identifies an ask that was removed from the order book. Sell – Identifies a bid that was removed from the order book.</td>
+</tr>
+</tbody></table>
