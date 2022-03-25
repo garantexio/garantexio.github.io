@@ -10,11 +10,19 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcrub"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/RUB"</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/RUB"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ask_unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bid_unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_ask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.0"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusd"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USD"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT/RUB"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ask_unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bid_unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_ask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.0"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
@@ -29,30 +37,30 @@
 <blockquote>
 <p>Получить список активных валют:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/currencies"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/currencies"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"฿"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"explorer_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.blockchain.com/btc/tx/#{txid}"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"explorer_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.blockchain.com/btc/address/#{address}"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"min_deposit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00005"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"withdraw_min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.001"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usd"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fiat"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_deposit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"withdraw_min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"explorer_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://etherscan.io/tx/#{txid}"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"explorer_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://etherscan.io/address/#{address}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"blockchain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ethereum"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"contract_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xdac17f958d2ee523a2206206994597c13d831ec7"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"min_deposit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"withdraw_min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.36"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"withdraw_min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.0"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -78,6 +86,48 @@
 <td>Ограничить вывод криптовалютами / фиатными валютами. Может принимать значения <strong>coin</strong> и <strong>fiat</strong>.</td>
 </tr>
 </tbody></table>
+<h2 id='b887de3d80'>Получить детали валюты</h2>
+<blockquote>
+<p>Получить детали валюты по ее id:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/currencies/{id}"</span>
+</code></pre></div>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"฿"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"explorer_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.blockchain.com/btc/tx/#{txid}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"explorer_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.blockchain.com/btc/address/#{address}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"blockchain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coin"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_deposit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0002"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"withdraw_min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Запрос для получения подробных свойств выбранной валюты.</p>
+
+<ul>
+<li>требуемый уровень доступа: <strong>публичный</strong></li>
+</ul>
+<h4 id='http-request-3'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/currencies/{id}</code></p>
+<h3 id='6744ad4c7a-2'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>да</td>
+<td>id выбранной валюты</td>
+</tr>
+</tbody></table>
 <h2 id='c80d7e8172'>Время</h2>
 <blockquote>
 <p>Получить текущий timestamp:</p>
@@ -94,9 +144,9 @@
 <ul>
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
-<h4 id='http-request-3'>HTTP Request</h4>
+<h4 id='http-request-4'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/timestamp</code></p>
-<h2 id='95ddcebbec'>Комиссии на вывод крипты</h2>
+<h2 id='897d03eacd'>Комиссии</h2><h3 id='95ddcebbec'>Комиссии на вывод крипты</h3>
 <blockquote>
 <p>Получить значение комиссий на вывод крипты</p>
 </blockquote>
@@ -140,18 +190,60 @@
 <ul>
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
-<h4 id='http-request-4'>HTTP Request</h4>
+<h4 id='http-request-5'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/fees/withdraw/coin</code></p>
 <h3 id='bd6108841b'>Возвращаемые значения</h3>
 <p>Для некоторых валют могут использоваться разные способы отправки, в зависимости от размера вывода, с разными комиссиями, и тогда массив <strong>fee</strong> будет содержать больше одного элемента, с разными значениями <strong>type</strong>.
 Максимальная сумма применимости комиссии будет указана в поле <strong>up_to</strong>.</p>
 
 <p>Например для BTC есть тип отправки <strong>small_amount</strong>, для небольших сумм и с низкой комиссией, и <strong>fixed</strong>, для всего что больше максимального размера (<strong>up_to</strong>) для типа <strong>small_amount</strong>.</p>
+<h3 id='1df1346a38'>Комиссии на торговлю</h3>
+<blockquote>
+<p>Получить значение комиссий на торговлю</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s1">'https://stage.garantex.biz/api/v2/fees/trading'</span>
+</code></pre></div>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcrub"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ask_fee"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market_maker_fee"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.001"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market_taker_fee"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.001"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"bid_fee"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market_maker_fee"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.001"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market_taker_fee"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.001"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>Запрос возвращает акутальные комиссии на вывод крипты.</p>
+
+<ul>
+<li>требуемый уровень доступа: <strong>публичный</strong></li>
+</ul>
+<h4 id='http-request-6'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/fees/trading</code></p>
 <h2 id='92dd9b64ca'>Способы пополнения и вывода фиата</h2>
 <blockquote>
 <p>Получить список направлений для депозита / вывода фиата</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/gateway_types?currency={currency_id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/gateway_types?currency={currency}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -192,9 +284,9 @@
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
-<h4 id='http-request-5'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/gateway_types</code></p>
-<h3 id='6744ad4c7a-2'>Параметры</h3>
+<h4 id='http-request-7'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/gateway_types?currency={currency}</code></p>
+<h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
 <th>Параметр</th>

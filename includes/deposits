@@ -62,17 +62,32 @@
 <tr>
 <td><strong>currency</strong></td>
 <td>нет</td>
-<td>Получить список депозитов только по указанной валюте</td>
-</tr>
-<tr>
-<td><strong>limit</strong></td>
-<td>нет</td>
-<td>Количество результатов в ответе, по умолчанию 50. Максимум - 500</td>
+<td>Код валюты, например <strong>aed</strong>,<strong>aff</strong>,<strong>btc</strong>,<strong>btc-bbtc</strong>,<strong>btc-bsc</strong>,<strong>dai</strong>,<strong>dai-bsc</strong>,<strong>eth</strong>,<strong>eth-bsc</strong>,<strong>rub</strong>,<strong>uah</strong>,<strong>usd</strong>,<strong>usdt</strong>,<strong>usdt-bsc</strong>,<strong>usdt-omni</strong>,<strong>usdt-tron</strong></td>
 </tr>
 <tr>
 <td><strong>state</strong></td>
 <td>нет</td>
-<td>Статус депозита: <ul><li>pending</li><li>canceled</li><li>submitted</li><li>accepted</li><li>rejected</li></ul></td>
+<td>Статус. Может быть <strong>submitted</strong>, <strong>rejected</strong>, <strong>accepted</strong>, <strong>suspected</strong>, <strong>processing</strong>, <strong>pending</strong>, <strong>succeed</strong>, <strong>canceled</strong>, <strong>confirming</strong>, <strong>fraudulent</strong></td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>нет</td>
+<td>Количество результатов в ответе, по умолчанию 250</td>
+</tr>
+<tr>
+<td><strong>offset</strong></td>
+<td>нет</td>
+<td>С какой записи по номеру начинать</td>
+</tr>
+<tr>
+<td><strong>start_time</strong></td>
+<td>нет</td>
+<td>С какой записи по времени создания начинать, по умолчанию - без ограничений</td>
+</tr>
+<tr>
+<td><strong>end_time</strong></td>
+<td>нет</td>
+<td>По какую запись возвращать результат. По умолчанию - текущий таймстэмп</td>
 </tr>
 </tbody></table>
 <h3 id='bd6108841b'>Возвращаемые значения</h3>
@@ -347,3 +362,95 @@
 <h3 id='9b6a512f8e'>Мульти-блокчейн валюты</h3>
 <p>Для валют которые используют больше чем один блокчейн, по умолчанию возвращается адрес для &quot;основного&quot; блокчейна.
 При необходимости получить адрес из другого блокчейна, он указывается через дефис, например usdt-omni.</p>
+
+<blockquote>
+<p>Получить детальную информации о конкретном депозит адресе</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address/{id}"</span>
+</code></pre></div>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6789</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"blockchain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3Qtj2uSv2AV7S86iTzJW1RwCoNKzGrJFyJ"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='0ec97bac14-2'>Получение детальной информации о конкретном депозит адресе</h3>
+<ul>
+<li>требуемый уровень доступа: <strong>read-only</strong></li>
+</ul>
+<h4 id='http-request-8'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/deposit_address/{id}</code></p>
+<h3 id='6744ad4c7a-8'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>да</td>
+<td>ID депозит адреса</td>
+</tr>
+</tbody></table>
+<h3 id='bd6108841b-6'>Возвращаемые значения</h3>
+<p>Обратите внимание, значение адреса в ответе может быть null! 
+Это нормальная ситуация, так как создание нового адреса занимает время, и в таком случае запрос необходимо повторить позже.</p>
+
+<p>Кроме того, в ответе будет указан не код валюты, но код блокчейна, так как адреса валидны для всех валют которые поддерживаются на этом блокчейне. </p>
+<h3 id='9b6a512f8e-2'>Мульти-блокчейн валюты</h3>
+<p>Для валют которые используют больше чем один блокчейн, по умолчанию возвращается адрес для &quot;основного&quot; блокчейна.
+При необходимости получить адрес из другого блокчейна, он указывается через дефис, например usdt-omni.</p>
+
+<blockquote>
+<p>Получить писок депозит-адресов:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address/list"</span>
+</code></pre></div>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2813</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3KVWYcm3Avkj8cDzmt2TAVYwGei48awQyY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"blockchain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-16T15:56:54.000+03:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19610</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"blockchain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-03-13T17:17:56.779+03:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h3 id='2a1dc429b6'>Получение списка всех депозит-адресов пользователя</h3>
+<p>Запрос позволяет получить все депозит-адреса авторизованного пользователя для определенной валюты или блокчейна. Обязательно указать только один из двух параметров.</p>
+
+<ul>
+<li>требуемый уровень доступа: <strong>read-only</strong></li>
+</ul>
+<h4 id='http-request-9'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/deposit_address/list</code></p>
+<h3 id='6744ad4c7a-9'>Параметры</h3>
+<table><thead>
+<tr>
+<th>Параметр</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>blockchain</strong></td>
+<td>1/2</td>
+<td>Код блокчейна, например <strong>btc</strong> или <strong>omni-usdt</strong> или <strong>ethereum</strong></td>
+</tr>
+<tr>
+<td><strong>currency</strong></td>
+<td>1/2</td>
+<td>Код валюты, например <strong>btc</strong> или <strong>DAI-BSC</strong> или <strong>usdt-tron</strong> (можно использовать верхний регистр)</td>
+</tr>
+</tbody></table>

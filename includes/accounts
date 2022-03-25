@@ -56,7 +56,7 @@
 <p><code>GET https://garantex.io/api/v2/accounts/{currency_id}</code></p>
 <h2 id='51aff18539'>Пользователь</h2><h3 id='556033cd19'>Получение информацию о текущем пользователе.</h3>
 <blockquote>
-<p>Получить информация о текущем пользователе:</p>
+<p>Получить информацию о текущем пользователе:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/me"</span>
 </code></pre></div>
@@ -66,21 +66,25 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"sn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SNXXXXXXXXXX"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@garantex.io"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"p2p_nickname"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.83001049"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"locked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="w">
+      </span><span class="nl">"locked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"allowed_withdraw_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rub"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91164.92"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"locked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"288570.5"</span><span class="w">
+      </span><span class="nl">"locked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"288570.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"allowed_withdraw_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7207469.72"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1989.85"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"locked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="w">
+      </span><span class="nl">"locked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"allowed_withdraw_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3348.49"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -92,3 +96,28 @@
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/members/me</code></p>
+<h3 id='258d17bc40'>Получение информации о доступах текущего пользователя.</h3>
+<blockquote>
+<p>Получить доступы текущего пользователя:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/api_key"</span>
+</code></pre></div>
+<blockquote>
+<p>Пример ответа:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89c134ad-04b7-4fab-bf2d-52831c023a1a"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1st key"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ip_restrictions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0.0/0,::/0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"trading_permitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"withdrawals_permitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"otc_permitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Запрос для получения информации о наличии у текущего пользователя прав на те или иные api операции</p>
+
+<ul>
+<li>требуемый уровень доступа: <strong>read-only</strong></li>
+</ul>
+<h4 id='http-request-4'>HTTP Request</h4>
+<p><code>GET https://garantex.io/api/v2/members/api_key</code></p>

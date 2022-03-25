@@ -54,17 +54,37 @@
 <tr>
 <td><strong>currency</strong></td>
 <td>нет</td>
-<td>Код валюты</td>
+<td>Код валюты, например <strong>aed</strong>,<strong>aff</strong>,<strong>btc</strong>,<strong>btc-bbtc</strong>,<strong>btc-bsc</strong>,<strong>dai</strong>,<strong>dai-bsc</strong>,<strong>eth</strong>,<strong>eth-bsc</strong>,<strong>rub</strong>,<strong>uah</strong>,<strong>usd</strong>,<strong>usdt</strong>,<strong>usdt-bsc</strong>,<strong>usdt-omni</strong>,<strong>usdt-tron</strong></td>
 </tr>
 <tr>
 <td><strong>page</strong></td>
 <td>нет</td>
-<td>Номер страницы, по умолчанию 1</td>
+<td>Номер страницы, по умолчанию 1 (deprecated)</td>
+</tr>
+<tr>
+<td><strong>state</strong></td>
+<td>нет</td>
+<td>Статус. Может быть  <strong>prepared</strong>, <strong>submitted</strong>, <strong>rejected</strong>, <strong>accepted</strong>, <strong>suspected</strong>, <strong>processing</strong>, <strong>pending</strong>, <strong>queued</strong>, <strong>succeed</strong>, <strong>canceled</strong>, <strong>failed</strong>, <strong>toinspect</strong>, <strong>confirming</strong>, <strong>blocked</strong></td>
 </tr>
 <tr>
 <td><strong>limit</strong></td>
 <td>нет</td>
-<td>Количество записей на странице, по умолчанию 100. Максимум - 1000</td>
+<td>Количество записей на странице, по умолчанию 250</td>
+</tr>
+<tr>
+<td><strong>offset</strong></td>
+<td>нет</td>
+<td>С какой записи по номеру начинать</td>
+</tr>
+<tr>
+<td><strong>start_time</strong></td>
+<td>нет</td>
+<td>С какой записи по времени создания начинать, по умолчанию - без ограничений</td>
+</tr>
+<tr>
+<td><strong>end_time</strong></td>
+<td>нет</td>
+<td>По какую запись возвращать результат. По умолчанию - текущий таймстэмп</td>
 </tr>
 </tbody></table>
 <h3 id='bd6108841b'>Возвращаемые значения</h3>
@@ -87,7 +107,7 @@
 <li><strong>failed</strong>: не удался</li>
 <li><strong>toinspect</strong>: на ручной проверке</li>
 <li><strong>confirming</strong>: подтверждение в блокчейне</li>
-<li><strong>fraudulent</strong>: мошеннический, заблокирован службой безопасности</li>
+<li><strong>blocked</strong>: заблокирован службой безопасности</li>
 </ul>
 <h2 id='890f5dfe08'>Информация о выводе</h2>
 <blockquote>
@@ -141,7 +161,7 @@
 <blockquote>
 <p>Создать заявку на вывод средств</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency={currency_id}&amp;amount={amount}&amp;rid={address}"</span> <span class="s2">"https://garantex.io/api/v2/withdraws/create"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency={currency}&amp;amount={amount}&amp;rid={rid}"</span> <span class="s2">"https://garantex.io/api/v2/withdraws/create"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа (вывод крипты):</p>
@@ -196,7 +216,7 @@
 <tr>
 <td><strong>currency</strong></td>
 <td>да</td>
-<td>Код валюты</td>
+<td>Код валюты, например <strong>aed</strong>,<strong>aff</strong>,<strong>btc</strong>,<strong>btc-bbtc</strong>,<strong>btc-bsc</strong>,<strong>dai</strong>,<strong>dai-bsc</strong>,<strong>eth</strong>,<strong>eth-bsc</strong>,<strong>rub</strong>,<strong>uah</strong>,<strong>usd</strong>,<strong>usdt</strong>,<strong>usdt-bsc</strong>,<strong>usdt-omni</strong>,<strong>usdt-tron</strong></td>
 </tr>
 <tr>
 <td><strong>amount</strong></td>
