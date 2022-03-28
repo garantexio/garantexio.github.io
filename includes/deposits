@@ -45,7 +45,9 @@
     </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:50:05+03:00"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h3 id='40426907e0'>Получение списка депозитов пользователя.</h3>
+</span></code></pre></div>
+<p>Получение списка депозитов пользователя.</p>
+
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
@@ -62,7 +64,7 @@
 <tr>
 <td><strong>currency</strong></td>
 <td>нет</td>
-<td>Код валюты, например <strong>aed</strong>,<strong>aff</strong>,<strong>btc</strong>,<strong>btc-bbtc</strong>,<strong>btc-bsc</strong>,<strong>dai</strong>,<strong>dai-bsc</strong>,<strong>eth</strong>,<strong>eth-bsc</strong>,<strong>rub</strong>,<strong>uah</strong>,<strong>usd</strong>,<strong>usdt</strong>,<strong>usdt-bsc</strong>,<strong>usdt-omni</strong>,<strong>usdt-tron</strong></td>
+<td>Код валюты, например <strong>aed</strong>, <strong>aff</strong>, <strong>btc</strong>, <strong>btc-bbtc</strong>, <strong>btc-bsc</strong>, <strong>dai</strong>, <strong>dai-bsc</strong>, <strong>eth</strong>, <strong>eth-bsc</strong>, <strong>rub</strong>, <strong>uah</strong>, <strong>usd</strong>, <strong>usdt</strong>, <strong>usdt-bsc</strong>, <strong>usdt-omni</strong>, <strong>usdt-tron</strong></td>
 </tr>
 <tr>
 <td><strong>state</strong></td>
@@ -96,7 +98,7 @@
 <p>Для крипты добавляются поля <strong>txid</strong>, <strong>block_number</strong> и <strong>confirmations</strong>.</p>
 <h2 id='3e577c2287'>Информация о депозите</h2>
 <blockquote>
-<p>Получить детали депозита по deposit id:</p>
+<p>Получить детали депозита по deposit_id:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit/{deposit_id}"</span>
 </code></pre></div>
@@ -117,7 +119,7 @@
   </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:49:13+03:00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:50:05+03:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='id'>Получение детальной информации о депозите по id</h3>
+</span></code></pre></div><h3 id='id'>Получение детальной информации о депозите по ID</h3>
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
@@ -169,7 +171,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit?txid={txid}</code></p>
+<p><code>GET https://garantex.io/api/v2/deposit</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
@@ -184,10 +186,6 @@
 <td>txid транзакции в блокчейне</td>
 </tr>
 </tbody></table>
-<h3 id='bd6108841b-3'>Возвращаемые значения</h3>
-<p>Обратите внимание, поля в возвращаемом списке различаются для фиатных и крипто депозитов!</p>
-
-<p>Для крипты добавляются поля <strong>txid</strong>, <strong>block_number</strong> и <strong>confirmations</strong>.</p>
 <h2 id='5876f71674'>Создание депозита</h2>
 <blockquote>
 <p>Создать заявку на депозит:</p>
@@ -267,7 +265,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-5'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit_address?currency={currency_id}</code></p>
+<p><code>GET https://garantex.io/api/v2/deposit_address</code></p>
 <h3 id='6744ad4c7a-5'>Параметры</h3>
 <table><thead>
 <tr>
@@ -316,7 +314,7 @@
 <td>ID валюты для депозита</td>
 </tr>
 </tbody></table>
-<h3 id='bd6108841b-4'>Возвращаемые значения</h3>
+<h3 id='bd6108841b-3'>Возвращаемые значения</h3>
 <p>Обратите внимание, значение адреса в ответе может быть null! 
 Это нормальная ситуация, так как создание нового адреса занимает время, и в таком случае фактический адрес должен быть получен отдельно,
 запросом <code>/deposit_address/details</code>.</p>
@@ -354,7 +352,7 @@
 <td>ID депозит адреса</td>
 </tr>
 </tbody></table>
-<h3 id='bd6108841b-5'>Возвращаемые значения</h3>
+<h3 id='bd6108841b-4'>Возвращаемые значения</h3>
 <p>Обратите внимание, значение адреса в ответе может быть null! 
 Это нормальная ситуация, так как создание нового адреса занимает время, и в таком случае запрос необходимо повторить позже.</p>
 
@@ -396,7 +394,7 @@
 <td>ID депозит адреса</td>
 </tr>
 </tbody></table>
-<h3 id='bd6108841b-6'>Возвращаемые значения</h3>
+<h3 id='bd6108841b-5'>Возвращаемые значения</h3>
 <p>Обратите внимание, значение адреса в ответе может быть null! 
 Это нормальная ситуация, так как создание нового адреса занимает время, и в таком случае запрос необходимо повторить позже.</p>
 

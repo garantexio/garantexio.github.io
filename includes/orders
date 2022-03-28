@@ -126,7 +126,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/orders?market={market}</code></p>
+<p><code>GET https://garantex.io/api/v2/orders</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -143,7 +143,7 @@
 <tr>
 <td><strong>state</strong></td>
 <td>нет</td>
-<td>Состояние заявки - <strong>wait</strong>, <strong>done</strong>, <strong>cansel</strong></td>
+<td>Состояние заявки - <strong>wait</strong>, <strong>done</strong>, <strong>cancel</strong></td>
 </tr>
 <tr>
 <td><strong>page</strong></td>
@@ -198,13 +198,13 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>Запрос возвращает детали конкретной заявки по ее id</p>
+<p>Запрос возвращает детали своей заявки по ее ID</p>
 
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/order?id={id}</code></p>
+<p><code>GET https://garantex.io/api/v2/order</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>

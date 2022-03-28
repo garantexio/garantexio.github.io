@@ -2,7 +2,7 @@
 <blockquote>
 <p>Получить список счетов:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/accounts"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/accounts"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -36,7 +36,7 @@
 <blockquote>
 <p>Получить состояние счета для валюты:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/accounts/btc"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/accounts/btc"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -54,11 +54,11 @@
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/accounts/{currency_id}</code></p>
-<h2 id='51aff18539'>Пользователь</h2><h3 id='556033cd19'>Получение информацию о текущем пользователе.</h3>
+<h2 id='51aff18539'>Пользователь</h2><h3 id='1df8c597eb'>Получение информации о текущем пользователе.</h3>
 <blockquote>
 <p>Получить информацию о текущем пользователе:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/me"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/me"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -100,7 +100,7 @@
 <blockquote>
 <p>Получить доступы текущего пользователя:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/api_key"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/api_key"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>

@@ -1,4 +1,4 @@
-<h1 id='99866db24b'>Торговые операции</h1><h2 id='121ed44f23'>История сделок</h2><h3 id='3e42ac73d5'>Получить список своих сделок</h3>
+<h1 id='99866db24b'>Торговые операции</h1><h2 id='695633f18a'>История своих сделок</h2>
 <blockquote>
 <p>Получить список своих сделок:</p>
 </blockquote>
@@ -93,7 +93,7 @@
 <aside class="notice">
 Обратите внимание: информация о сделках передаётся как валюта + сумма продажи - валюта + сумма покупки, а не исходя из базовой валюты / валюты котировки!
 </aside>
-<h3 id='5ee94d34a2'>Список всех последних сделок:</h3>
+<h2 id='5ee94d34a2'>Список всех последних сделок:</h2>
 <blockquote>
 <p>Получить список всех последних сделок:</p>
 </blockquote>
@@ -127,7 +127,7 @@
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/trades?market={market_id}</code></p>
+<p><code>GET https://garantex.io/api/v2/trades</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -170,153 +170,5 @@
 <td><strong>offset</strong></td>
 <td>нет</td>
 <td>С какой записи начинать</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Обратите внимание: информация о сделках передаётся как валюта + сумма продажи - валюта + сумма покупки, а не исходя из базовой валюты / валюты котировки!
-</aside>
-<h2 id='a6ef9063b1'>История заявок</h2>
-<blockquote>
-<p>Получить историю заявок</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span>  <span class="s2">"https://garantex.io/api/v2/orders?market={market_id}"</span>
-</code></pre></div>
-<blockquote>
-<p>Пример ответа:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61002</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ask"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"factor"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:34:33+03:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:34:33+03:00"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61001</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6863.73"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6863.73"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bid"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.5"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:33:47+03:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:33:47+03:00"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>Запрос для получения истории заявок по выбранному рынку с разбиением по страницам</p>
-
-<ul>
-<li>требуемый уровень доступа: <strong>read-only</strong></li>
-</ul>
-<h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/orders</code></p>
-<h3 id='6744ad4c7a-3'>Параметры</h3>
-<table><thead>
-<tr>
-<th>Параметр</th>
-<th>Обязательный</th>
-<th>Описание</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>market</strong></td>
-<td>да</td>
-<td>ID рынка</td>
-</tr>
-<tr>
-<td><strong>state</strong></td>
-<td>нет</td>
-<td>Состояния заявки: <ul><li><b>wait</b></li><li>done</li><li>cancel</li></ul> По умолчанию пустое, выводятся все заявки.</td>
-</tr>
-<tr>
-<td><strong>page</strong></td>
-<td>нет</td>
-<td>Номер страницы, по умолчанию 1</td>
-</tr>
-<tr>
-<td><strong>limit</strong></td>
-<td>нет</td>
-<td>Количество результатов на странице, по умолчанию 100. Максимум - 1000</td>
-</tr>
-<tr>
-<td><strong>order_by</strong></td>
-<td>нет</td>
-<td>Направление сортировки, <strong>asc</strong> / <strong>desc</strong>. По умолчанию <strong>desc</strong>, последняя заявка сверху</td>
-</tr>
-</tbody></table>
-<h2 id='4f56d3d029'>Информация о заявке</h2>
-<blockquote>
-<p>Получить информацию о заявке</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/order?id={id}"</span>
-</code></pre></div>
-<blockquote>
-<p>Пример ответа:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60998</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52.91"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47.09"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ask"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.9"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3244.5"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.24"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.9"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47.09"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3244.5"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T11:59:32+03:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T13:57:20+03:00"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Запрос возвращает детальную информацию о заявке с указанным ID</p>
-
-<ul>
-<li>требуемый уровень доступа: <strong>read-only</strong></li>
-</ul>
-<h4 id='http-request-4'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/order</code></p>
-<h3 id='6744ad4c7a-4'>Параметры</h3>
-<table><thead>
-<tr>
-<th>Параметр</th>
-<th>Обязательный</th>
-<th>Описание</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>id</strong></td>
-<td>да</td>
-<td>ID заявки</td>
 </tr>
 </tbody></table>

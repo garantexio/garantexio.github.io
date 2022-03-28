@@ -285,7 +285,7 @@
 
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;javascript&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;javascript&quot;,&quot;python&quot;,&quot;csharp&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -300,6 +300,7 @@
               <a href="#" data-language-name="php">PHP</a>
               <a href="#" data-language-name="javascript">NodeJS</a>
               <a href="#" data-language-name="python">Python</a>
+              <a href="#" data-language-name="csharp">C#</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -395,13 +396,10 @@
             <a href="#99866db24b" class="toc-h1 toc-link" data-title="Торговые операции">Торговые операции</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#121ed44f23" class="toc-h2 toc-link" data-title="История сделок">История сделок</a>
+                    <a href="#695633f18a" class="toc-h2 toc-link" data-title="История своих сделок">История своих сделок</a>
                   </li>
                   <li>
-                    <a href="#a6ef9063b1" class="toc-h2 toc-link" data-title="История заявок">История заявок</a>
-                  </li>
-                  <li>
-                    <a href="#4f56d3d029" class="toc-h2 toc-link" data-title="Информация о заявке">Информация о заявке</a>
+                    <a href="#5ee94d34a2" class="toc-h2 toc-link" data-title="Список всех последних сделок:">Список всех последних сделок:</a>
                   </li>
                   <li>
                     <a href="#347f4bc1c5" class="toc-h2 toc-link" data-title="Установить заявку">Установить заявку</a>
@@ -541,7 +539,7 @@
 <li><p>связаться с саппортом и попросить включить доступ к API</p></li>
 <li><p>в настройка профиля включить Google Authenticator</p></li>
 <li><p>в настройках <a href='https://garantex.io/settings'>профиля</a> создать пару ключей и ОБЯЗАТЕЛЬНО сохранить приватный ключ к себе - он будет показан только один раз и нигде на стороне сервера не сохраняется.</p></li>
-<li><p>выставить ограничения для ключа: тип доступа (<strong>read-only</strong>, <strong>trading</strong>, <strong>withdrawa</strong>), время жизни JWT и список ip адресов с которых возможен доступ.</p></li>
+<li><p>выставить ограничения для ключа: тип доступа (<strong>read-only</strong>, <strong>trading</strong>, <strong>withdraw</strong>), время жизни JWT и список ip адресов с которых возможен доступ.</p></li>
 </ul>
 
 <aside class="warning">
@@ -719,6 +717,80 @@
 <span class="n">token</span> <span class="o">=</span> <span class="n">ret</span><span class="p">.</span><span class="n">json</span><span class="p">().</span><span class="n">get</span><span class="p">(</span><span class="s">'token'</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="s">"JWT token: %s</span><span class="se">\n</span><span class="s">"</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Threading.Tasks</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.IdentityModel.Tokens.Jwt</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Net.Http</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Security.Claims</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Security.Cryptography</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Text</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Microsoft.IdentityModel.Tokens</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Newtonsoft.Json</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">grx_asp</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="kt">string</span> <span class="n">privateKey</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="nf">ReadAllText</span><span class="p">(</span><span class="n">Environment</span><span class="p">.</span><span class="nf">GetFolderPath</span><span class="p">(</span><span class="n">Environment</span><span class="p">.</span><span class="n">SpecialFolder</span><span class="p">.</span><span class="n">MyDocuments</span><span class="p">)</span> <span class="p">+</span> <span class="s">@"\priv.txt"</span><span class="p">,</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">);</span>
+        <span class="k">static</span> <span class="kt">string</span> <span class="n">uid</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="nf">ReadAllText</span><span class="p">(</span><span class="n">Environment</span><span class="p">.</span><span class="nf">GetFolderPath</span><span class="p">(</span><span class="n">Environment</span><span class="p">.</span><span class="n">SpecialFolder</span><span class="p">.</span><span class="n">MyDocuments</span><span class="p">)</span> <span class="p">+</span> <span class="s">@"\uid.txt"</span><span class="p">,</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">);</span>
+
+        <span class="k">static</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Use this line to see the crypto info while debugging:</span>
+            <span class="c1">// Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;</span>
+
+            <span class="kt">byte</span><span class="p">[]</span> <span class="n">key</span> <span class="p">=</span> <span class="n">Convert</span><span class="p">.</span><span class="nf">FromBase64String</span><span class="p">(</span><span class="n">privateKey</span><span class="p">);</span>
+            <span class="n">RSA</span> <span class="n">rsa</span> <span class="p">=</span> <span class="n">RSA</span><span class="p">.</span><span class="nf">Create</span><span class="p">();</span>
+            <span class="n">rsa</span><span class="p">.</span><span class="nf">ImportFromPem</span><span class="p">(</span><span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="nf">GetChars</span><span class="p">(</span><span class="n">key</span><span class="p">));</span>
+
+            <span class="kt">var</span> <span class="n">claims</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Claim</span><span class="p">&gt;</span>
+            <span class="p">{</span>
+              <span class="k">new</span> <span class="nf">Claim</span><span class="p">(</span><span class="n">JwtRegisteredClaimNames</span><span class="p">.</span><span class="n">Jti</span><span class="p">,</span> <span class="n">Guid</span><span class="p">.</span><span class="nf">NewGuid</span><span class="p">().</span><span class="nf">ToString</span><span class="p">()),</span>
+              <span class="k">new</span> <span class="nf">Claim</span><span class="p">(</span><span class="n">JwtRegisteredClaimNames</span><span class="p">.</span><span class="n">Exp</span><span class="p">,</span> <span class="n">DateTimeOffset</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="nf">AddMinutes</span><span class="p">(</span><span class="m">60</span><span class="p">).</span><span class="nf">ToUnixTimeSeconds</span><span class="p">().</span><span class="nf">ToString</span><span class="p">())</span>
+            <span class="p">};</span>
+
+            <span class="n">SigningCredentials</span> <span class="n">credentials</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SigningCredentials</span><span class="p">(</span><span class="k">new</span> <span class="nf">RsaSecurityKey</span><span class="p">(</span><span class="n">rsa</span><span class="p">),</span> <span class="n">SecurityAlgorithms</span><span class="p">.</span><span class="n">RsaSha256</span><span class="p">);</span>
+            <span class="n">JwtSecurityToken</span> <span class="n">jwtSecurity</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">JwtSecurityToken</span><span class="p">(</span><span class="k">new</span> <span class="nf">JwtHeader</span><span class="p">(</span><span class="n">credentials</span><span class="p">),</span> <span class="k">new</span> <span class="nf">JwtPayload</span><span class="p">(</span><span class="n">claims</span><span class="p">));</span>
+            <span class="kt">string</span> <span class="n">jwt</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">JwtSecurityTokenHandler</span><span class="p">().</span><span class="nf">WriteToken</span><span class="p">(</span><span class="n">jwtSecurity</span><span class="p">);</span>
+            <span class="kt">string</span> <span class="n">json</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="k">new</span> <span class="p">{</span> <span class="n">kid</span> <span class="p">=</span> <span class="n">uid</span><span class="p">,</span> <span class="n">jwt_token</span> <span class="p">=</span> <span class="n">jwt</span> <span class="p">});</span>
+
+
+            <span class="err">#</span><span class="n">region</span> <span class="n">sync_using_HttpWebRequest</span>
+            <span class="n">HttpWebRequest</span> <span class="n">webReq</span> <span class="p">=</span> <span class="p">(</span><span class="n">HttpWebRequest</span><span class="p">)</span><span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">@"https://dauth.stage.garantex.biz/api/v1/sessions/generate_jwt"</span><span class="p">);</span>
+            <span class="kt">byte</span><span class="p">[]</span> <span class="n">data</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">ASCII</span><span class="p">.</span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+            <span class="n">webReq</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
+            <span class="n">webReq</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
+            <span class="n">webReq</span><span class="p">.</span><span class="n">ContentLength</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+            <span class="k">using</span> <span class="p">(</span><span class="n">Stream</span> <span class="n">stream</span> <span class="p">=</span> <span class="n">webReq</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">())</span>
+            <span class="p">{</span>
+                <span class="n">stream</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">data</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="kt">string</span> <span class="n">respStr</span><span class="p">;</span>
+            <span class="k">using</span> <span class="p">(</span><span class="n">HttpWebResponse</span> <span class="n">webResp</span> <span class="p">=</span> <span class="p">(</span><span class="n">HttpWebResponse</span><span class="p">)</span><span class="n">webReq</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">())</span>
+            <span class="p">{</span>
+                <span class="k">using</span> <span class="p">(</span><span class="n">StreamReader</span> <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamReader</span><span class="p">(</span><span class="n">webResp</span><span class="p">.</span><span class="nf">GetResponseStream</span><span class="p">()))</span>
+                <span class="p">{</span>
+                    <span class="n">respStr</span> <span class="p">=</span> <span class="n">sr</span><span class="p">.</span><span class="nf">ReadToEnd</span><span class="p">();</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="err">#</span><span class="n">endregion</span> <span class="n">sync_using_HttpWebRequest</span>
+
+
+            <span class="err">#</span><span class="n">region</span> <span class="n">async_await_using_HttpClient</span>
+            <span class="kt">var</span> <span class="n">httpClient</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">HttpClient</span><span class="p">();</span>
+            <span class="n">HttpContent</span> <span class="n">content</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StringContent</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span>
+            <span class="n">HttpResponseMessage</span> <span class="n">hrm</span> <span class="p">=</span> <span class="k">await</span> <span class="n">httpClient</span><span class="p">.</span><span class="nf">PostAsync</span><span class="p">(</span><span class="s">@"https://dauth.stage.garantex.biz/api/v1/sessions/generate_jwt"</span><span class="p">,</span> <span class="n">content</span><span class="p">);</span>
+            <span class="n">HttpStatusCode</span> <span class="n">httpStatus</span> <span class="p">=</span> <span class="n">hrm</span><span class="p">.</span><span class="n">StatusCode</span><span class="p">;</span>
+            <span class="err">#</span><span class="n">endregion</span> <span class="n">async_await_using_HttpClient</span>
+
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>Не забудьте заменить private_key и uid на значения полученные при создании API ключей!</p>
@@ -916,7 +988,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список рынков:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/markets"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/markets"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1046,7 +1118,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить текущий timestamp:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/timestamp"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/timestamp"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1064,7 +1136,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить значение комиссий на вывод крипты</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/fees/withdraw/coin"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/fees/withdraw/coin"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1199,7 +1271,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-7'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/gateway_types?currency={currency}</code></p>
+<p><code>GET https://garantex.io/api/v2/gateway_types</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1223,7 +1295,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список сделок по рынку</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/trades?market={market_id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/trades?market={market}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1345,7 +1417,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/depth?market={market}</code></p>
+<p><code>GET https://garantex.io/api/v2/depth</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1364,7 +1436,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список счетов:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/accounts"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/accounts"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1398,7 +1470,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить состояние счета для валюты:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/accounts/btc"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/accounts/btc"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1416,11 +1488,11 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/accounts/{currency_id}</code></p>
-<h2 id='51aff18539'>Пользователь</h2><h3 id='556033cd19'>Получение информацию о текущем пользователе.</h3>
+<h2 id='51aff18539'>Пользователь</h2><h3 id='1df8c597eb'>Получение информации о текущем пользователе.</h3>
 <blockquote>
 <p>Получить информацию о текущем пользователе:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/me"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/me"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1462,7 +1534,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить доступы текущего пользователя:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/api_key"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/api_key"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1483,7 +1555,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 </ul>
 <h4 id='http-request-4'>HTTP Request</h4>
 <p><code>GET https://garantex.io/api/v2/members/api_key</code></p>
-<h1 id='99866db24b'>Торговые операции</h1><h2 id='121ed44f23'>История сделок</h2><h3 id='3e42ac73d5'>Получить список своих сделок</h3>
+<h1 id='99866db24b'>Торговые операции</h1><h2 id='695633f18a'>История своих сделок</h2>
 <blockquote>
 <p>Получить список своих сделок:</p>
 </blockquote>
@@ -1578,7 +1650,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <aside class="notice">
 Обратите внимание: информация о сделках передаётся как валюта + сумма продажи - валюта + сумма покупки, а не исходя из базовой валюты / валюты котировки!
 </aside>
-<h3 id='5ee94d34a2'>Список всех последних сделок:</h3>
+<h2 id='5ee94d34a2'>Список всех последних сделок:</h2>
 <blockquote>
 <p>Получить список всех последних сделок:</p>
 </blockquote>
@@ -1612,7 +1684,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/trades?market={market_id}</code></p>
+<p><code>GET https://garantex.io/api/v2/trades</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1655,154 +1727,6 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td><strong>offset</strong></td>
 <td>нет</td>
 <td>С какой записи начинать</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Обратите внимание: информация о сделках передаётся как валюта + сумма продажи - валюта + сумма покупки, а не исходя из базовой валюты / валюты котировки!
-</aside>
-<h2 id='a6ef9063b1'>История заявок</h2>
-<blockquote>
-<p>Получить историю заявок</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span>  <span class="s2">"https://garantex.io/api/v2/orders?market={market_id}"</span>
-</code></pre></div>
-<blockquote>
-<p>Пример ответа:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61002</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ask"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"factor"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:34:33+03:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:34:33+03:00"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61001</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6863.73"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6863.73"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bid"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.5"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:33:47+03:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T14:33:47+03:00"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>Запрос для получения истории заявок по выбранному рынку с разбиением по страницам</p>
-
-<ul>
-<li>требуемый уровень доступа: <strong>read-only</strong></li>
-</ul>
-<h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/orders</code></p>
-<h3 id='6744ad4c7a-3'>Параметры</h3>
-<table><thead>
-<tr>
-<th>Параметр</th>
-<th>Обязательный</th>
-<th>Описание</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>market</strong></td>
-<td>да</td>
-<td>ID рынка</td>
-</tr>
-<tr>
-<td><strong>state</strong></td>
-<td>нет</td>
-<td>Состояния заявки: <ul><li><b>wait</b></li><li>done</li><li>cancel</li></ul> По умолчанию пустое, выводятся все заявки.</td>
-</tr>
-<tr>
-<td><strong>page</strong></td>
-<td>нет</td>
-<td>Номер страницы, по умолчанию 1</td>
-</tr>
-<tr>
-<td><strong>limit</strong></td>
-<td>нет</td>
-<td>Количество результатов на странице, по умолчанию 100. Максимум - 1000</td>
-</tr>
-<tr>
-<td><strong>order_by</strong></td>
-<td>нет</td>
-<td>Направление сортировки, <strong>asc</strong> / <strong>desc</strong>. По умолчанию <strong>desc</strong>, последняя заявка сверху</td>
-</tr>
-</tbody></table>
-<h2 id='4f56d3d029'>Информация о заявке</h2>
-<blockquote>
-<p>Получить информацию о заявке</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/order?id={id}"</span>
-</code></pre></div>
-<blockquote>
-<p>Пример ответа:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60998</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdtrub"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"remaining_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52.91"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"executed_volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47.09"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ask"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ord_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fix_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.9"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"funds_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3244.5"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"funds_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.24"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"trades_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"avg_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68.9"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"executed_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47.09"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"quote_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3244.5"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T11:59:32+03:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-10T13:57:20+03:00"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Запрос возвращает детальную информацию о заявке с указанным ID</p>
-
-<ul>
-<li>требуемый уровень доступа: <strong>read-only</strong></li>
-</ul>
-<h4 id='http-request-4'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/order</code></p>
-<h3 id='6744ad4c7a-4'>Параметры</h3>
-<table><thead>
-<tr>
-<th>Параметр</th>
-<th>Обязательный</th>
-<th>Описание</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>id</strong></td>
-<td>да</td>
-<td>ID заявки</td>
 </tr>
 </tbody></table>
 <h2 id='347f4bc1c5'>Установить заявку</h2>
@@ -1933,7 +1857,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/orders?market={market}</code></p>
+<p><code>GET https://garantex.io/api/v2/orders</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1950,7 +1874,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <tr>
 <td><strong>state</strong></td>
 <td>нет</td>
-<td>Состояние заявки - <strong>wait</strong>, <strong>done</strong>, <strong>cansel</strong></td>
+<td>Состояние заявки - <strong>wait</strong>, <strong>done</strong>, <strong>cancel</strong></td>
 </tr>
 <tr>
 <td><strong>page</strong></td>
@@ -2005,13 +1929,13 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>Запрос возвращает детали конкретной заявки по ее id</p>
+<p>Запрос возвращает детали своей заявки по ее ID</p>
 
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/order?id={id}</code></p>
+<p><code>GET https://garantex.io/api/v2/order</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2206,7 +2130,9 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
     </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:50:05+03:00"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h3 id='40426907e0'>Получение списка депозитов пользователя.</h3>
+</span></code></pre></div>
+<p>Получение списка депозитов пользователя.</p>
+
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
@@ -2223,7 +2149,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <tr>
 <td><strong>currency</strong></td>
 <td>нет</td>
-<td>Код валюты, например <strong>aed</strong>,<strong>aff</strong>,<strong>btc</strong>,<strong>btc-bbtc</strong>,<strong>btc-bsc</strong>,<strong>dai</strong>,<strong>dai-bsc</strong>,<strong>eth</strong>,<strong>eth-bsc</strong>,<strong>rub</strong>,<strong>uah</strong>,<strong>usd</strong>,<strong>usdt</strong>,<strong>usdt-bsc</strong>,<strong>usdt-omni</strong>,<strong>usdt-tron</strong></td>
+<td>Код валюты, например <strong>aed</strong>, <strong>aff</strong>, <strong>btc</strong>, <strong>btc-bbtc</strong>, <strong>btc-bsc</strong>, <strong>dai</strong>, <strong>dai-bsc</strong>, <strong>eth</strong>, <strong>eth-bsc</strong>, <strong>rub</strong>, <strong>uah</strong>, <strong>usd</strong>, <strong>usdt</strong>, <strong>usdt-bsc</strong>, <strong>usdt-omni</strong>, <strong>usdt-tron</strong></td>
 </tr>
 <tr>
 <td><strong>state</strong></td>
@@ -2257,7 +2183,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <p>Для крипты добавляются поля <strong>txid</strong>, <strong>block_number</strong> и <strong>confirmations</strong>.</p>
 <h2 id='3e577c2287'>Информация о депозите</h2>
 <blockquote>
-<p>Получить детали депозита по deposit id:</p>
+<p>Получить детали депозита по deposit_id:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit/{deposit_id}"</span>
 </code></pre></div>
@@ -2278,7 +2204,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
   </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:49:13+03:00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T22:50:05+03:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='id'>Получение детальной информации о депозите по id</h3>
+</span></code></pre></div><h3 id='id'>Получение детальной информации о депозите по ID</h3>
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
@@ -2330,7 +2256,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit?txid={txid}</code></p>
+<p><code>GET https://garantex.io/api/v2/deposit</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2345,10 +2271,6 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>txid транзакции в блокчейне</td>
 </tr>
 </tbody></table>
-<h3 id='bd6108841b-3'>Возвращаемые значения</h3>
-<p>Обратите внимание, поля в возвращаемом списке различаются для фиатных и крипто депозитов!</p>
-
-<p>Для крипты добавляются поля <strong>txid</strong>, <strong>block_number</strong> и <strong>confirmations</strong>.</p>
 <h2 id='5876f71674'>Создание депозита</h2>
 <blockquote>
 <p>Создать заявку на депозит:</p>
@@ -2428,7 +2350,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-5'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit_address?currency={currency_id}</code></p>
+<p><code>GET https://garantex.io/api/v2/deposit_address</code></p>
 <h3 id='6744ad4c7a-5'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2477,7 +2399,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>ID валюты для депозита</td>
 </tr>
 </tbody></table>
-<h3 id='bd6108841b-4'>Возвращаемые значения</h3>
+<h3 id='bd6108841b-3'>Возвращаемые значения</h3>
 <p>Обратите внимание, значение адреса в ответе может быть null! 
 Это нормальная ситуация, так как создание нового адреса занимает время, и в таком случае фактический адрес должен быть получен отдельно,
 запросом <code>/deposit_address/details</code>.</p>
@@ -2515,7 +2437,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>ID депозит адреса</td>
 </tr>
 </tbody></table>
-<h3 id='bd6108841b-5'>Возвращаемые значения</h3>
+<h3 id='bd6108841b-4'>Возвращаемые значения</h3>
 <p>Обратите внимание, значение адреса в ответе может быть null! 
 Это нормальная ситуация, так как создание нового адреса занимает время, и в таком случае запрос необходимо повторить позже.</p>
 
@@ -2557,7 +2479,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>ID депозит адреса</td>
 </tr>
 </tbody></table>
-<h3 id='bd6108841b-6'>Возвращаемые значения</h3>
+<h3 id='bd6108841b-5'>Возвращаемые значения</h3>
 <p>Обратите внимание, значение адреса в ответе может быть null! 
 Это нормальная ситуация, так как создание нового адреса занимает время, и в таком случае запрос необходимо повторить позже.</p>
 
@@ -2809,7 +2731,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
     </span><span class="nl">"used_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-03-22T19:11:17.386+03:00"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h3 id='6155a31cb1'>История своих кодов</h3>
+</span></code></pre></div>
 <p>Получение списка своих кодов с возможностью фильтрации</p>
 
 <ul>
@@ -2981,7 +2903,9 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
     </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T20:43:11+03:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T20:43:11+03:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='id'>Получение детальной информации о выводе по id</h3>
+</span></code></pre></div>
+<p>Получение детальной информации о выводе по ID</p>
+
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
@@ -3098,7 +3022,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <ol>
 <li><p>Подключить 2-х факторную аутентификацию на сайте или в приложении</p></li>
 <li><p>Завести P2P-никнейм на сайте или в приложении</p></li>
-<li><p>Смотреть информацию по чужим P2P-объявлениям, создавать по ним сделки</p></li>
+<li><p>Просматривать чужие P2P-объявления, отправлять по ним сделки</p></li>
 <li><p>Создавать свои объявления, получать по ним сделки</p></li>
 </ol>
 
@@ -3106,7 +3030,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <h3 id='p2p-2'>Подраздел P2P-профили</h3>
 <p>Позволяет просматривать профили других пользователей, их репутацию и статистику по ним.</p>
 <h3 id='d66d239c5c'>Подраздел Чаты</h3>
-<p>Чат открывается автоматически, когда создается сделка. Большую часть времени в чат пишет бот - об открытии/закрытии сделок. Иногда туда пишет контрагент - с обсуждением условий сделки. API позволяет читать и писать в чаты.</p>
+<p>Чат открывается автоматически, когда создается сделка. Большую часть времени в чат пишет бот - об открытии/закрытии сделок. Еще туда пишет контрагент - с обсуждением условий сделки. API позволяет читать и писать в чаты.</p>
 <h3 id='3f92fe50eb'>Подраздел Все объявления</h3>
 <p>API позволяет читать объявления других людей, чтобы открывать сделки по понравившимся.</p>
 <h3 id='p2p-3'>Подраздел P2P-сделки</h3>
@@ -3143,7 +3067,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/profiles?nickname={nickname}</code></p>
+<p><code>GET https://garantex.io/api/v2/otc/profiles</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3209,7 +3133,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/chats?limit={limit}&amp;offset={offset}</code></p>
+<p><code>GET https://garantex.io/api/v2/otc/chats</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3229,6 +3153,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>Сколько первых чатов пропустить, по умолчанию - 0</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='6a16784330'>Получить сообщения чата</h3>
 <blockquote>
 <p>Получить сообщения выбранного чата:</p>
@@ -3267,7 +3193,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/chats/{chat_id}/messages?limit={limit}&amp;offset={offset}</code></p>
+<p><code>GET https://garantex.io/api/v2/otc/chats/{chat_id}/messages</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3292,6 +3218,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>Сколько первых сообщений пропустить, по умолчанию - 0</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='f6c74adfe0'>Послать сообщение</h3>
 <blockquote>
 <p>Послать сообщение в чат:</p>
@@ -3346,6 +3274,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>Сколько первых сообщений пропустить, по умолчанию - 0</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='8188bc3dd3'>Пометить прочитанным</h3>
 <blockquote>
 <p>Пометить прочитанными сообщения чата:</p>
@@ -3439,7 +3369,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-6'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/ads?direction={direction}&amp;only_available={only_available}</code></p>
+<p><code>GET https://garantex.io/api/v2/otc/ads</code></p>
 <h3 id='6744ad4c7a-6'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3479,6 +3409,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>Поиск по способу оплаты, включение подстроки</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='b948b9bb36'>Детали объявления</h3>
 <blockquote>
 <p>Получить детали по id объявления:</p>
@@ -3632,6 +3564,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>Сортировка по id, <strong>asc</strong> или <strong>desc</strong>, по умолчанию <strong>desc</strong></td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='726d9dd6e9'>Детали сделки</h3>
 <blockquote>
 <p>Получить детали по id сделки:</p>
@@ -3694,6 +3628,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>id сделки</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='b5cdc63989'>Создание сделки</h3>
 <blockquote>
 <p>Создать новую P2P-сделку:</p>
@@ -3771,6 +3707,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>Платежные реквизиты, применимо только к объявлениям о покупке</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='7467e0efe3'>Изменить рейтинг сделки</h3>
 <blockquote>
 <p>Изменить рейтинг сделки:</p>
@@ -3838,6 +3776,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>выставляемая оценка</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='1d5a1fd11f'>Указание/изменение платежных реквизитов</h3>
 <blockquote>
 <p>Указать/изменить реквизиты:</p>
@@ -3905,6 +3845,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>текст платежных реквизитов</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='bea100a4c5'>Послать сделку на арбитраж</h3>
 <blockquote>
 <p>Послать сделку на арбитраж:</p>
@@ -3967,6 +3909,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>id сделки</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='d59d007de7'>Завершить сделку</h3>
 <blockquote>
 <p>Завершить сделку:</p>
@@ -4029,6 +3973,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>id сделки</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='4c5e5fa77b'>Отменить сделку</h3>
 <blockquote>
 <p>Отменить сделку:</p>
@@ -4091,6 +4037,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>id сделки</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='6440106972'>Оплатить сделку</h3>
 <blockquote>
 <p>Пометить оплаченной сделку:</p>
@@ -4153,6 +4101,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>id сделки</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='99496e972d'>Принять сделку</h3>
 <blockquote>
 <p>Принять сделку:</p>
@@ -4291,6 +4241,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>Активные объявления или неактивные, <strong>true</strong> или <strong>false</strong>. По умолчанию: все объявления</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='b948b9bb36-2'>Детали объявления</h3>
 <blockquote>
 <p>Получить детали по id объявления:</p>
@@ -4341,6 +4293,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>id объявления</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='30c79bc190'>Удалить объявление</h3>
 <blockquote>
 <p>Удалить объявление по id:</p>
@@ -4373,6 +4327,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>id объявления</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='a39d7de6a8'>Создать объявление</h3>
 <blockquote>
 <p>Создать объявление:</p>
@@ -4408,7 +4364,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-21'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/my/ads</code></p>
+<p><code>POST https://garantex.io/api/v2/otc/my/ads</code></p>
 <h3 id='6744ad4c7a-21'>Параметры</h3>
 <table><thead>
 <tr>
@@ -4478,6 +4434,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>Минимальный рейтинг контрагента. <strong>NULL</strong>, <strong>100</strong>, <strong>500</strong> и <strong>1000</strong>. По умолчанию - без ограничений</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='9348c6f5ea'>Редактировать объявление</h3>
 <blockquote>
 <p>Редактировать объявление:</p>
@@ -4578,6 +4536,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>Минимальный рейтинг контрагента. <strong>NULL</strong>, <strong>100</strong>, <strong>500</strong> и <strong>1000</strong>. По умолчанию - без ограничений</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='b34da29f93'>Переключить статус приватности</h3>
 <blockquote>
 <p>Переключить статус приватности:</p>
@@ -4628,6 +4588,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>id объявления</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='20b2982a67'>Переключить активность объявления</h3>
 <blockquote>
 <p>Переключить активность объявления:</p>
@@ -4678,6 +4640,8 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <td>id объявления</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='0c16fcd6ac'>Отключить все объявления</h3>
 <blockquote>
 <p>Отключить все объявления:</p>
@@ -4884,6 +4848,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
                 <a href="#" data-language-name="php">PHP</a>
                 <a href="#" data-language-name="javascript">NodeJS</a>
                 <a href="#" data-language-name="python">Python</a>
+                <a href="#" data-language-name="csharp">C#</a>
           </div>
       </div>
     </div>

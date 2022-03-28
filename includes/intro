@@ -5,7 +5,7 @@
 <li><p>связаться с саппортом и попросить включить доступ к API</p></li>
 <li><p>в настройка профиля включить Google Authenticator</p></li>
 <li><p>в настройках <a href='https://garantex.io/settings'>профиля</a> создать пару ключей и ОБЯЗАТЕЛЬНО сохранить приватный ключ к себе - он будет показан только один раз и нигде на стороне сервера не сохраняется.</p></li>
-<li><p>выставить ограничения для ключа: тип доступа (<strong>read-only</strong>, <strong>trading</strong>, <strong>withdrawa</strong>), время жизни JWT и список ip адресов с которых возможен доступ.</p></li>
+<li><p>выставить ограничения для ключа: тип доступа (<strong>read-only</strong>, <strong>trading</strong>, <strong>withdraw</strong>), время жизни JWT и список ip адресов с которых возможен доступ.</p></li>
 </ul>
 
 <aside class="warning">

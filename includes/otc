@@ -4,7 +4,7 @@
 <ol>
 <li><p>Подключить 2-х факторную аутентификацию на сайте или в приложении</p></li>
 <li><p>Завести P2P-никнейм на сайте или в приложении</p></li>
-<li><p>Смотреть информацию по чужим P2P-объявлениям, создавать по ним сделки</p></li>
+<li><p>Просматривать чужие P2P-объявления, отправлять по ним сделки</p></li>
 <li><p>Создавать свои объявления, получать по ним сделки</p></li>
 </ol>
 
@@ -12,7 +12,7 @@
 <h3 id='p2p-2'>Подраздел P2P-профили</h3>
 <p>Позволяет просматривать профили других пользователей, их репутацию и статистику по ним.</p>
 <h3 id='d66d239c5c'>Подраздел Чаты</h3>
-<p>Чат открывается автоматически, когда создается сделка. Большую часть времени в чат пишет бот - об открытии/закрытии сделок. Иногда туда пишет контрагент - с обсуждением условий сделки. API позволяет читать и писать в чаты.</p>
+<p>Чат открывается автоматически, когда создается сделка. Большую часть времени в чат пишет бот - об открытии/закрытии сделок. Еще туда пишет контрагент - с обсуждением условий сделки. API позволяет читать и писать в чаты.</p>
 <h3 id='3f92fe50eb'>Подраздел Все объявления</h3>
 <p>API позволяет читать объявления других людей, чтобы открывать сделки по понравившимся.</p>
 <h3 id='p2p-3'>Подраздел P2P-сделки</h3>
@@ -49,7 +49,7 @@
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/profiles?nickname={nickname}</code></p>
+<p><code>GET https://garantex.io/api/v2/otc/profiles</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -115,7 +115,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/chats?limit={limit}&amp;offset={offset}</code></p>
+<p><code>GET https://garantex.io/api/v2/otc/chats</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -135,6 +135,8 @@
 <td>Сколько первых чатов пропустить, по умолчанию - 0</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='6a16784330'>Получить сообщения чата</h3>
 <blockquote>
 <p>Получить сообщения выбранного чата:</p>
@@ -173,7 +175,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/chats/{chat_id}/messages?limit={limit}&amp;offset={offset}</code></p>
+<p><code>GET https://garantex.io/api/v2/otc/chats/{chat_id}/messages</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
@@ -198,6 +200,8 @@
 <td>Сколько первых сообщений пропустить, по умолчанию - 0</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='f6c74adfe0'>Послать сообщение</h3>
 <blockquote>
 <p>Послать сообщение в чат:</p>
@@ -252,6 +256,8 @@
 <td>Сколько первых сообщений пропустить, по умолчанию - 0</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='8188bc3dd3'>Пометить прочитанным</h3>
 <blockquote>
 <p>Пометить прочитанными сообщения чата:</p>
@@ -345,7 +351,7 @@
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-6'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/ads?direction={direction}&amp;only_available={only_available}</code></p>
+<p><code>GET https://garantex.io/api/v2/otc/ads</code></p>
 <h3 id='6744ad4c7a-6'>Параметры</h3>
 <table><thead>
 <tr>
@@ -385,6 +391,8 @@
 <td>Поиск по способу оплаты, включение подстроки</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='b948b9bb36'>Детали объявления</h3>
 <blockquote>
 <p>Получить детали по id объявления:</p>
@@ -538,6 +546,8 @@
 <td>Сортировка по id, <strong>asc</strong> или <strong>desc</strong>, по умолчанию <strong>desc</strong></td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='726d9dd6e9'>Детали сделки</h3>
 <blockquote>
 <p>Получить детали по id сделки:</p>
@@ -600,6 +610,8 @@
 <td>id сделки</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='b5cdc63989'>Создание сделки</h3>
 <blockquote>
 <p>Создать новую P2P-сделку:</p>
@@ -677,6 +689,8 @@
 <td>Платежные реквизиты, применимо только к объявлениям о покупке</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='7467e0efe3'>Изменить рейтинг сделки</h3>
 <blockquote>
 <p>Изменить рейтинг сделки:</p>
@@ -744,6 +758,8 @@
 <td>выставляемая оценка</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='1d5a1fd11f'>Указание/изменение платежных реквизитов</h3>
 <blockquote>
 <p>Указать/изменить реквизиты:</p>
@@ -811,6 +827,8 @@
 <td>текст платежных реквизитов</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='bea100a4c5'>Послать сделку на арбитраж</h3>
 <blockquote>
 <p>Послать сделку на арбитраж:</p>
@@ -873,6 +891,8 @@
 <td>id сделки</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='d59d007de7'>Завершить сделку</h3>
 <blockquote>
 <p>Завершить сделку:</p>
@@ -935,6 +955,8 @@
 <td>id сделки</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='4c5e5fa77b'>Отменить сделку</h3>
 <blockquote>
 <p>Отменить сделку:</p>
@@ -997,6 +1019,8 @@
 <td>id сделки</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='6440106972'>Оплатить сделку</h3>
 <blockquote>
 <p>Пометить оплаченной сделку:</p>
@@ -1059,6 +1083,8 @@
 <td>id сделки</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='99496e972d'>Принять сделку</h3>
 <blockquote>
 <p>Принять сделку:</p>
@@ -1197,6 +1223,8 @@
 <td>Активные объявления или неактивные, <strong>true</strong> или <strong>false</strong>. По умолчанию: все объявления</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='b948b9bb36-2'>Детали объявления</h3>
 <blockquote>
 <p>Получить детали по id объявления:</p>
@@ -1247,6 +1275,8 @@
 <td>id объявления</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='30c79bc190'>Удалить объявление</h3>
 <blockquote>
 <p>Удалить объявление по id:</p>
@@ -1279,6 +1309,8 @@
 <td>id объявления</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='a39d7de6a8'>Создать объявление</h3>
 <blockquote>
 <p>Создать объявление:</p>
@@ -1314,7 +1346,7 @@
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-21'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/my/ads</code></p>
+<p><code>POST https://garantex.io/api/v2/otc/my/ads</code></p>
 <h3 id='6744ad4c7a-21'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1384,6 +1416,8 @@
 <td>Минимальный рейтинг контрагента. <strong>NULL</strong>, <strong>100</strong>, <strong>500</strong> и <strong>1000</strong>. По умолчанию - без ограничений</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='9348c6f5ea'>Редактировать объявление</h3>
 <blockquote>
 <p>Редактировать объявление:</p>
@@ -1484,6 +1518,8 @@
 <td>Минимальный рейтинг контрагента. <strong>NULL</strong>, <strong>100</strong>, <strong>500</strong> и <strong>1000</strong>. По умолчанию - без ограничений</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='b34da29f93'>Переключить статус приватности</h3>
 <blockquote>
 <p>Переключить статус приватности:</p>
@@ -1534,6 +1570,8 @@
 <td>id объявления</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='20b2982a67'>Переключить активность объявления</h3>
 <blockquote>
 <p>Переключить активность объявления:</p>
@@ -1584,6 +1622,8 @@
 <td>id объявления</td>
 </tr>
 </tbody></table>
+
+<div></div>
 <h3 id='0c16fcd6ac'>Отключить все объявления</h3>
 <blockquote>
 <p>Отключить все объявления:</p>

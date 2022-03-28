@@ -133,7 +133,9 @@
     </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T20:43:11+03:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T20:43:11+03:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='id'>Получение детальной информации о выводе по id</h3>
+</span></code></pre></div>
+<p>Получение детальной информации о выводе по ID</p>
+
 <ul>
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>

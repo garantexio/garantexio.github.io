@@ -2,7 +2,7 @@
 <blockquote>
 <p>Получить список рынков:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/markets"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/markets"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -132,7 +132,7 @@
 <blockquote>
 <p>Получить текущий timestamp:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/timestamp"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/timestamp"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -150,7 +150,7 @@
 <blockquote>
 <p>Получить значение комиссий на вывод крипты</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/fees/withdraw/coin"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/fees/withdraw/coin"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -285,7 +285,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-7'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/gateway_types?currency={currency}</code></p>
+<p><code>GET https://garantex.io/api/v2/gateway_types</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
