@@ -7,7 +7,7 @@
 <li><p>по изменению состояния ордера / по исполнению сделки</p></li>
 </ul>
 
-<p>Ссылки для обратных вызовов прописываются в форме API Callback в настройках профиля: <a href='https://garantex.io/settings'>https://garantex.io/settings</a></p>
+<p>Ссылки для обратных вызовов прописываются в форме API Callback в настройках профиля: <a href='https://garantex.org/settings'>https://garantex.org/settings</a></p>
 
 <p>Формат отправки запросов: POST x-www-form-urlencoded </p>
 

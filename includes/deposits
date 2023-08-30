@@ -2,7 +2,7 @@
 <blockquote>
 <p>Получить список депозитов:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposits"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/deposits"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -52,7 +52,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposits</code></p>
+<p><code>GET https://garantex.org/api/v2/deposits</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -100,7 +100,7 @@
 <blockquote>
 <p>Получить детали депозита по deposit_id:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit/{deposit_id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/deposit/{deposit_id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -124,7 +124,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit/{deposit_id}</code></p>
+<p><code>GET https://garantex.org/api/v2/deposit/{deposit_id}</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -147,7 +147,7 @@
 <blockquote>
 <p>Получить детали депозита по txid:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit?txid={txid}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/deposit?txid={txid}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -171,7 +171,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit</code></p>
+<p><code>GET https://garantex.org/api/v2/deposit</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
@@ -190,7 +190,7 @@
 <blockquote>
 <p>Создать заявку на депозит:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'currency={currency_id}&amp;amount={amount}&amp;gateway_type_id={gateway_type_id}'</span> <span class="s1">'https://garantex.io/api/v2/deposits/create'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'currency={currency_id}&amp;amount={amount}&amp;gateway_type_id={gateway_type_id}'</span> <span class="s1">'https://garantex.org/api/v2/deposits/create'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -211,7 +211,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-4'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/deposits/create</code></p>
+<p><code>POST https://garantex.org/api/v2/deposits/create</code></p>
 <h3 id='6744ad4c7a-4'>Параметры</h3>
 <table><thead>
 <tr>
@@ -250,7 +250,7 @@
 <blockquote>
 <p>Получить адрес для депозита крипты:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address?currency={currency_id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/deposit_address?currency={currency_id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -265,7 +265,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-5'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit_address</code></p>
+<p><code>GET https://garantex.org/api/v2/deposit_address</code></p>
 <h3 id='6744ad4c7a-5'>Параметры</h3>
 <table><thead>
 <tr>
@@ -284,7 +284,7 @@
 <blockquote>
 <p>Получить дополнительный адрес для депозита крипты:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.org/api/v2/deposit_address"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -299,7 +299,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-6'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/deposit_address</code></p>
+<p><code>POST https://garantex.org/api/v2/deposit_address</code></p>
 <h3 id='6744ad4c7a-6'>Параметры</h3>
 <table><thead>
 <tr>
@@ -322,7 +322,7 @@
 <blockquote>
 <p>Получить детальную информации о конкретном депозит адресе</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address/details?id={id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.org/api/v2/deposit_address/details?id={id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -337,7 +337,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-7'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit_address/details</code></p>
+<p><code>GET https://garantex.org/api/v2/deposit_address/details</code></p>
 <h3 id='6744ad4c7a-7'>Параметры</h3>
 <table><thead>
 <tr>
@@ -364,7 +364,7 @@
 <blockquote>
 <p>Получить детальную информации о конкретном депозит адресе</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address/{id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.org/api/v2/deposit_address/{id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -379,7 +379,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-8'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit_address/{id}</code></p>
+<p><code>GET https://garantex.org/api/v2/deposit_address/{id}</code></p>
 <h3 id='6744ad4c7a-8'>Параметры</h3>
 <table><thead>
 <tr>
@@ -406,7 +406,7 @@
 <blockquote>
 <p>Получить писок депозит-адресов:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address/list"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.org/api/v2/deposit_address/list"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -432,7 +432,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-9'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit_address/list</code></p>
+<p><code>GET https://garantex.org/api/v2/deposit_address/list</code></p>
 <h3 id='6744ad4c7a-9'>Параметры</h3>
 <table><thead>
 <tr>

@@ -2,7 +2,7 @@
 <blockquote>
 <p>Получить список счетов:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/accounts"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/accounts"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -31,12 +31,12 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/accounts</code></p>
+<p><code>GET https://garantex.org/api/v2/accounts</code></p>
 <h3 id='11568b4fa7'>Получить состояние пользовательского счета по конкретной валюте</h3>
 <blockquote>
 <p>Получить состояние счета для валюты:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/accounts/btc"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/accounts/btc"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -53,19 +53,19 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/accounts/{currency_id}</code></p>
+<p><code>GET https://garantex.org/api/v2/accounts/{currency_id}</code></p>
 <h2 id='51aff18539'>Пользователь</h2><h3 id='1df8c597eb'>Получение информации о текущем пользователе.</h3>
 <blockquote>
 <p>Получить информацию о текущем пользователе:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/me"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/members/me"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"sn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SNXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@garantex.io"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@garantex.org"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"p2p_nickname"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -95,12 +95,12 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/members/me</code></p>
+<p><code>GET https://garantex.org/api/v2/members/me</code></p>
 <h3 id='258d17bc40'>Получение информации о доступах текущего пользователя.</h3>
 <blockquote>
 <p>Получить доступы текущего пользователя:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/api_key"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/members/api_key"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -120,4 +120,4 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-4'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/members/api_key</code></p>
+<p><code>GET https://garantex.org/api/v2/members/api_key</code></p>

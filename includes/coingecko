@@ -2,7 +2,7 @@
 <blockquote>
 <p>Example query</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/coingecko/pairs"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.org/api/v2/coingecko/pairs"</span>
 </code></pre></div>
 <blockquote>
 <p>Example response:</p>
@@ -19,7 +19,7 @@
 <li>Minimum access level: <strong>public</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/coingecko/pairs</code></p>
+<p><code>GET https://garantex.org/api/v2/coingecko/pairs</code></p>
 <h3 id='response-descriptions'>Response descriptions</h3>
 <table><thead>
 <tr>
@@ -48,7 +48,7 @@
 <blockquote>
 <p>Example query</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/coingecko/tickers"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.org/api/v2/coingecko/tickers"</span>
 </code></pre></div>
 <blockquote>
 <p>Example response:</p>
@@ -72,7 +72,7 @@
 <li>Minimum access level: <strong>public</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/coingecko/tickers</code></p>
+<p><code>GET https://garantex.org/api/v2/coingecko/tickers</code></p>
 <h3 id='response-descriptions-2'>Response descriptions</h3>
 <table><thead>
 <tr>
@@ -136,7 +136,7 @@
 <blockquote>
 <p>Example query</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/coingecko/orderbook?ticker_id=BTC_ETH&amp;depth=200"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.org/api/v2/coingecko/orderbook?ticker_id=BTC_ETH&amp;depth=200"</span>
 </code></pre></div>
 <blockquote>
 <p>Example response:</p>
@@ -172,7 +172,7 @@
 <li>Minimum access level: <strong>public</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/coingecko/orderbook</code></p>
+<p><code>GET https://garantex.org/api/v2/coingecko/orderbook</code></p>
 <h3 id='endpoint-parameters'>Endpoint parameters</h3>
 <table><thead>
 <tr>
@@ -225,7 +225,7 @@
 <blockquote>
 <p>Example query</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/coingecko/historical_trades?ticker_id=BTC_ETH&amp;limit=10"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.org/api/v2/coingecko/historical_trades?ticker_id=BTC_ETH&amp;limit=10"</span>
 </code></pre></div>
 <blockquote>
 <p>Example response:</p>
@@ -260,7 +260,7 @@
 <li>Minimum access level: <strong>public</strong></li>
 </ul>
 <h4 id='http-request-4'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/coingecko/historical_trades</code></p>
+<p><code>GET https://garantex.org/api/v2/coingecko/historical_trades</code></p>
 <h3 id='endpoint-parameters-2'>Endpoint parameters</h3>
 <table><thead>
 <tr>

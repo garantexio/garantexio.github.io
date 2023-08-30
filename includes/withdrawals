@@ -2,7 +2,7 @@
 <blockquote>
 <p>Получить список выводов</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/withdraws"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/withdraws"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -42,7 +42,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/withdraws</code></p>
+<p><code>GET https://garantex.org/api/v2/withdraws</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -113,7 +113,7 @@
 <blockquote>
 <p>Получить детали вывода по withdraw id:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/withdraws/{withdraw_id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/withdraws/{withdraw_id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -140,7 +140,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/withdraws/{withdraw_id}</code></p>
+<p><code>GET https://garantex.org/api/v2/withdraws/{withdraw_id}</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -163,7 +163,7 @@
 <blockquote>
 <p>Создать заявку на вывод средств</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency={currency}&amp;amount={amount}&amp;rid={rid}"</span> <span class="s2">"https://garantex.io/api/v2/withdraws/create"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency={currency}&amp;amount={amount}&amp;rid={rid}"</span> <span class="s2">"https://garantex.org/api/v2/withdraws/create"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа (вывод крипты):</p>
@@ -206,7 +206,7 @@
 <li>требуемый уровень доступа: <strong>withdraw</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/withdraws/create</code></p>
+<p><code>POST https://garantex.org/api/v2/withdraws/create</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>

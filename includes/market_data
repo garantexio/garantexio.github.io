@@ -2,7 +2,7 @@
 <blockquote>
 <p>Получить список сделок по рынку</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/trades?market={market}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.org/api/v2/trades?market={market}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -32,7 +32,7 @@
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/trades</code></p>
+<p><code>GET https://garantex.org/api/v2/trades</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -76,7 +76,7 @@
 <blockquote>
 <p>Получить список заявок для рынка</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/depth?market={market}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.org/api/v2/depth?market={market}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -124,7 +124,7 @@
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/depth</code></p>
+<p><code>GET https://garantex.org/api/v2/depth</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>

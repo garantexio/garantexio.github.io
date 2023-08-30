@@ -2,7 +2,7 @@
 <blockquote>
 <p>Получить список рынков:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/markets"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.org/api/v2/markets"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -32,12 +32,12 @@
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/markets</code></p>
+<p><code>GET https://garantex.org/api/v2/markets</code></p>
 <h2 id='66f4033be7'>Валюты</h2><h3 id='6c9959ad57'>Получить список всех активных валют</h3>
 <blockquote>
 <p>Получить список активных валют:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/currencies"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.org/api/v2/currencies"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -71,7 +71,7 @@
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/currencies</code></p>
+<p><code>GET https://garantex.org/api/v2/currencies</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -90,7 +90,7 @@
 <blockquote>
 <p>Получить детали валюты по ее id:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/currencies/{id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.org/api/v2/currencies/{id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -113,7 +113,7 @@
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/currencies/{id}</code></p>
+<p><code>GET https://garantex.org/api/v2/currencies/{id}</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -132,7 +132,7 @@
 <blockquote>
 <p>Получить текущий timestamp:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/timestamp"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.org/api/v2/timestamp"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -145,12 +145,12 @@
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-4'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/timestamp</code></p>
+<p><code>GET https://garantex.org/api/v2/timestamp</code></p>
 <h2 id='897d03eacd'>Комиссии</h2><h3 id='95ddcebbec'>Комиссии на вывод крипты</h3>
 <blockquote>
 <p>Получить значение комиссий на вывод крипты</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/fees/withdraw/coin"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.org/api/v2/fees/withdraw/coin"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -191,7 +191,7 @@
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-5'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/fees/withdraw/coin</code></p>
+<p><code>GET https://garantex.org/api/v2/fees/withdraw/coin</code></p>
 <h3 id='bd6108841b'>Возвращаемые значения</h3>
 <p>Для некоторых валют могут использоваться разные способы отправки, в зависимости от размера вывода, с разными комиссиями, и тогда массив <strong>fee</strong> будет содержать больше одного элемента, с разными значениями <strong>type</strong>.
 Максимальная сумма применимости комиссии будет указана в поле <strong>up_to</strong>.</p>
@@ -201,7 +201,7 @@
 <blockquote>
 <p>Получить значение комиссий на торговлю</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s1">'https://stage.garantex.biz/api/v2/fees/trading'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s1">'https://garantex.org/api/v2/fees/trading'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -238,12 +238,12 @@
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-6'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/fees/trading</code></p>
+<p><code>GET https://garantex.org/api/v2/fees/trading</code></p>
 <h2 id='92dd9b64ca'>Способы пополнения и вывода фиата</h2>
 <blockquote>
 <p>Получить список направлений для депозита / вывода фиата</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/gateway_types?currency={currency}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/gateway_types?currency={currency}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -285,7 +285,7 @@
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-7'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/gateway_types</code></p>
+<p><code>GET https://garantex.org/api/v2/gateway_types</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>

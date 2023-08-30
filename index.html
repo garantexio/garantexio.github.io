@@ -538,7 +538,7 @@
 <ul>
 <li><p>связаться с саппортом и попросить включить доступ к API</p></li>
 <li><p>в настройка профиля включить Google Authenticator</p></li>
-<li><p>в настройках <a href='https://garantex.io/settings'>профиля</a> создать пару ключей и ОБЯЗАТЕЛЬНО сохранить приватный ключ к себе - он будет показан только один раз и нигде на стороне сервера не сохраняется.</p></li>
+<li><p>в настройках <a href='https://garantex.org/settings'>профиля</a> создать пару ключей и ОБЯЗАТЕЛЬНО сохранить приватный ключ к себе - он будет показан только один раз и нигде на стороне сервера не сохраняется.</p></li>
 <li><p>выставить ограничения для ключа: тип доступа (<strong>read-only</strong>, <strong>trading</strong>, <strong>withdraw</strong>), время жизни JWT и список ip адресов с которых возможен доступ.</p></li>
 </ul>
 
@@ -571,7 +571,7 @@
 <span class="nb">require</span> <span class="s1">'net/https'</span>
 
 
-<span class="n">host</span> <span class="o">=</span> <span class="s1">'garantex.io'</span> <span class="c1"># для тестового сервера используйте stage.garantex.biz</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s1">'garantex.org'</span> <span class="c1"># для тестового сервера используйте stage.garantex.biz</span>
 <span class="n">private_key</span> <span class="o">=</span> <span class="s1">'{приватный ключ, полученный на этапе создания API ключей}'</span>
 <span class="n">uid</span> <span class="o">=</span> <span class="s1">'{UID, полученный на этапе создания API ключей}'</span>
 
@@ -599,7 +599,7 @@
 <span class="kn">use</span> <span class="nn">Lcobucci\JWT\Signer\Key</span><span class="p">;</span>
 <span class="kn">use</span> <span class="nn">Lcobucci\JWT\Signer\Rsa\Sha256</span><span class="p">;</span>
 
-<span class="nv">$host</span> <span class="o">=</span> <span class="s1">'garantex.io'</span><span class="p">;</span> <span class="c1">// для тестового сервера используйте stage.garantex.biz</span>
+<span class="nv">$host</span> <span class="o">=</span> <span class="s1">'garantex.org'</span><span class="p">;</span> <span class="c1">// для тестового сервера используйте stage.garantex.biz</span>
 <span class="nv">$private_key</span> <span class="o">=</span> <span class="s1">'{приватный ключ, полученный на этапе создания API ключей}'</span><span class="p">;</span>
 <span class="nv">$uid</span> <span class="o">=</span> <span class="s1">'{UID, полученный на этапе создания API ключей}'</span><span class="p">;</span>
 
@@ -637,7 +637,7 @@
 <span class="kd">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">crypto</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// Константы</span>
-<span class="kd">const</span> <span class="nx">host</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">garantex.io</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// для тестового сервера используйте stage.garantex.biz</span>
+<span class="kd">const</span> <span class="nx">host</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">garantex.org</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// для тестового сервера используйте stage.garantex.biz</span>
 <span class="kd">const</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">***</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// приватный ключ, полученный на этапе создания API ключей</span>
 <span class="kd">const</span> <span class="nx">uid</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">***</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// UID, полученный на этапе создания API ключей</span>
 
@@ -694,7 +694,7 @@
 
 <span class="n">private_key</span> <span class="o">=</span> <span class="s">'{приватный ключ, полученный на этапе создания API ключей}'</span>
 <span class="n">uid</span> <span class="o">=</span> <span class="s">'{UID, полученный на этапе создания API ключей}'</span>
-<span class="n">host</span> <span class="o">=</span> <span class="s">'garantex.io'</span> <span class="c1"># для тестового сервера используйте stage.garantex.biz
+<span class="n">host</span> <span class="o">=</span> <span class="s">'garantex.org'</span> <span class="c1"># для тестового сервера используйте stage.garantex.biz
 </span>
 <span class="n">key</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">private_key</span><span class="p">)</span>
 <span class="n">iat</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">().</span><span class="n">timetuple</span><span class="p">()))</span>
@@ -819,7 +819,7 @@
 
 <ul>
 <li><a href="https://stage.garantex.biz/api_test">https://stage.garantex.biz/api_test</a> - стейдж, тестовый сервер. </li>
-<li><a href="https://garantex.io/api_test">https://garantex.io/api_test</a> - продакшн, боевой сервер.</li>
+<li><a href="https://garantex.org/api_test">https://garantex.org/api_test</a> - продакшн, боевой сервер.</li>
 </ul>
 
 <p>Для декодирования и проверки токенов можно использовать онлайн отладчик на сайте <a href="https://jwt.io/">https://jwt.io/</a></p>
@@ -829,7 +829,7 @@
 </aside>
 
 <aside class="notice">
-Ключи полученные на тестовом сервере (https://stage.garantex.biz/) будут работать только на тестовом сервере, а продакшн ключи (https://garantex.io/) - только на продакшне!
+Ключи полученные на тестовом сервере (https://stage.garantex.biz/) будут работать только на тестовом сервере, а продакшн ключи (https://garantex.org/) - только на продакшне!
 </aside>
 <h2 id='ce7d35ddc5'>Авторизация запросов</h2>
 <blockquote>
@@ -841,7 +841,7 @@
 <span class="nb">require</span> <span class="s1">'net/https'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="n">host</span> <span class="o">=</span> <span class="s1">'garantex.io'</span> <span class="c1"># для тестового сервера используйте stage.garantex.biz</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s1">'garantex.org'</span> <span class="c1"># для тестового сервера используйте stage.garantex.biz</span>
 <span class="n">token</span> <span class="o">=</span> <span class="s1">'{JWT}'</span>
 <span class="n">custom_headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s2">"Bearer </span><span class="si">#{</span><span class="n">token</span><span class="si">}</span><span class="s2">"</span><span class="p">}</span>
 <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"https://</span><span class="si">#{</span><span class="n">host</span><span class="si">}</span><span class="s2">/api/v2/members/me"</span><span class="p">)</span>
@@ -859,7 +859,7 @@
 <span class="n">account_info</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
-<span class="nv">$host</span>   <span class="o">=</span> <span class="s1">'garantex.io'</span><span class="p">;</span> <span class="c1">// для тестового сервера используйте stage.garantex.biz</span>
+<span class="nv">$host</span>   <span class="o">=</span> <span class="s1">'garantex.org'</span><span class="p">;</span> <span class="c1">// для тестового сервера используйте stage.garantex.biz</span>
 <span class="nv">$token</span>  <span class="o">=</span> <span class="s1">'{JWT}'</span><span class="p">;</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="s1">'https://'</span> <span class="o">.</span> <span class="nv">$host</span> <span class="o">.</span> <span class="s1">'/api/v2/members/me'</span><span class="p">);</span>
@@ -880,7 +880,7 @@
 
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">host</span>   <span class="o">=</span> <span class="s">'garantex.io'</span> <span class="o">//</span> <span class="n">для</span> <span class="n">тестового</span> <span class="n">сервера</span> <span class="n">используйте</span> <span class="n">stage</span><span class="p">.</span><span class="n">garantex</span><span class="p">.</span><span class="n">biz</span>
+<span class="n">host</span>   <span class="o">=</span> <span class="s">'garantex.org'</span> <span class="o">//</span> <span class="n">для</span> <span class="n">тестового</span> <span class="n">сервера</span> <span class="n">используйте</span> <span class="n">stage</span><span class="p">.</span><span class="n">garantex</span><span class="p">.</span><span class="n">biz</span>
 <span class="n">token</span>  <span class="o">=</span> <span class="s">'{JWT}'</span>
 
 <span class="n">ret</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://'</span> <span class="o">+</span> <span class="n">host</span> <span class="o">+</span> <span class="s">'/api/v2/members/me'</span><span class="p">,</span>
@@ -902,7 +902,7 @@
 <span class="nb">require</span> <span class="s1">'net/https'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="n">host</span> <span class="o">=</span> <span class="s1">'garantex.io'</span> <span class="o">/</span><span class="sr">/ для тестового сервера используйте stage.garantex.biz
+<span class="n">host</span> <span class="o">=</span> <span class="s1">'garantex.org'</span> <span class="o">/</span><span class="sr">/ для тестового сервера используйте stage.garantex.biz
 token = '{JWT}'
 currency = '{currency}'
 amount = '{amount}'
@@ -923,7 +923,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <span class="n">depositcode_data</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
-<span class="nv">$host</span> <span class="o">=</span> <span class="s1">'garantex.io'</span><span class="p">;</span> <span class="c1">// для тестового сервера используйте stage.garantex.biz</span>
+<span class="nv">$host</span> <span class="o">=</span> <span class="s1">'garantex.org'</span><span class="p">;</span> <span class="c1">// для тестового сервера используйте stage.garantex.biz</span>
 <span class="nv">$token</span> <span class="o">=</span> <span class="s1">'{JWT}'</span><span class="p">;</span>
 <span class="nv">$currency</span> <span class="o">=</span> <span class="s1">'{currency}'</span><span class="p">;</span>
 <span class="nv">$amount</span> <span class="o">=</span> <span class="s1">'{amount}'</span><span class="p">;</span>
@@ -948,7 +948,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">host</span>     <span class="o">=</span> <span class="s">'garantex.io'</span> <span class="o">//</span> <span class="n">для</span> <span class="n">тестового</span> <span class="n">сервера</span> <span class="n">используйте</span> <span class="n">stage</span><span class="p">.</span><span class="n">garantex</span><span class="p">.</span><span class="n">biz</span>
+<span class="n">host</span>     <span class="o">=</span> <span class="s">'garantex.org'</span> <span class="o">//</span> <span class="n">для</span> <span class="n">тестового</span> <span class="n">сервера</span> <span class="n">используйте</span> <span class="n">stage</span><span class="p">.</span><span class="n">garantex</span><span class="p">.</span><span class="n">biz</span>
 <span class="n">token</span>    <span class="o">=</span> <span class="s">'{JWT}'</span>
 <span class="n">currency</span> <span class="o">=</span> <span class="s">'{currency}'</span>
 <span class="n">amount</span>   <span class="o">=</span> <span class="s">'{amount}'</span>
@@ -988,7 +988,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список рынков:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/markets"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.org/api/v2/markets"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1018,12 +1018,12 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/markets</code></p>
+<p><code>GET https://garantex.org/api/v2/markets</code></p>
 <h2 id='66f4033be7'>Валюты</h2><h3 id='6c9959ad57'>Получить список всех активных валют</h3>
 <blockquote>
 <p>Получить список активных валют:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/currencies"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.org/api/v2/currencies"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1057,7 +1057,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/currencies</code></p>
+<p><code>GET https://garantex.org/api/v2/currencies</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1076,7 +1076,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить детали валюты по ее id:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/currencies/{id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.org/api/v2/currencies/{id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1099,7 +1099,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/currencies/{id}</code></p>
+<p><code>GET https://garantex.org/api/v2/currencies/{id}</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1118,7 +1118,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить текущий timestamp:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/timestamp"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.org/api/v2/timestamp"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1131,12 +1131,12 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-4'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/timestamp</code></p>
+<p><code>GET https://garantex.org/api/v2/timestamp</code></p>
 <h2 id='897d03eacd'>Комиссии</h2><h3 id='95ddcebbec'>Комиссии на вывод крипты</h3>
 <blockquote>
 <p>Получить значение комиссий на вывод крипты</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.io/api/v2/fees/withdraw/coin"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://garantex.org/api/v2/fees/withdraw/coin"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1177,7 +1177,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-5'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/fees/withdraw/coin</code></p>
+<p><code>GET https://garantex.org/api/v2/fees/withdraw/coin</code></p>
 <h3 id='bd6108841b'>Возвращаемые значения</h3>
 <p>Для некоторых валют могут использоваться разные способы отправки, в зависимости от размера вывода, с разными комиссиями, и тогда массив <strong>fee</strong> будет содержать больше одного элемента, с разными значениями <strong>type</strong>.
 Максимальная сумма применимости комиссии будет указана в поле <strong>up_to</strong>.</p>
@@ -1187,7 +1187,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить значение комиссий на торговлю</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s1">'https://stage.garantex.biz/api/v2/fees/trading'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s1">'https://garantex.org/api/v2/fees/trading'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1224,12 +1224,12 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-6'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/fees/trading</code></p>
+<p><code>GET https://garantex.org/api/v2/fees/trading</code></p>
 <h2 id='92dd9b64ca'>Способы пополнения и вывода фиата</h2>
 <blockquote>
 <p>Получить список направлений для депозита / вывода фиата</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/gateway_types?currency={currency}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/gateway_types?currency={currency}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1271,7 +1271,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-7'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/gateway_types</code></p>
+<p><code>GET https://garantex.org/api/v2/gateway_types</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1295,7 +1295,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список сделок по рынку</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/trades?market={market}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.org/api/v2/trades?market={market}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1325,7 +1325,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/trades</code></p>
+<p><code>GET https://garantex.org/api/v2/trades</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1369,7 +1369,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список заявок для рынка</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.io/api/v2/depth?market={market}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://garantex.org/api/v2/depth?market={market}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1417,7 +1417,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/depth</code></p>
+<p><code>GET https://garantex.org/api/v2/depth</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1436,7 +1436,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список счетов:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/accounts"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/accounts"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1465,12 +1465,12 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/accounts</code></p>
+<p><code>GET https://garantex.org/api/v2/accounts</code></p>
 <h3 id='11568b4fa7'>Получить состояние пользовательского счета по конкретной валюте</h3>
 <blockquote>
 <p>Получить состояние счета для валюты:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/accounts/btc"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/accounts/btc"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1487,19 +1487,19 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/accounts/{currency_id}</code></p>
+<p><code>GET https://garantex.org/api/v2/accounts/{currency_id}</code></p>
 <h2 id='51aff18539'>Пользователь</h2><h3 id='1df8c597eb'>Получение информации о текущем пользователе.</h3>
 <blockquote>
 <p>Получить информацию о текущем пользователе:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/me"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/members/me"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"sn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SNXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@garantex.io"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@garantex.org"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"p2p_nickname"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1529,12 +1529,12 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/members/me</code></p>
+<p><code>GET https://garantex.org/api/v2/members/me</code></p>
 <h3 id='258d17bc40'>Получение информации о доступах текущего пользователя.</h3>
 <blockquote>
 <p>Получить доступы текущего пользователя:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/members/api_key"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> GET <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/members/api_key"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1554,12 +1554,12 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-4'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/members/api_key</code></p>
+<p><code>GET https://garantex.org/api/v2/members/api_key</code></p>
 <h1 id='99866db24b'>Торговые операции</h1><h2 id='695633f18a'>История своих сделок</h2>
 <blockquote>
 <p>Получить список своих сделок:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/trades/my?market={market_id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/trades/my?market={market_id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1601,7 +1601,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/trades/my</code></p>
+<p><code>GET https://garantex.org/api/v2/trades/my</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1654,7 +1654,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список всех последних сделок:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/trades?market={market_id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/trades?market={market_id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1684,7 +1684,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/trades</code></p>
+<p><code>GET https://garantex.org/api/v2/trades</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1733,7 +1733,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Установить заявку</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s1">'market={market_id}&amp;side={side}&amp;volume={order_volume}&amp;ord_type={order_type}&amp;fix_price={fix_price}'</span> <span class="s2">"https://garantex.io/api/v2/orders"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s1">'market={market_id}&amp;side={side}&amp;volume={order_volume}&amp;ord_type={order_type}&amp;fix_price={fix_price}'</span> <span class="s2">"https://garantex.org/api/v2/orders"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1765,7 +1765,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>trading</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/orders</code></p>
+<p><code>POST https://garantex.org/api/v2/orders</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1823,7 +1823,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список заявок</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/orders?market={market}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/orders?market={market}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1857,7 +1857,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/orders</code></p>
+<p><code>GET https://garantex.org/api/v2/orders</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1901,7 +1901,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить детали заявки</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/order?id={id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/order?id={id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1935,7 +1935,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/order</code></p>
+<p><code>GET https://garantex.org/api/v2/order</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
@@ -1954,7 +1954,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Отменить заявку</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s1">'id={order_id}'</span> <span class="s2">"https://garantex.io/api/v2/order/delete"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s1">'id={order_id}'</span> <span class="s2">"https://garantex.org/api/v2/order/delete"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -1986,7 +1986,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>trading</strong></li>
 </ul>
 <h4 id='http-request-4'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/order/delete</code></p>
+<p><code>POST https://garantex.org/api/v2/order/delete</code></p>
 <h3 id='6744ad4c7a-4'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2007,7 +2007,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Отменить все заявки </p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span>  <span class="s2">"https://garantex.io/api/v2/orders/clear"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span>  <span class="s2">"https://garantex.org/api/v2/orders/clear"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2061,7 +2061,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>trading</strong></li>
 </ul>
 <h4 id='http-request-5'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/orders/clear</code></p>
+<p><code>POST https://garantex.org/api/v2/orders/clear</code></p>
 <h3 id='6744ad4c7a-5'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2087,7 +2087,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список депозитов:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposits"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/deposits"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2137,7 +2137,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposits</code></p>
+<p><code>GET https://garantex.org/api/v2/deposits</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2185,7 +2185,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить детали депозита по deposit_id:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit/{deposit_id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/deposit/{deposit_id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2209,7 +2209,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit/{deposit_id}</code></p>
+<p><code>GET https://garantex.org/api/v2/deposit/{deposit_id}</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2232,7 +2232,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить детали депозита по txid:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit?txid={txid}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/deposit?txid={txid}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2256,7 +2256,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit</code></p>
+<p><code>GET https://garantex.org/api/v2/deposit</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2275,7 +2275,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Создать заявку на депозит:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'currency={currency_id}&amp;amount={amount}&amp;gateway_type_id={gateway_type_id}'</span> <span class="s1">'https://garantex.io/api/v2/deposits/create'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'currency={currency_id}&amp;amount={amount}&amp;gateway_type_id={gateway_type_id}'</span> <span class="s1">'https://garantex.org/api/v2/deposits/create'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2296,7 +2296,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-4'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/deposits/create</code></p>
+<p><code>POST https://garantex.org/api/v2/deposits/create</code></p>
 <h3 id='6744ad4c7a-4'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2335,7 +2335,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить адрес для депозита крипты:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address?currency={currency_id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/deposit_address?currency={currency_id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2350,7 +2350,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-5'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit_address</code></p>
+<p><code>GET https://garantex.org/api/v2/deposit_address</code></p>
 <h3 id='6744ad4c7a-5'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2369,7 +2369,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить дополнительный адрес для депозита крипты:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.org/api/v2/deposit_address"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2384,7 +2384,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-6'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/deposit_address</code></p>
+<p><code>POST https://garantex.org/api/v2/deposit_address</code></p>
 <h3 id='6744ad4c7a-6'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2407,7 +2407,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить детальную информации о конкретном депозит адресе</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address/details?id={id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.org/api/v2/deposit_address/details?id={id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2422,7 +2422,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-7'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit_address/details</code></p>
+<p><code>GET https://garantex.org/api/v2/deposit_address/details</code></p>
 <h3 id='6744ad4c7a-7'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2449,7 +2449,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить детальную информации о конкретном депозит адресе</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address/{id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.org/api/v2/deposit_address/{id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2464,7 +2464,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-8'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit_address/{id}</code></p>
+<p><code>GET https://garantex.org/api/v2/deposit_address/{id}</code></p>
 <h3 id='6744ad4c7a-8'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2491,7 +2491,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить писок депозит-адресов:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.io/api/v2/deposit_address/list"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency=btc"</span> <span class="s2">"https://garantex.org/api/v2/deposit_address/list"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2517,7 +2517,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-9'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/deposit_address/list</code></p>
+<p><code>GET https://garantex.org/api/v2/deposit_address/list</code></p>
 <h3 id='6744ad4c7a-9'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2541,7 +2541,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Вывод в средств в код:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'currency={currency}&amp;amount={amount}'</span> <span class="s1">'https://garantex.io/api/v2/depositcodes/create'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'currency={currency}&amp;amount={amount}'</span> <span class="s1">'https://garantex.org/api/v2/depositcodes/create'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2561,7 +2561,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>withdraw</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/depositcodes/create</code></p>
+<p><code>POST https://garantex.org/api/v2/depositcodes/create</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2590,7 +2590,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Депозит кода:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'deposit_code={deposit_code}'</span> <span class="s1">'https://garantex.io/api/v2/depositcodes/redeem'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'deposit_code={deposit_code}'</span> <span class="s1">'https://garantex.org/api/v2/depositcodes/redeem'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2609,7 +2609,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/depositcodes/redeem</code></p>
+<p><code>POST https://garantex.org/api/v2/depositcodes/redeem</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2628,7 +2628,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Отмена кода:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'id=34769'</span> <span class="s1">'https://garantex.io/api/v2/depositcodes/cancel'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="nt">-d</span> <span class="s1">'id=34769'</span> <span class="s1">'https://garantex.org/api/v2/depositcodes/cancel'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2647,7 +2647,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/depositcodes/cancel</code></p>
+<p><code>POST https://garantex.org/api/v2/depositcodes/cancel</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2666,7 +2666,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Детали кода:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="s1">'https://stage.garantex.biz/api/v2/depositcodes/{id}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="s1">'https://garantex.org/api/v2/depositcodes/{id}'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2687,7 +2687,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-4'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/depositcodes/{id}</code></p>
+<p><code>GET https://garantex.org/api/v2/depositcodes/{id}</code></p>
 <h3 id='6744ad4c7a-4'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2706,7 +2706,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>История кодов:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="s1">'https://stage.garantex.biz/api/v2/depositcodes'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="s1">'https://garantex.org/api/v2/depositcodes'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2738,7 +2738,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-5'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/depositcodes</code></p>
+<p><code>GET https://garantex.org/api/v2/depositcodes</code></p>
 <h3 id='6744ad4c7a-5'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2772,7 +2772,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список выводов</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/withdraws"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/withdraws"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2812,7 +2812,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/withdraws</code></p>
+<p><code>GET https://garantex.org/api/v2/withdraws</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2883,7 +2883,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить детали вывода по withdraw id:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.io/api/v2/withdraws/{withdraw_id}"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="s2">"https://garantex.org/api/v2/withdraws/{withdraw_id}"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -2910,7 +2910,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/withdraws/{withdraw_id}</code></p>
+<p><code>GET https://garantex.org/api/v2/withdraws/{withdraw_id}</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -2933,7 +2933,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Создать заявку на вывод средств</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency={currency}&amp;amount={amount}&amp;rid={rid}"</span> <span class="s2">"https://garantex.io/api/v2/withdraws/create"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {JWT}"</span> <span class="nt">-d</span> <span class="s2">"currency={currency}&amp;amount={amount}&amp;rid={rid}"</span> <span class="s2">"https://garantex.org/api/v2/withdraws/create"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа (вывод крипты):</p>
@@ -2976,7 +2976,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>withdraw</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/withdraws/create</code></p>
+<p><code>POST https://garantex.org/api/v2/withdraws/create</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3041,7 +3041,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить P2P-профиль по никнейму:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s1">'https://garantex.io/api/v2/otc/profiles?nickname={nickname}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s1">'https://garantex.org/api/v2/otc/profiles?nickname={nickname}'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3067,7 +3067,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/profiles</code></p>
+<p><code>GET https://garantex.org/api/v2/otc/profiles</code></p>
 <h3 id='6744ad4c7a'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3086,7 +3086,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список чатов авторизованного пользователя:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span>  <span class="s1">'https://garantex.io/api/v2/otc/chats?limit={limit}&amp;offset={offset}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span>  <span class="s1">'https://garantex.org/api/v2/otc/chats?limit={limit}&amp;offset={offset}'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3103,7 +3103,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
       </span><span class="nl">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_nickname"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ad_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3382</span><span class="p">,</span><span class="w">
       </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://stage.garantex.biz/uploads/chat_message/file/277969/photo_2021-12-20_23-27-57.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://garantex.org/uploads/chat_message/file/277969/photo_2021-12-20_23-27-57.jpg"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-22T05:52:48+03:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-29T17:01:39+03:00"</span><span class="p">,</span><span class="w">
@@ -3133,7 +3133,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-2'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/chats</code></p>
+<p><code>GET https://garantex.org/api/v2/otc/chats</code></p>
 <h3 id='6744ad4c7a-2'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3159,7 +3159,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить сообщения выбранного чата:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.io/api/v2/otc/chats/{chat_id}/messages?limit={limit}&amp;offset={offset}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.org/api/v2/otc/chats/{chat_id}/messages?limit={limit}&amp;offset={offset}'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3193,7 +3193,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-3'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/chats/{chat_id}/messages</code></p>
+<p><code>GET https://garantex.org/api/v2/otc/chats/{chat_id}/messages</code></p>
 <h3 id='6744ad4c7a-3'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3224,7 +3224,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Послать сообщение в чат:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-F</span> <span class="nv">chat_id</span><span class="o">={</span>chat_id<span class="o">}</span> <span class="nt">-F</span>  <span class="nt">-F</span>  <span class="nt">-F</span> <span class="nv">message</span><span class="o">={</span>message<span class="o">}</span>  <span class="s1">'https://stage.garantex.biz/api/v2/otc/chats/message'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-F</span> <span class="nv">chat_id</span><span class="o">={</span>chat_id<span class="o">}</span> <span class="nt">-F</span>  <span class="nt">-F</span>  <span class="nt">-F</span> <span class="nv">message</span><span class="o">={</span>message<span class="o">}</span>  <span class="s1">'https://garantex.org/api/v2/otc/chats/message'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3244,7 +3244,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-4'>HTTP Request</h4>
-<p><code>POST https://stage.garantex.biz/api/v2/otc/chats/message</code></p>
+<p><code>POST https://garantex.org/api/v2/otc/chats/message</code></p>
 <h3 id='6744ad4c7a-4'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3280,7 +3280,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Пометить прочитанными сообщения чата:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/chats/{chat_id}/mark_read'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.org/api/v2/otc/chats/{chat_id}/mark_read'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3308,7 +3308,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-5'>HTTP Request</h4>
-<p><code>POST https://stage.garantex.biz/api/v2/otc/chats/{chat_id}/mark_read</code></p>
+<p><code>POST https://garantex.org/api/v2/otc/chats/{chat_id}/mark_read</code></p>
 <h3 id='6744ad4c7a-5'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3327,7 +3327,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список всех объявлений:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s1">'https://stage.garantex.biz/api/v2/otc/ads?direction={direction}&amp;only_available={only_available}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s1">'https://garantex.org/api/v2/otc/ads?direction={direction}&amp;only_available={only_available}'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3369,7 +3369,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-6'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/ads</code></p>
+<p><code>GET https://garantex.org/api/v2/otc/ads</code></p>
 <h3 id='6744ad4c7a-6'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3415,7 +3415,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить детали по id объявления:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s1">'https://stage.garantex.biz/api/v2/otc/ads/{id}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s1">'https://garantex.org/api/v2/otc/ads/{id}'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3442,7 +3442,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>публичный</strong></li>
 </ul>
 <h4 id='http-request-7'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/ads/{id}</code></p>
+<p><code>GET https://garantex.org/api/v2/otc/ads/{id}</code></p>
 <h3 id='6744ad4c7a-7'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3461,7 +3461,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список своих сделок:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/deals'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.org/api/v2/otc/deals'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3509,7 +3509,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-8'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/deals</code></p>
+<p><code>GET https://garantex.org/api/v2/otc/deals</code></p>
 <h3 id='6744ad4c7a-8'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3570,7 +3570,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить детали по id сделки:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/deals/{id}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.org/api/v2/otc/deals/{id}'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3613,7 +3613,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-9'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/deals/{id}</code></p>
+<p><code>GET https://garantex.org/api/v2/otc/deals/{id}</code></p>
 <h3 id='6744ad4c7a-9'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3634,7 +3634,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Создать новую P2P-сделку:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-d</span> <span class="s1">'ad_id={ad_id}&amp;amount={amount}&amp;ad_version={ad_version}&amp;payment_info={payment_info}'</span>  <span class="s1">'https://stage.garantex.biz/api/v2/otc/deals'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-d</span> <span class="s1">'ad_id={ad_id}&amp;amount={amount}&amp;ad_version={ad_version}&amp;payment_info={payment_info}'</span>  <span class="s1">'https://garantex.org/api/v2/otc/deals'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3677,7 +3677,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-10'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/otc/deals</code></p>
+<p><code>POST https://garantex.org/api/v2/otc/deals</code></p>
 <h3 id='6744ad4c7a-10'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3713,7 +3713,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Изменить рейтинг сделки:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-d</span> <span class="s1">'rating={rating}'</span>  <span class="s1">'https://stage.garantex.biz/api/v2/otc/deals/{id}/rate'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-d</span> <span class="s1">'rating={rating}'</span>  <span class="s1">'https://garantex.org/api/v2/otc/deals/{id}/rate'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3756,7 +3756,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-11'>HTTP Request</h4>
-<p><code>PUT https://garantex.io/api/v2/otc/deals/{id}/rate</code></p>
+<p><code>PUT https://garantex.org/api/v2/otc/deals/{id}/rate</code></p>
 <h3 id='6744ad4c7a-11'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3782,7 +3782,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Указать/изменить реквизиты:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-d</span> <span class="s1">'payment_details={payment_details}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/deals/{id}/payment_details'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-d</span> <span class="s1">'payment_details={payment_details}'</span> <span class="s1">'https://garantex.org/api/v2/otc/deals/{id}/payment_details'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3825,7 +3825,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-12'>HTTP Request</h4>
-<p><code>PUT https://garantex.io/api/v2/otc/deals/{id}/payment_details</code></p>
+<p><code>PUT https://garantex.org/api/v2/otc/deals/{id}/payment_details</code></p>
 <h3 id='6744ad4c7a-12'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3851,7 +3851,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Послать сделку на арбитраж:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/deals/{id}/arbitration'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.org/api/v2/otc/deals/{id}/arbitration'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3894,7 +3894,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-13'>HTTP Request</h4>
-<p><code>PUT https://garantex.io/api/v2/otc/deals/{id}/arbitration</code></p>
+<p><code>PUT https://garantex.org/api/v2/otc/deals/{id}/arbitration</code></p>
 <h3 id='6744ad4c7a-13'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3915,7 +3915,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Завершить сделку:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/deals/{id}/complete'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.org/api/v2/otc/deals/{id}/complete'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -3958,7 +3958,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-14'>HTTP Request</h4>
-<p><code>PUT https://garantex.io/api/v2/otc/deals/{id}/complete</code></p>
+<p><code>PUT https://garantex.org/api/v2/otc/deals/{id}/complete</code></p>
 <h3 id='6744ad4c7a-14'>Параметры</h3>
 <table><thead>
 <tr>
@@ -3979,7 +3979,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Отменить сделку:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/deals/{id}/cancel'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.org/api/v2/otc/deals/{id}/cancel'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -4022,7 +4022,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-15'>HTTP Request</h4>
-<p><code>PUT https://garantex.io/api/v2/otc/deals/{id}/cancel</code></p>
+<p><code>PUT https://garantex.org/api/v2/otc/deals/{id}/cancel</code></p>
 <h3 id='6744ad4c7a-15'>Параметры</h3>
 <table><thead>
 <tr>
@@ -4043,7 +4043,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Пометить оплаченной сделку:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/deals/{id}/set_paid'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.org/api/v2/otc/deals/{id}/set_paid'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -4086,7 +4086,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-16'>HTTP Request</h4>
-<p><code>PUT https://garantex.io/api/v2/otc/deals/{id}/set_paid</code></p>
+<p><code>PUT https://garantex.org/api/v2/otc/deals/{id}/set_paid</code></p>
 <h3 id='6744ad4c7a-16'>Параметры</h3>
 <table><thead>
 <tr>
@@ -4107,7 +4107,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Принять сделку:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/deals/{id}/accept'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.org/api/v2/otc/deals/{id}/accept'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -4150,7 +4150,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-17'>HTTP Request</h4>
-<p><code>PUT https://garantex.io/api/v2/otc/deals/{id}/accept</code></p>
+<p><code>PUT https://garantex.org/api/v2/otc/deals/{id}/accept</code></p>
 <h3 id='6744ad4c7a-17'>Параметры</h3>
 <table><thead>
 <tr>
@@ -4169,7 +4169,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить список своих объявлений</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s2">"https://garantex.io/api/v2/otc/my/ads"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s2">"https://garantex.org/api/v2/otc/my/ads"</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -4221,7 +4221,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-18'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/my/ads</code></p>
+<p><code>GET https://garantex.org/api/v2/otc/my/ads</code></p>
 <h3 id='6744ad4c7a-18'>Параметры</h3>
 <table><thead>
 <tr>
@@ -4247,7 +4247,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Получить детали по id объявления:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/my/ads/{id}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.org/api/v2/otc/my/ads/{id}'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -4278,7 +4278,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>read-only</strong></li>
 </ul>
 <h4 id='http-request-19'>HTTP Request</h4>
-<p><code>GET https://garantex.io/api/v2/otc/my/ads/{id}</code></p>
+<p><code>GET https://garantex.org/api/v2/otc/my/ads/{id}</code></p>
 <h3 id='6744ad4c7a-19'>Параметры</h3>
 <table><thead>
 <tr>
@@ -4299,7 +4299,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Удалить объявление по id:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/my/ads/{id}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.org/api/v2/otc/my/ads/{id}'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -4312,7 +4312,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-20'>HTTP Request</h4>
-<p><code>DELETE https://garantex.io/api/v2/otc/my/ads/{id}</code></p>
+<p><code>DELETE https://garantex.org/api/v2/otc/my/ads/{id}</code></p>
 <h3 id='6744ad4c7a-20'>Параметры</h3>
 <table><thead>
 <tr>
@@ -4333,7 +4333,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Создать объявление:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-d</span> <span class="s1">'currency={currency}&amp;min={min}&amp;max={max}&amp;price={price}&amp;direction={direction}&amp;description={description}&amp;payment_method={payment_method}&amp;active={active}&amp;private={private}&amp;auto_increase={auto_increase}&amp;only_verified={only_verified}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/my/ads'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-d</span> <span class="s1">'currency={currency}&amp;min={min}&amp;max={max}&amp;price={price}&amp;direction={direction}&amp;description={description}&amp;payment_method={payment_method}&amp;active={active}&amp;private={private}&amp;auto_increase={auto_increase}&amp;only_verified={only_verified}'</span> <span class="s1">'https://garantex.org/api/v2/otc/my/ads'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -4364,7 +4364,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-21'>HTTP Request</h4>
-<p><code>POST https://garantex.io/api/v2/otc/my/ads</code></p>
+<p><code>POST https://garantex.org/api/v2/otc/my/ads</code></p>
 <h3 id='6744ad4c7a-21'>Параметры</h3>
 <table><thead>
 <tr>
@@ -4440,7 +4440,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Редактировать объявление:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-d</span> <span class="s1">'min={min}&amp;max={max}&amp;price={price}&amp;description={description}&amp;payment_method={payment_method}&amp;active={active}&amp;private={private}&amp;auto_increase={auto_increase}&amp;only_verified={only_verified}&amp;rating={rating}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/my/ads/{id}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-d</span> <span class="s1">'min={min}&amp;max={max}&amp;price={price}&amp;description={description}&amp;payment_method={payment_method}&amp;active={active}&amp;private={private}&amp;auto_increase={auto_increase}&amp;only_verified={only_verified}&amp;rating={rating}'</span> <span class="s1">'https://garantex.org/api/v2/otc/my/ads/{id}'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -4471,7 +4471,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-22'>HTTP Request</h4>
-<p><code>PUT https://garantex.io/api/v2/otc/my/ads/{id}</code></p>
+<p><code>PUT https://garantex.org/api/v2/otc/my/ads/{id}</code></p>
 <h3 id='6744ad4c7a-22'>Параметры</h3>
 <table><thead>
 <tr>
@@ -4542,7 +4542,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Переключить статус приватности:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/my/ads/{id}/toggle_private'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.org/api/v2/otc/my/ads/{id}/toggle_private'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -4573,7 +4573,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-23'>HTTP Request</h4>
-<p><code>PUT https://garantex.io/api/v2/otc/my/ads/{id}/toggle_private</code></p>
+<p><code>PUT https://garantex.org/api/v2/otc/my/ads/{id}/toggle_private</code></p>
 <h3 id='6744ad4c7a-23'>Параметры</h3>
 <table><thead>
 <tr>
@@ -4594,7 +4594,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Переключить активность объявления:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/my/ads/{id}/toggle_active'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="s1">'https://garantex.org/api/v2/otc/my/ads/{id}/toggle_active'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -4625,7 +4625,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-24'>HTTP Request</h4>
-<p><code>PUT https://garantex.io/api/v2/otc/my/ads/{id}/toggle_active</code></p>
+<p><code>PUT https://garantex.org/api/v2/otc/my/ads/{id}/toggle_active</code></p>
 <h3 id='6744ad4c7a-24'>Параметры</h3>
 <table><thead>
 <tr>
@@ -4646,7 +4646,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <blockquote>
 <p>Отключить все объявления:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-d</span> <span class="s1">'direction={direction}'</span> <span class="s1">'https://stage.garantex.biz/api/v2/otc/my/ads/{id}/deactivate_all'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {JWT}'</span> <span class="nt">-d</span> <span class="s1">'direction={direction}'</span> <span class="s1">'https://garantex.org/api/v2/otc/my/ads/{id}/deactivate_all'</span>
 </code></pre></div>
 <blockquote>
 <p>Пример ответа:</p>
@@ -4698,7 +4698,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li>требуемый уровень доступа: <strong>otc</strong></li>
 </ul>
 <h4 id='http-request-25'>HTTP Request</h4>
-<p><code>PUT https://garantex.io/api/v2/otc/my/ads/{id}/deactivate_all</code></p>
+<p><code>PUT https://garantex.org/api/v2/otc/my/ads/{id}/deactivate_all</code></p>
 <h3 id='6744ad4c7a-25'>Параметры</h3>
 <table><thead>
 <tr>
@@ -4722,7 +4722,7 @@ uri = URI.parse("https:/</span><span class="o">/</span><span class="c1">#{host}/
 <li><p>по изменению состояния ордера / по исполнению сделки</p></li>
 </ul>
 
-<p>Ссылки для обратных вызовов прописываются в форме API Callback в настройках профиля: <a href='https://garantex.io/settings'>https://garantex.io/settings</a></p>
+<p>Ссылки для обратных вызовов прописываются в форме API Callback в настройках профиля: <a href='https://garantex.org/settings'>https://garantex.org/settings</a></p>
 
 <p>Формат отправки запросов: POST x-www-form-urlencoded </p>
 
