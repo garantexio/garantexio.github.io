@@ -349,6 +349,11 @@
 <td>нет</td>
 <td>Направление заявки: <strong>sell</strong> или <strong>buy</strong></td>
 </tr>
+<tr>
+<td><strong>currency</strong></td>
+<td>нет</td>
+<td>Валюта</td>
+</tr>
 </tbody></table>
 
 <aside>Возвращается состояние подходящих по критерию заявок ДО ФАКТИЧЕСКОЙ ОТМЕНЫ.</aside>
